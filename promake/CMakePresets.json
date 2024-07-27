@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "ninja",
+      "displayName": "Ninja Debug",
+      "description": "build in debug mode using Ninja generator",
+      "generator": "Ninja",
+      "binaryDir": "build",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    }
+  ]
+}
