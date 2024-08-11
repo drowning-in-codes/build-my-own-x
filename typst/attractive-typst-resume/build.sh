@@ -1,0 +1,1 @@
+typst --font-path ./assets/fonts compile resume.typ resume.pdf "$@"
