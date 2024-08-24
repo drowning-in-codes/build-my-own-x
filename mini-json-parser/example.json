@@ -1,0 +1,52 @@
+{
+  "user": {
+    "name": "张三",
+    "age": 30,
+    "email": "zhangsan@example.com",
+    "address": {
+      "street": "123 Main St",
+      "city": "北京",
+      "state": "北京市",
+      "postalCode": "100000"
+    },
+    "interests": ["编程", "阅读", "旅行"],
+    "registered": true,
+    "preferences": {
+      "language": "中文",
+      "theme": "dark",
+      "notifications": {
+        "email": true,
+        "sms": false
+      }
+    },
+    "orders": [
+      {
+        "orderNumber": "123456789",
+        "date": "2024-08-15",
+        "items": [
+          {
+            "productName": "Kindle Paperwhite",
+            "quantity": 1,
+            "price": 129.99
+          },
+          {
+            "productName": "Python for Dummies",
+            "quantity": 2,
+            "price": 24.99
+          }
+        ]
+      },
+      {
+        "orderNumber": "987654321",
+        "date": "2024-08-10",
+        "items": [
+          {
+            "productName": "iPhone 13 Case",
+            "quantity": 1,
+            "price": 19.99
+          }
+        ]
+      }
+    ]
+  }
+}
