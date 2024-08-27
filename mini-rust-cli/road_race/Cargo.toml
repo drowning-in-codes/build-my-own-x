@@ -1,0 +1,8 @@
+[package]
+name = "road_race"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8.5"
+rusty_engine = "6.0.0"
