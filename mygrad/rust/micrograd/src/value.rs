@@ -10,7 +10,6 @@ use std::{
 
 #[derive(Clone, Eq, PartialEq, Debug)]
 pub struct Value(Rc<RefCell<ValueInternal>>);
-
 impl Value {
     pub fn from<T>(t: T) -> Value
     where
@@ -294,6 +293,7 @@ impl Hash for ValueInternal {
     }
 }
 
+// println!("{:#?}", value); not println!("{}", value);
 impl Debug for ValueInternal {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("ValueInternal")
