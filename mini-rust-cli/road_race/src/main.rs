@@ -22,6 +22,7 @@ fn main() {
     let obstacle_presets = vec![
         SpritePreset::RacingBarrelRed,
         SpritePreset::RacingBarrelBlue,
+        SpritePreset::RacingConeStraight,
     ];
     for (i, preset) in obstacle_presets.into_iter().enumerate() {
         let obstacle = game.add_sprite(format!("obstacle{}", i), preset);
@@ -62,14 +63,12 @@ fn game_logic(engine: &mut Engine, game_state: &mut GameState) {
         if !event.pair.either_contains("player") || event.state == CollisionState::End {
             continue;
         }
-        for label in [event.pair.0, event.pair.1] {
-            if label.starts_with("obstacle") {
-                game_state.health_mouth -= 1;
-                let message = engine.texts.get_mut("health").unwrap();
-                message.value = format!("Health: {}", game_state.health_mouth);
-                // engine.sprites.remove(&label);
-                engine.audio_manager.play_sfx(SfxPreset::Impact3, 1.0);
-            }
+        if game_state.health_mouth > 0 {
+            game_state.health_mouth -= 1;
+            let message = engine.texts.get_mut("health").unwrap();
+            message.value = format!("Health: {}", game_state.health_mouth);
+            // engine.sprites.remove(&label);
+            engine.audio_manager.play_sfx(SfxPreset::Impact3, 1.0);
         }
     }
     for obj in engine.sprites.values_mut() {
