@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.25)
+# set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
+include("cmake/cflags.cmake")
+include("cmake/build_types.cmake")
+
+project(CppCompleteGuide VERSION 1.0.0 LANGUAGES CXX)
+
+if(${PROJECT_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+  message(FATAL_ERROR "Minnow must be built outside its source directory, e.g. `cmake -B build`.")
+endif()
+# set(chapters "")
+# foreach(i RANGE 1 2)
+#   list(APPEND chapters ${i})
+# endforeach()
+#
+file(GLOB chapters RELATIVE "${PROJECT_SOURCE_DIR}" "ch*")
+add_subdirectory(configured)
+foreach(ch ${chapters})
+  add_subdirectory("${PROJECT_SOURCE_DIR}/${ch}")
+endforeach()
