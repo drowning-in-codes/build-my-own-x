@@ -1,5 +1,8 @@
 #include "class.h"
+#include <algorithm>
 #include <iostream>
+#include <ranges>
+#include <vector>
 
 /*
  * Assigment 3: Make a class!
@@ -17,6 +20,7 @@ int main() {
   // initialize class and run this file
   myConstucor myClass;
   myClass.setX(5);
+  std::vector<int> numbers{1, 2, 3};
   std::cout << myClass.getY() << std::endl;
   myClass << std::cout;
   return 0;

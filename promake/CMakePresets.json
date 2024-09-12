@@ -2,12 +2,26 @@
   "version": 3,
   "configurePresets": [
     {
-      "name": "ninja",
+      "name": "commen setup",
       "displayName": "Ninja Debug",
       "description": "build in debug mode using Ninja generator",
       "generator": "Ninja",
       "binaryDir": "build",
       "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
-    }
+    },
+	{
+      "name": "my-preset",
+      "displayName": "my-preset",
+      "description": "my-preset using ninja",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-mingw-dynamic",
+        "VCPKG_HOST_TRIPLET": "x64-mingw-dynamic",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+
   ]
 }
