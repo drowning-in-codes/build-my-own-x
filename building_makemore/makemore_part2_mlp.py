@@ -107,7 +107,6 @@ for i in range(C.shape[0]):
 plt.grid("minor")
 # sample from the model
 g = torch.Generator().manual_seed(2147483647 + 10)
-
 for _ in range(20):
 
     out = []
