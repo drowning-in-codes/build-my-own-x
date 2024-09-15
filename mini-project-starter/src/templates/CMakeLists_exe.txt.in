@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.29)
+
+set(CMAKE_C_COMPILER "C:/Program Files/LLVM/bin/clang.exe")
+set(CMAKE_CXX_COMPILER "C:/Program Files/LLVM/bin/clang++.exe")
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+# include(${CMAKE_SOURCE_DIR}/cmake/sanitier.cmake)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+include(sanitizer)
+include(copy_target)
+
+project(@PROJECT_NAME@ LANGUAGES C CXX VERSION @PROJECT_VERSION@ PROJECT_DESCRIPTION "@PROJECT_DESCRIPTION@")
+
+FILE(GLOB_RECURSE LIB_SOURCE  src/*.cpp src/*.c)
+FILE(GLOB_RECURSE HEADER  include/*.h include/*.hpp)
+source_group(headers FILES ${HEADER}) 
+add_executable(@PROJECT_NAME@ ${SOURCES})
+
+target_include_directories(@PROJECT_NAME@ PRIVATE include)
+
+option(ENABLE_SANITIZER "Enable sanitizer" OFF)
+if(ENABLE_SANITIZER)
+  add_sanitier(@PROJECT_NAME@)
+endif()
+
+option(ENABLE_COPY_TARGET "Enable copy target" ON)
+if(ENABLE_COPY_TARGET)
+  copy_target(@PROJECT_NAME@)
+endif()
