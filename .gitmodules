@@ -1,3 +1,7 @@
 [submodule "drowning-in-codes"]
 	path = drowning-in-codes
 	url = git@github.com:me50/drowning-in-codes.git
+
+[submodule "modern_cmake_project_arch/external/json"]
+	path = modern_cmake_project_arch/external/json
+	url = https://github.com/nlohmann/json.git

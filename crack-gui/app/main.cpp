@@ -25,6 +25,7 @@ int main() {
   glfwSwapInterval(1); // Enable vsync
 
   IMGUI_CHECKVERSION();
+  // initialize
   ImGui::CreateContext();
   ImGuiIO &io = ImGui::GetIO();
   io.ConfigFlags |=
@@ -33,12 +34,15 @@ int main() {
       ImGuiConfigFlags_NavEnableGamepad; // Enable Gamepad Controls
   // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable; // IF using Docking
   // Branch
-  //
+
   // Setup Platform/Renderer backends
   ImGui_ImplGlfw_InitForOpenGL(
       window, true); // Second param install_callback=true will install
                      // GLFW callbacks and chain to existing ones.
   ImGui_ImplOpenGL3_Init();
+  bool show_demo_window{true};
+  bool show_another_window{false};
+  ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
   // (Your code calls glfwPollEvents())
   // ...
   // Start the Dear ImGui frame
@@ -57,17 +61,56 @@ int main() {
       ImGui_ImplGlfw_Sleep(10);
       continue;
     }
+
+    // at the begining of the frame
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+    // ImGui::ShowDemoWindow(); // Show demo window! :)
+    static float f = .0f;
+    static int counter = 0;
+    ImGui::Begin("Hello, world!");
+    ImGui::Text("This is some useful text.");
+    ImGui::Checkbox("Demo Window", &show_demo_window);
+    ImGui::Checkbox("Another Window", &show_another_window);
+    ImGui::SliderFloat("float", &f, .0f, 1.f);
+    ImGui::ColorEdit3("clear color", (float *)&clear_color);
+    if (ImGui::Button("Button")) {
+      counter++;
+    }
+    ImGui::SameLine();
+    ImGui::Text("counter = %d", counter);
+
+    ImGui::Text("Application average %.3f ms/frame (%.1f PFS)",
+                1000.0f / io.Framerate, io.Framerate);
+    ImGui::End();
+    if (show_another_window) {
+      ImGui::Begin(
+          "Another Window",
+          &show_another_window); // Pass a pointer to our bool variable (the
+                                 // window will have a closing button that will
+                                 // clear the bool when clicked)
+      ImGui::Text("Hello from another window!");
+      if (ImGui::Button("Close Me"))
+        show_another_window = false;
+      ImGui::End();
+    }
+
+    //// Rendering
+    // (Your code clears your framebuffer, renders your other stuff etc.)
+    ImGui::Render();
+    int display_w, display_h;
+    glfwGetFramebufferSize(window, &display_w, &display_h);
+    glViewport(0, 0, display_w, display_h);
+    glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+    glClear(GL_COLOR_BUFFER_BIT);
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    glfwSwapBuffers(window);
   }
 
-  ImGui_ImplOpenGL3_NewFrame();
-  ImGui_ImplGlfw_NewFrame();
-  ImGui::NewFrame();
-  ImGui::ShowDemoWindow(); // Show demo window! :)
-                           //// Rendering
-  // (Your code clears your framebuffer, renders your other stuff etc.)
-  ImGui::Render();
-  ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
   // (Your code calls glfwSwapBuffers() etc.)
+
+  // Cleanup
   ImGui_ImplOpenGL3_Shutdown();
   ImGui_ImplGlfw_Shutdown();
   ImGui::DestroyContext();

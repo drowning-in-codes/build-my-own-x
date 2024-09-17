@@ -1,5 +1,5 @@
 function(add_sanitizer_flags)
-if(NOT ${ENABLE_SANITIER_ADDR} AND NOT ${ENABLE_SANITIZE_UNDEF})
+if(NOT ${ENABLE_SANITIZE_ADDR} AND NOT ${ENABLE_SANITIZE_UNDEF})
   message(STATUS "Sanitizers deactivated")
   return()
 endif()

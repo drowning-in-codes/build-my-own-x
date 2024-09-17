@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Honk&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Honk", system-ui;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #2196f3, #ff4685);
+}
+
+.container {
+  position: relative;
+  padding: 50px;
+  background-color: #fff;
+  box-shadow: -55px -55px 0 rgba(0, 0, 0, 0.05);
+
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: #ccc;
+  transform: skewY(45deg);
+  transform-origin: bottom right;
+    /*变换原点默认是中心*/:;
+  -webkit-transform: skewY(45deg);
+  -moz-transform: skewY(45deg);
+  -ms-transform: skewY(45deg);
+  -o-transform: skewY(45deg);
+}
+.container::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width:100%;
+  height: 20px;
+  background: #ccc;
+  transform: skewX(45deg);
+  transform-origin: bottom right;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container h2 {
+    user-select: none;
+    color:#333;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
+.container .inputBox {
+    position: relative;
+    width:300px;
+    margin-top:40px;
+}
+.container .inputBox input {
+    position: relative;
+    /* 相对自身定位：相对定位的元素是相对于其在文档流中的原始位置进行定位的。设置 top、right、bottom 或 left 属性时，元素会相对于其原始位置移动。 */
+    /* 保留文档流：使用相对定位的元素仍然保留在文档流中，因此其他元素会考虑它的空间。即使位置发生变化，其他元素的布局也不会受到影响。 */
+    left: 0;
+    padding: 8px 10px;
+    border:none;
+    outline: none;
+    width: 100%;
+    background-color: transparent;
+    color:#fff;
+    font-size:1.1em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index:2;
+}
+.container .inputBox span {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    position: absolute;
+        /* 相对定位：绝对定位的元素是相对于其最近的已定位祖先元素（即 position 属性不是 static 的元素）进行定位的。如果没有这样的祖先元素，它将相对于文档的根元素（通常是 <html>）进行定位。 */
+/* 脱离文档流：使用绝对定位的元素会从正常的文档流中移除，这意味着它不会影响其他元素的布局，其他元素会像该元素不存在一样排列。 */
+    left: 0;
+    padding: 10px 0;
+    font-size:1em;
+    pointer-events: none;
+    transition: 0.5s;
+    letter-spacing:0.1em;
+    color:#777;
+    text-transform: uppercase;
+}
+.container .inputBox input:valid ~ span ,
+.container .inputBox input:focus ~ span {
+    color:#333;
+    font-size: 0.85em;
+    transform: translateY(-32px);
+   
+}
+.container .inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, #2196f3, #ff4685);
+    transition: 0.5s;
+    pointer-events: none;
+    z-index:1;
+}
+
+.container .inputBox input:valid ~ i,
+.container .inputBox input:focus ~ i {
+    height: 100%;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+}
+
+.container .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+}
+
+.container .links a{
+    text-decoration: none;
+    color: #2196f3;
+    text-transform:uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: 0.75em;
+}
+.container .links a:nth-child(2) {
+    color:#ff4685;
+}
+.container .inputBox input[type="submit"] {
+    background-color: #2196f3;
+    cursor:pointer;
+    font-weight: 600;
+}
