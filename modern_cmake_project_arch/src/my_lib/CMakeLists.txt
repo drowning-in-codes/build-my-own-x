@@ -8,5 +8,5 @@ target_include_directories(${LIBRARY_NAME} PUBLIC "./"
 
 target_link_libraries(${LIBRARY_NAME} PUBLIC cxxopts::cxxopts nlohmann_json::nlohmann_json spdlog::spdlog fmt::fmt)
 if(${ENABLE_WARNINGS})
-  target_set_warnings(${LIBRARY_NAME} ${ENABLE_WARNINGS} ${ENABLE_WARNINGS_AS_ERRORS})
+  target_set_warnings(TARGET ${LIBRARY_NAME} ENABLE ${ENABLE_WARNINGS} ENABLE_AS_ERRORS ${ENABLE_WARNINGS_AS_ERRORS})
 endif()

@@ -20,7 +20,6 @@ body {
   padding: 50px;
   background-color: #fff;
   box-shadow: -55px -55px 0 rgba(0, 0, 0, 0.05);
-
 }
 
 .container::before {
