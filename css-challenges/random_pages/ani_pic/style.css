@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+
+  background-color: #f7d6ff;
+}
+
+@keyframes slide-fade-in {
+  from {
+    opacity: 0;
+    box-shadow: none;
+    transform: scale(0) translateY(15vh);
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 2rem;
+  place-items: center;
+  padding-block: 30vh;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(4, 30ch);
+}
+.card {
+  animation: slide-fade-in 1s ease-in-out backwards;
+  -webkit-animation-timeline: view();
+  animation-timeline: view(); /* this is the key */
+  -webkit-animation-range: contain 0% contain 50%;
+  animation-range: contain 0% contain 50%; /* this is the key */
+  line-height: 6;
+  box-shadow: 0 8px 20px #00000020;
+  font-size: 32px;
+  letter-spacing: 5px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to bottom right,
+    #91defe,
+    #99c0f9,
+    #bdb6ec,
+    #d7b3e3,
+    #f7d6ff
+  );
+}
+
+.card:nth-of-type(4n) {
+  grid-column: span 2;
+}
+.card:nth-of-type(5n) {
+  grid-column: span 2;
+}
+
+.card:nth-of-type(7n) {
+  grid-column: span 2;
+}

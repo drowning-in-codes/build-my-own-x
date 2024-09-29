@@ -1,3 +1,4 @@
+import random
 import torch
 import torch.nn.functional as F
 import matplotlib.pyplot as plt  # for making figures
@@ -32,8 +33,6 @@ def build_dataset(words):
     print(X.shape, Y.shape)
     return X, Y
 
-
-import random
 
 random.seed(42)
 random.shuffle(words)

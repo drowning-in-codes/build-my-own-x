@@ -46,6 +46,11 @@ template <std::ranges::input_range Rg, typename T,
           typename Proj = std::identity>
 constexpr std::ranges::borrowed_iterator_t<Rg> find(Rg &&r, const T &,
                                                     Proj proj = Proj{});
+// 通过将返回类型指定为 Rg 的
+// std::ranges::borrow_iterator_t<>，该标准启用了编译时检查: 若传递 给算法的范围
+// R 是临时对象 (右值)，则返回类型变为悬空迭代器。这时，返回值是
+// std::ranges::dangling 类型的对象，对此类对象的使用 (复制和赋值除外)
+// 都会导致编译时错误
 
 // 投影
 // 可选的附加参数，允许在算法进一步处理之前为每个元素指定一个转换 (投影)
@@ -54,13 +59,56 @@ template <std::ranges::random_access_range R, typename Comp = std::ranges::less,
   requires std::sortable<std::ranges::iterator_t<R>, Comp, Proj>
 void sort([[maybe_unused]] R &&r, [[maybe_unused]] Comp comp = Comp{},
           [[maybe_unused]] Proj proj = Proj{}) {};
+// 两种方法让视图成为租借范围(即，不拥有元素):
+// 当范围本身不再存在时，迭代器仍可以使用 undefined 行为
+//  迭代器存储所有用于本地迭代的信息。例如:
+// –
+// std::ranges::iota_view，生成一个递增的值序列。迭代器在本地存储当前值，并且不引用
+// 任何其他对象。
+// – std::ranges::empty_view，任何迭代器总是在末尾，因此其根本不能迭代元素值。
+// • 迭代器直接引用底层范围，而不使用调用 begin() 和 end() 的视图。例如:
+// – std::ranges::subrange
+// – std::ranges::ref_view
+// – std::span
+// – std::string_view
+
+// 范围类型可以声明其是租借范围。当范围本身不再存在时，迭代器仍可以使用。
+// // 迭代器类型也有租借迭代器, std::ranges::borrowed_iterator返回租借迭代器
+// 若传递 给算法的范围 R 是临时对象
+// (右值)，则返回类型变为悬空迭代器。这时，返回值是 std::ranges::dangling
+// 类型的对象，对此类对象的使用 (复制和赋值除外) 都会导致编译时错误
+
+// 视图的范围性
 
 int main() {
+
   std::vector<int> coll{
       1,
       2,
       3,
   };
+
+  // 可以将范围作为参数传递给视图的构造函数
+  std::ranges::take_view first{coll, 4};
+
+  [[maybe_unused]]
+  auto first2 = std::views::take(coll, 4);
+
+  [[maybe_unused]]
+  auto first3 = coll | std::views::take(4);
+
+  std::vector<std::string> coll_2{"hello", "world", "c++", "20"};
+  // iterate over a ref_view
+  auto v1_coll = std::views::take(coll_2, 2);
+
+  auto v2_coll = std::views::take(std::move(coll_2), 2);
+  auto v3_coll = std::views::take(v1_coll, 2);
+
+  auto pos0 = std::ranges::find(coll, 4);
+  std::cout << *pos0 << std::endl;
+  // auto pos2 = std::ranges::find(std::vector{2}, 4); // 传递右值
+  // std::cout << *pos2 << std::endl;
+
   // 默认的投影是 std::identity()，只产生传递给它的参数，因此根本不执行投影/转换
   std::ranges::sort(coll, std::ranges::less{},
                     [](auto val) { return std::abs(val); });
