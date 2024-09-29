@@ -1,7 +1,9 @@
 @include "base/normalize";
 @include "base/base";
 @include "base/utilities";
-@include "base/variables";
 @include "base/typography";
+
+@include "abstracts/variables";
+@include "abstracts/mixins";
 
 @include "layout/columns";

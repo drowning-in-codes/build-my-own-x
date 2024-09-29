@@ -1,0 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+  color: #333;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #3faf82;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center p:nth-child(1),
+.center p:nth-child(2),
+.center p:nth-child(3) {
+  background-color: #fff;
+  width: 100px;
+  height: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 10px 0px rgba(0, 0, 0, 60%);
+}
+
+.move_down {
+  animation-name: menufold_down;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+.back_down {
+  animation-name: back_down;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+.move_up {
+  animation-name: menufold_up;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+.back_up {
+  animation-name: back_up;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+.appear {
+  animation-name: appear;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+.vanish {
+  animation-name: vanish;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+@keyframes back_down {
+  0% {
+    transform: translateY(27px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(27px) rotate(0);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes vanish {
+  30% {
+    opacity: 0.5;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  30% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  70% {
+    opacity: 0.5;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+}
+
+@keyframes menufold_down {
+  30% {
+    transform: translateY(27px);
+  }
+  100% {
+    transform: translateY(27px) rotate(45deg);
+    -webkit-transform: translateY(27px) rotate(45deg);
+    -moz-transform: translateY(27px) rotate(45deg);
+    -ms-transform: translateY(27px) rotate(45deg);
+    -o-transform: translateY(27px) rotate(45deg);
+  }
+}
+
+@keyframes menufold_up {
+  30% {
+    transform: translateY(-27px);
+  }
+  100% {
+    transform: translateY(-27px) rotate(135deg);
+  }
+}
+
+@keyframes back_up {
+  0% {
+    transform: translateY(-27px) rotate(135deg);
+  }
+  50% {
+    transform: translateY(-27px) rotate(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}

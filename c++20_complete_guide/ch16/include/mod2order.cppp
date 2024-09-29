@@ -1,0 +1,8 @@
+module;
+#include <string>
+#include <vector>
+module Mod2:Order; // internal partition declaration
+struct Order {
+  int count;
+  Order(int c) : count(c) {}
+};
