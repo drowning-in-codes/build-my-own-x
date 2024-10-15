@@ -7,7 +7,7 @@ set(CMAKE_CXX_COMPILER "C:/Program Files/LLVM/bin/clang++.exe")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include(sanitizer)
-include(copy_target)
+# include(copy_target)
 
 project(crack-gui VERSION 1.0 LANGUAGES C CXX)
 
@@ -34,7 +34,7 @@ if(ENABLE_SANITIZER)
   add_sanitier(crack-gui)
 endif()
 
-option(ENABLE_COPY_TARGET "Enable copy target" ON)
-if(ENABLE_COPY_TARGET)
-  copy_target(crack-gui)
-endif()
+# option(ENABLE_COPY_TARGET "Enable copy target" OFF)
+# if(ENABLE_COPY_TARGET)
+#   copy_target(crack-gui)
+# endif()

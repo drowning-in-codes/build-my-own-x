@@ -1,44 +1,43 @@
+#include <GLFW/glfw3.h>  // Will drag system OpenGL headers
+#include <stdio.h>
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include <stdio.h>
-
-#include <GLFW/glfw3.h> // Will drag system OpenGL headers
 
 static void glfw_error_callback(int error, const char *description) {
   fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
 
+void RenderUI() {}
+
 int main() {
   // Setup Dear ImGui context
   glfwSetErrorCallback(glfw_error_callback);
-  if (!glfwInit())
-    return 1;
+  if (!glfwInit()) return 1;
   const char *glsl_version = "#version 130";
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
   GLFWwindow *window = glfwCreateWindow(
       1280, 720, "Dear ImGui GLFW+OpenGL3 example", nullptr, nullptr);
-  if (window == nullptr)
-    return 1;
+  if (window == nullptr) return 1;
   glfwMakeContextCurrent(window);
-  glfwSwapInterval(1); // Enable vsync
+  glfwSwapInterval(1);  // Enable vsync
 
   IMGUI_CHECKVERSION();
   // initialize
   ImGui::CreateContext();
   ImGuiIO &io = ImGui::GetIO();
   io.ConfigFlags |=
-      ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
+      ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
   io.ConfigFlags |=
-      ImGuiConfigFlags_NavEnableGamepad; // Enable Gamepad Controls
+      ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
   // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable; // IF using Docking
   // Branch
 
   // Setup Platform/Renderer backends
   ImGui_ImplGlfw_InitForOpenGL(
-      window, true); // Second param install_callback=true will install
-                     // GLFW callbacks and chain to existing ones.
+      window, true);  // Second param install_callback=true will install
+                      // GLFW callbacks and chain to existing ones.
   ImGui_ImplOpenGL3_Init();
   bool show_demo_window{true};
   bool show_another_window{false};
@@ -58,6 +57,7 @@ int main() {
     // and hide them from your application based on those two flags.
     glfwPollEvents();
     if (glfwGetWindowAttrib(window, GLFW_ICONIFIED) != 0) {
+      // if window is minimized, sleep to reduce CPU usage
       ImGui_ImplGlfw_Sleep(10);
       continue;
     }
@@ -79,6 +79,9 @@ int main() {
       counter++;
     }
     ImGui::SameLine();
+    static float ff = .0f;
+    ImGui::DragFloat("DragFloat", &ff, 0.005f, 0.0f, 1.0f);
+    ImGui::SameLine();
     ImGui::Text("counter = %d", counter);
 
     ImGui::Text("Application average %.3f ms/frame (%.1f PFS)",
@@ -87,15 +90,16 @@ int main() {
     if (show_another_window) {
       ImGui::Begin(
           "Another Window",
-          &show_another_window); // Pass a pointer to our bool variable (the
-                                 // window will have a closing button that will
-                                 // clear the bool when clicked)
+          &show_another_window);  // Pass a pointer to our bool variable (the
+                                  // window will have a closing button that will
+                                  // clear the bool when clicked)
       ImGui::Text("Hello from another window!");
-      if (ImGui::Button("Close Me"))
-        show_another_window = false;
+      if (ImGui::Button("Close Me")) show_another_window = false;
       ImGui::End();
     }
-
+    if (show_demo_window) {
+      ImGui::ShowDemoWindow();
+    }
     //// Rendering
     // (Your code clears your framebuffer, renders your other stuff etc.)
     ImGui::Render();
@@ -107,8 +111,6 @@ int main() {
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     glfwSwapBuffers(window);
   }
-
-  // (Your code calls glfwSwapBuffers() etc.)
 
   // Cleanup
   ImGui_ImplOpenGL3_Shutdown();
