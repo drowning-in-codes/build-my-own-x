@@ -1,0 +1,20 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "default",
+            "displayName": "default configuration",
+            "description": "设置 Ninja 生成器、版本和安装目录",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "C:/Program Files/LLVM/bin/clang.exe",
+                "CMAKE_CXX_COMPILER": "C:/Program Files/LLVM/bin/clang++.exe",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CONFIGURATION_TYPES": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+            }
+        }
+    ]
+}
