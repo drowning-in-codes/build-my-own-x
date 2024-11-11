@@ -32,10 +32,11 @@ std::optional<int> bar(int i) {
 }
 // optional 可用作可能失败的工厂的返回类型
 std::optional<std::string> create(bool b) {
-  if (b) return "Godzilla";
+  if (b)
+    return "Godzilla";
   return {};
 }
-auto parse_num(std::string_view& str)->std::expected<int, std::string> {
+auto parse_num(std::string_view &str) -> std::expected<int, std::string> {
   if (str.empty()) {
     return std::unexpected<std::string>("empty string");
   }
@@ -64,7 +65,7 @@ int main() {
   setlocale(LC_ALL, "en_US.utf8");
   std::puts("Hello, World!");
   std::error_code ec;
-  FILE* fp;
+  FILE *fp;
   fp = fopen("file.txt", "r");
   if (fp == NULL) {
     fprintf(stderr, "Value of errno: %d\n", errno);
@@ -75,7 +76,7 @@ int main() {
   }
   try {
     func(3);
-  } catch (const std::invalid_argument& e) {
+  } catch (const std::invalid_argument &e) {
     std::cerr << e.what() << '\n';
   }
   return 0;
