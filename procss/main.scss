@@ -1,7 +1,16 @@
 @include "base/normalize";
 @include "base/base";
 @include "base/utilities";
+<<<<<<< HEAD
 @include "base/variables";
 @include "base/typography";
 
 @include "layout/columns";
+=======
+@include "base/typography";
+
+@include "abstracts/variables";
+@include "abstracts/mixins";
+
+@include "layout/columns";
+>>>>>>> 13e24f0abb9d2509098ae05d44a537981b62019e

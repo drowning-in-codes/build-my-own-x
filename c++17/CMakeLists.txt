@@ -1,0 +1,8 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.29)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+project(cpp17 VERSION 0.1.0 LANGUAGES CXX C)
+add_executable(cpp17 src/main.cpp)
+target_include_directories(cpp17 PRIVATE src/include)
+target_compile_features(cpp17 PRIVATE cxx_std_20)

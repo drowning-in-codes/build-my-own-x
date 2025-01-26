@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 600vh;
+      }
+      .container {
+        scroll-behavior: smooth;
+        transition: all 0.5s;
+        position: fixed;
+        display: flex;
+        & > div:nth-child(odd) {
+          background-color: #92db09;
+        }
+        & > div:nth-child(even) {
+          background-color: #e5e90e;
+        }
+      }
+      .container > div {
+        width: 100vw;
+        height: 100vh;
+        font-size: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>C++</div>
+      <div>Rust</div>
+      <div>Python</div>
+      <div>JavaScript</div>
+      <div>C#</div>
+      <div>Golang</div>
+    </div>
+    <script>
+      let totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      let container = document.querySelector(".container");
+      let totalElem = container.children.length;
+      window.addEventListener("scroll", () => {
+        let scrollY = window.scrollY;
+        let percentage = (scrollY / totalHeight) * 100;
+        let transformHeight = (percentage / totalElem) * (totalElem - 1);
+        container.style.transform = `translateX(-${transformHeight}%)`;
+      });
+    </script>
+  </body>
+</html>
