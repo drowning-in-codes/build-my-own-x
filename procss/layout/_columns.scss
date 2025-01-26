@@ -1,0 +1,24 @@
+.pro-col {
+  @include clearfix;
+  & [class^="pro-col-"] {
+    display: float;
+    &:not(:last-child) {
+      margin-right: $horizontal-gap;
+    }
+  }
+  &-1-2 {
+    width: calc((100% - #{$horizontal-gap}) / 2);
+  }
+  &-1-3 {
+    width: calc((100% - 2 *#{$horizontal-gap}) / 3);
+  }
+  &-2-3 {
+    width: calc((100% - #{$horizontal-gap}) / 3 * 2);
+  }
+  &-1-4 {
+    width: calc((100% - 3 *#{$horizontal-gap}) / 4);
+  }
+  &-3-4 {
+    width: calc((100% - #{$horizontal-gap}) / 4 * 3);
+  }
+}
