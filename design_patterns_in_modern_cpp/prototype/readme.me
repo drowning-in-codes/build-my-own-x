@@ -1,0 +1,15 @@
+The Prototype design pattern embodies the notion of deep copying of
+objects so that, instead of doing full initialization each time, you can take a
+premade object, copy it, change it a little bit, and then use it independently
+of the original.
+There are really two ways of implementing the Prototype pattern in
+C++, and both of them require manual manipulation. They are
+Writing code that correctly duplicates your object, that is, performs a
+deep copy. This can be done in a copy constructor/copy assignment
+operator or in a separate member function.
+Write code for the support of serialization/deserialization and then use
+this mechanism to implement cloning as serialization immediately
+followed by deserialization. This has extra computational cost; its
+significance depends on how often you need to do the copying. The only
+advantage of this approach, compared to using, say, copy constructors, is
+that you get serialization for free.

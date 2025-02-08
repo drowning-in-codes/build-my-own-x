@@ -1,13 +1,14 @@
-// TEXT COLOR
-$text-color-dark: #000;
-$text-color-gray: #777;
-$text-color-light: #fff;
-
 // BACKGROUND COLOR
-$bg-color-dark: #000;
-$bg-color-gray: #777;
-$bg-color-light: #fff;
-
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-black: #000;
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+// $color-grey-light-1:#eee;
+$color-white: #fff;
 // DIMENSION ,MARGIN AND PADDING
 $grid-width: 114rem;
 $gutter-vertical: 8rem;
@@ -15,3 +16,14 @@ $gutter-horizontal: 6rem;
 
 // FONT SIZE
 $default-font-size: 1.6rem;
+
+// TEXT COLOR
+$text-color-gray: #777;
+$text-color-white: #fff;
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$text-color-black: #000;
+$text-color-dark: #000;
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;

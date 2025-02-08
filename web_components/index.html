@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <word-count size="100" />
+    <p id="para"></p>
+    <template id="wc">
+      <style>
+        span {
+          display: block;
+          margin-top: 20px;
+        }
+      </style>
+      <span>I'm in the shadow DOM</span>
+    </template>
+    <div id="host"></div>
+    <template id="my-paragraph">
+      <style>
+        p {
+          color: white;
+          background-color: #666;
+          padding: 5px;
+        }
+      </style>
+      <p>我的段落</p>
+      <!-- <slot></slot> -->
+      <slot name="text"></slot>
+    </template>
+    <my-paragraph margin="10"></my-paragraph>
+    <my-paragraph>
+      <h1 slot="text">Hi this is default</h1>
+    </my-paragraph>
+
+    <script src="main.js"></script>
+  </body>
+</html>
