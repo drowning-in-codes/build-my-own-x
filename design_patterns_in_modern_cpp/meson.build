@@ -5,10 +5,10 @@ project(
   default_options: ['cpp_std=c++20'],
 )
 #  creational patterns
-subdir('builder')
-subdir('factory')
-subdir('prototype')
-subdir('singleton')
+subdir('creational_patterns')
 
 # structural patterns
-subdir('adapter')
+subdir('structual_patterns')
+
+#behavioural patterns
+subdir('behavioral_patterns')

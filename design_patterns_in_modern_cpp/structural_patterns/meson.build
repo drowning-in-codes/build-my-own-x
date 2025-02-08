@@ -1,0 +1,7 @@
+subdir('adapter')
+subdir('bridge')
+subdir('composite')
+subdir('decorator')
+subdir('dacade')
+subdir('flyweight')
+subdir('proxy')

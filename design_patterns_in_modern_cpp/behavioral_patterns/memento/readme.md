@@ -1,0 +1,2 @@
+Memento is a behavioral design pattern that allows making snapshots of an object’s state and restoring it in future.
+Usage examples: The Memento’s principle can be achieved using serialization, which is quite common in C++. While it’s not the only and the most efficient way to make snapshots of an object’s state, it still allows storing state backups while protecting the originator’s structure from other objects.
