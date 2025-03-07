@@ -1,5 +1,8 @@
 docs/
 vcpkg_installed/
+brilliant-cv/metadata.toml
+brilliant-cv/*.pdf
+brilliant-cv/src/
 # Prerequisites
 *.d
 
