@@ -38,7 +38,7 @@
   title: [Java、模板生成器、Web开发],
   society: [JavaGen],
   // logo: image("../src/logos/pqr_corp.png"),
-  date: [2024/5],
+  date: [2025/1],
   location: [],
   description: list([开发Spring Web项目往往需要一系列模板代码,通过自己构建一个模板生成器(类似脚手架)能更好掌握Web后端开发的业务],[#link("https://github.com/drowning-in-codes/JavaGen")[相关代码]]),
   tags: ("Java","SpringBoot"),

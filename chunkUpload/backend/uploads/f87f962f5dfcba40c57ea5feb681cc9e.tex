@@ -1,0 +1,1031 @@
+\documentclass[lettersize,journal]{IEEEtran}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL Mypaper.tex         Sat Apr 12 06:47:36 2025
+%DIF ADD new_MyPaper_2.tex   Fri Apr 18 11:36:02 2025
+\usepackage{amsmath,amsfonts,amssymb}
+% \usepackage{algorithmic}
+% \usepackage{algorithm}
+\usepackage{array}
+\usepackage{float}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{diagbox}
+\usepackage{orcidlink} % orcid
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{bbding}
+\usepackage{cite}
+\usepackage{xcolor}
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{multirow}
+\usepackage{bm}
+%\usepackage{hyperref}  % hyperlinks 
+\hypersetup{
+            colorlinks,
+            linkcolor=blue,
+            urlcolor=black,
+            citecolor=blue}
+\usepackage{soul}
+\usepackage{epstopdf}
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+% \graphicspath{{resource/}}  
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}} %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF AMSMATHULEM PREAMBLE %DIF PREAMBLE
+\makeatletter %DIF PREAMBLE
+\let\sout@orig\sout %DIF PREAMBLE
+\renewcommand{\sout}[1]{\ifmmode\text{\sout@orig{\ensuremath{#1}}}\else\sout@orig{#1}\fi} %DIF PREAMBLE
+\makeatother %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+  moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+\lstset{extendedchars=\true,inputencoding=utf8}
+
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+
+\title{QCTF: A Quantized Communication and Transferable Fusion Framework for Multi-agent Collaborative Perception}
+\author{Jinchao Chen$^{\orcidlink{0000-0001-6234-1001}}$,~\IEEEmembership{Member,~IEEE},
+Qiuhao Shu$^{\orcidlink{0009-0001-4714-5915}}$, 
+Yantao Lu$^{\orcidlink{0000-0002-3103-1067}}$,~\IEEEmembership{Member,~IEEE,} Ying Zhang$^{\orcidlink{0000-0002-7557-2965}}$,~\IEEEmembership{Member,~IEEE,} and Yang Wang$^{\orcidlink{0009-0009-9056-3344}}$
+        % <-this % stops a space
+\DIFdelbegin %DIFDELCMD < \thanks{This work was supported by the National Natural Science Foundation of China No.~62106202, the Key Research and Development Program of Shaanxi Province No.~2024GX-YBXM-118, the Aeronautical Science Foundation of China No.~2023M073053003, and the Fundamental Research Funds for the Central Universities. J. Chen and Q. Shu contributed equally to the work and should be regarded as co-first authors.\textit{(Corresponding author: J. Chen.)}} %%%
+\DIFdelend \DIFaddbegin \thanks{This work was supported by the National Natural Science Foundation of China No.~62106202, the Guangdong Basic and Applied Basic Research Foundation No. 2025A1515012885, the Key Research and Development Program of Shaanxi Province No.~2024GX-YBXM-118. J. Chen and Q. Shu contributed equally to the work and should be regarded as co-first authors. \textit{(Corresponding author: J. Chen.)}} \DIFaddend % <-this % stops a space
+\DIFdelbegin %DIFDELCMD < \thanks{J. Chen, Q. Shu, Y. Lu, Y. Zhang, and Y. Wang are with the School of Computer Science, Northwestern Polytechnical University, Xi'an 710072, Shaanxi, China (e-mail: \href{mailto:cjc@nwpu.edu.cn}{cjc@nwpu.edu.cn}, \href{mailto:qhsproanimer@mail.nwpu.edu.cn}{qhsproanimer@mail.nwpu.edu.cn}, \href{mailto:yantaolu@nwpu.edu.cn}{yantaolu@nwpu.edu.cn}, \href{mailto:ying\_zhang@nwpu.edu.cn}{ying\_zhang@nwpu.edu.cn}, \href{mailto:ywang0109@mail.nwpu.edu.cn}{ywang0109@mail.nwpu.edu.cn}).}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \thanks{J. Chen is with the School of Computer Science, Northwestern Polytechnical University, Xi'an 710072, Shaanxi, China, and with Shenzhen Research Institute of Northwestern Polytechnical University, Shenzhen 518057, Guangdong, China. (e-mail: \href{mailto:cjc@nwpu.edu.cn}{cjc@nwpu.edu.cn}).}
+\thanks{Q. Shu, Y. Lu, Y. Zhang, and Y. Wang are with the School of Computer Science, Northwestern Polytechnical University, Xi'an 710072, Shaanxi, China (e-mail: \href{mailto:qhsproanimer@mail.nwpu.edu.cn}{qhsproanimer@mail.nwpu.edu.cn}, \href{mailto:yantaolu@nwpu.edu.cn}{yantaolu@nwpu.edu.cn}, \href{mailto:ying\_zhang@nwpu.edu.cn}{ying\_zhang@nwpu.edu.cn}, \href{mailto:ywang0109@mail.nwpu.edu.cn}{ywang0109@mail.nwpu.edu.cn}).}
+\DIFaddend }
+\maketitle
+\DIFaddbegin 
+
+\DIFaddend \begin{abstract}
+Collaborative perception effectively mitigates issues such as limited field of view and occlusion by enabling multiple agents to share perceptual information. Despite its advantages, challenges persist in complex environments due to factors such as limited communication bandwidth and noisy poses, which may potentially degrade system performance. Meanwhile, a substantial amount of simulation data is widely adopted in collaborative perception to achieve high precision and real-time detection. However, the domain gap between simulated and real-world environments may result in weakened collaborative performance and hindered generalization ability. In this work, we focus on the multi-agent collaborative perception problem and propose a quantized communication and transferable fusion framework, named \textit{QCTF}, to efficiently minimize the bandwidth overhead and enhance real-world perception by leveraging unlabeled data for improved adaptability. First, we present a quantized communication method that employs multi-scale residual indices and an optimized codebook to extract robust representations while minimizing bandwidth usage. Then, we design a channel-aware selection strategy that adjusts the bandwidth volume and compensates for the quantized representation by combining the prioritized critical features with the channel dimension. Finally, we adopt a transferable fusion module to effectively bridge the simulation-to-reality domain gaps and improve perceptual capability through multi-scale adaptation discriminators. Experiments on both simulated and real-world datasets are conducted to evaluate the effectiveness of the proposed framework, and the results demonstrate that our approach consistently outperforms the existing methods in limited communication bandwidth and domain adaptation scenarios.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Collaborative perception, quantized communication, domain adaptation, multi-agent perception
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart {A}{ccurate} perception of complex environments is essential for enhancing the efficiency of transportation systems and ensuring the safety of autonomous driving~\cite{10614862}. With advances in deep learning, single-vehicle perception has made significant strides in tasks such as 3D object detection~\cite{10637966} and route planning~\cite{9385941}. However, it faces several limitations, such as a restricted field of view, vulnerability to obstacle occlusion, and challenges in processing long-range data, considerably affecting the reliability and performance of autonomous systems. Recently, multi-agent collaborative perception has emerged as a promising solution, leveraging vehicle-to-vehicle (V2V) and vehicle-to-everything (V2X) communication~\cite{10248946,10700656}. This approach enables the aggregation of sensory data from various viewpoints, allowing for information exchange between vehicles and infrastructure, thereby providing the ego agent with a more comprehensive and accurate environmental understanding.
+
+In a multi-agent scenario, as shown in Fig.~\ref{fig:intro}, the ego agent \DIFdelbegin \DIFdel{collaborates with }\DIFdelend \DIFaddbegin \DIFadd{may fail to detect Vehicle1 due to occlusions from surrounding buildings and limited sensing range. By receiving shared information from }\DIFaddend nearby connected autonomous vehicles \DIFdelbegin \DIFdel{and infrastructures to improve its perception ranges and perform path planning based on the shared observations}\DIFdelend \DIFaddbegin \DIFadd{(CAVs) and infrastructure, it can extend its perception coverage and receive early warnings about oncoming vehicles, thereby enhancing driving safety}\DIFaddend . 
+Despite advancements in aggregating complementary data from different agents~\cite{10265751}, such collaboration comes with various challenges, including \DIFaddbegin \DIFadd{localization errors, collaboration heterogeneity and }\DIFaddend limited communication bandwidth\DIFdelbegin \DIFdel{, GPS localization errors , and collaboration heterogeneity~\mbox{%DIFAUXCMD
+\cite{10401025}}\hskip0pt%DIFAUXCMD
+. }\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\cite{10401025}}\hskip0pt%DIFAUXCMD
+.
+Specifically, the localization errors result in inaccurate coordinate transformations between communicating vehicles, leading to feature misalignment. Differences in height, angle, and placement between vehicles and infrastructure further exacerbate feature discrepancies. Additionally, bandwidth limitations restrict inter-agent data transmission, complicating the management of communication costs and potentially causing severe transmission delays.
+}\DIFaddend Even worse, the domain gap between simulated \DIFdelbegin \DIFdel{data used for training }\DIFdelend \DIFaddbegin \DIFadd{training data }\DIFaddend and real-world environments \DIFdelbegin \DIFdel{leads to performance degradation, ultimately affecting }\DIFdelend \DIFaddbegin \DIFadd{arises from differences in LiDAR intensity, sensor noise and environmental reflections, which leads to degraded model performance and poses a risk to }\DIFaddend driving safety in real-world scenarios\DIFaddbegin \DIFadd{.}\DIFaddend ~\cite{Shu2024}.  
+\DIFdelbegin \DIFdel{Bandwidth limitations and environmental factors also restrict inter-agent data transmission via wireless communication, making it challenging to manage high communication costs. }\DIFdelend Achieving an optimal performance-bandwidth trade-off \DIFdelbegin \DIFdel{through well-designed mechanisms is crucial }\DIFdelend \DIFaddbegin \DIFadd{is therefore critical }\DIFaddend for effective collaborative perception. \DIFdelbegin \DIFdel{Although recent communication methods have achieved remarkable }\DIFdelend \DIFaddbegin \DIFadd{While recent methods have made }\DIFaddend progress in feature compression and spatial filtering, they \DIFdelbegin \DIFdel{either typically neglect the }\DIFdelend \DIFaddbegin \DIFadd{often overlook the varying }\DIFaddend importance of features \DIFdelbegin \DIFdel{from different locations or heavily rely on the }\DIFdelend \DIFaddbegin \DIFadd{across locations or overly rely on }\DIFaddend spatial confidence maps \DIFdelbegin \DIFdel{generated by the detection head network. 
+%DIF < A naive detection network may lack the robustness required to identify which features should be transmitted accurately. 
+Meanwhile, these methods still necessitate }\DIFdelend \DIFaddbegin \DIFadd{from detection heads. 
+Moreover, these approaches still require }\DIFaddend transmitting high-dimensional features and lack \DIFdelbegin \DIFdel{sufficient supervision for reconstructionloss, which seriously affects the }\DIFdelend \DIFaddbegin \DIFadd{strong supervision on reconstruction, limiting both their }\DIFaddend efficiency and effectiveness\DIFdelbegin \DIFdel{of collaborative perception}\DIFdelend .
+
+\begin{figure}[htbp]
+    \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.98\linewidth]{intro.eps}
+%DIFDELCMD <     %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=1\linewidth]{intro.eps}
+    \DIFaddendFL \caption{Illustration of a multi-agent perception scenario. The ego agent receives complementary information from \DIFdelbeginFL \DIFdelFL{collaborators in different locations }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{CAV1 and the infrastructure }\DIFaddendFL to avoid collisions with \DIFaddbeginFL \DIFaddFL{the }\DIFaddendFL occluded \DIFdelbeginFL \DIFdelFL{vehicles }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Vehicle1 }\DIFaddendFL under various \DIFdelbeginFL \DIFdelFL{challenges}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{challenging conditions}\DIFaddendFL . 
+    }
+    \label{fig:intro}
+    \DIFaddbeginFL \vspace{-15pt}
+\DIFaddendFL \end{figure}
+
+Inspired by VQ-VAE~\cite{vqvae}, the communication process in collaborative perception can be treated as one of selection and quantized representation by using shared code indices. The features transmitted by the sender are embedded into discrete code indices by mapping them to the nearest feature vector in a learned codebook, which is a finite set of code embeddings. These indices are then reconstructed at the receiver by using the same codebook.
+Since the reconstructed features are derived from discrete indices, designing robust multi-scale representations is crucial for improving holistic perception. Incorporating hierarchical structures and multi-head quantization can further refine this process and elevate the perceptual performance.
+
+As LiDAR data becomes increasingly sparse in remote areas, sensor readings are often dominated by background information, resulting in near-zero-valued features~\cite{VoxelNeXt}. These sparse features can overshadow relevant perceptual data, leading to redundant empty values and suboptimal codebook utilization~\cite{lu2024range}.
+To improve quantization efficiency, it is essential to differentiate between background and valuable regions, regulating codebook generation to prevent redundancy. Informative regions should use more codes with higher dimensionality to retain critical features, while less important areas can use fewer resources. However, the reliance on code indices for feature transmission and reconstruction limits adaptability to varying bandwidth under changing conditions. Thus, incorporating feature complements is crucial to enhance practical applicability and flexibility.
+
+Furthermore, training collaborative models relies on large amounts of labeled perception data to achieve satisfactory detection accuracy.
+Collecting such data in real environments involves proper sensor installation on specific agents and extensive road testing, which is labor-intensive and time-consuming.
+In contrast, simulation data can be generated with minimal effort compared to real-world data collection and annotation, making it extensively used for developing multi-agent perception systems~\cite{Yue}.
+Nevertheless, the weakened collaborative performance and hindered generalization arise from domain gaps induced by variations in road conditions, reflection patterns, and point cloud distributions.
+Unsupervised domain adaptation is commonly used to address this simulation-to-reality (S2R) gap~\cite{10779389,10574400,Hoyer,10561554}. In collaborative perception, unique challenges arise compared to single-agent systems, including the need for multi-scale feature alignment across agents and the inconsistent point cloud distributions between roadside infrastructure and vehicles. Addressing these issues requires careful handling of multi-scale interactions within agents and the heterogeneous attributes across distributed collaborators.
+
+In this work, we focus on the multi-agent collaborative perception problem and present \emph{QCTF}, a quantized communication and transferable fusion framework to jointly address communication inefficiency and S2R domain adaptation in an end-to-end manner. The main contributions of this work are summarized as follows:
+%that inte%Agrates three key components: hierarchical multi-head residual feature-aware (MRF) quantization, channel-aware selection, and transferable vehicle-to-everything (T-V2X) fusion to 
+%Generally, this unified 
+%The proposed framework adopts quantized features and reconstruction with mutual information supervision to drastically reduces communication bandwidths, and design an alternating attention layer with multi-scale discriminators to ensure robust semantic integration and reduce domain discrepancies. Our main contributions can be summarized as follows:
+
+1. We propose a quantized communication method by using shared code indices with multi-head residual coding and an informative codebook to achieve compact representations. This method effectively minimizes the bandwidth overhead while maximizing codebook utilization, ensuring efficient and informative feature transmission.
+
+2. We introduce a channel-aware selection strategy that adaptively transmits critical features along the channels to compensate for quantization loss, as well as providing the capability to adjust the communication volume.
+
+3. We design a transferable vehicle-to-everything (T-V2X) module that utilizes domain discriminators and unlabeled data for domain adaptation while aggregating features across multiple scales. This approach captures both patch- and agent-level interactions and adversarially mitigates simulation-to-reality domain gaps to enhance real-world perception.
+
+We comprehensively evaluate the proposed \emph{QCTF} framework for 3D object detection by using a range of datasets, including the simulated environments such as OPV2V~\cite{opv2v} and V2XSet~\cite{v2x-vit}, as well as the real-world V2V4Real~\cite{v2v4} dataset. %Additionally, we perform S2R domain adaptation between OPV2V~\cite{opv2v} and V2V4Real~\cite{v2v4}. 
+The experiment results show that our \emph{QCTF} framework consistently delivers superior performance in bandwidth-limited, noisy environments and S2R adaptation scenarios.
+
+The rest of this work is organized as follows. Section~\ref{sec:related_work} reviews related work on communication efficiency and unsupervised domain adaptation in perception. Section~\ref{sec:methodology} describes the proposed \emph{QCTF} framework, detailing its quantized communication method and fusion modules. Section~\ref{sec:experiments} presents and analyzes the experimental results. Section~\ref{sec:conclusion} summarizes the findings and discusses potential future work.
+
+
+
+\section{Related work}\label{sec:related_work} 
+Multi-agent collaborative perception faces challenges such as inefficient feature aggregation, expensive communication costs, and domain gaps between simulation and reality. In this work, we primarily focus on enhancing communication efficiency and bridging domain gaps through effective fusion techniques. Related studies are summarized below.
+
+\subsection{Communication efficiency in collaborative perception}
+Collaborative perception involves multiple agents sharing information, enhancing both perceptual coverage and capabilities. However, a key challenge in this paradigm is optimizing inter-agent communication. 
+In recent years, learning-based communication optimization has been extensively studied from diverse perspectives. 
+Intermediate fusion, which uses extracted feature maps, has gained increasing attention for its ability to \DIFdelbegin \DIFdel{effectively }\DIFdelend balance performance and bandwidth \DIFaddbegin \DIFadd{effectively}\DIFaddend . Unlike early fusion methods with raw point cloud transmission~\cite{10807402} or late fusion, which \DIFdelbegin \DIFdel{shares }\DIFdelend \DIFaddbegin \DIFadd{share }\DIFaddend detection results~\cite{104680}, intermediate fusion offers improved scalability and collaborative robustness through advanced model design~\cite{Chen2024}.
+Among these intermediate fusion approaches, some focus on who should communicate and when, as exemplified by When2Com~\cite{liuWhen2comMultiAgentPerception2020}, which learns to construct communication groups to decide when to transfer data. Other research focuses on minimizing communication overhead, with prominent strategies including channel compression and spatial filtering. For instance, AdaFusion~\cite{Qiao_2023_WACV} integrates efficient feature selection modules to extract robust representations. However, this method assumes uniform significance across all spatial locations of the feature map, overlooking inherent spatial heterogeneity. In contrast, Where2comm~\cite{Where2comm} prioritizes broadcasting perceptually important regions identified via spatial confidence maps. ERMVP~\cite{10657548} develops a filter and merge feature sampling strategy to enhance communication efficiency in a real-time manner~\cite{Chen2025}. 
+These methods use spatial confidence maps to represent object likelihoods and facilitate the transmission of collaborators' foreground data, thereby reducing communication load and addressing the ego agent's limitations. However, the communication process heavily depends on confidence maps and is predominantly one-way and unsupervised, severely increasing the risk of critical information loss during collaboration.
+It is worth noting that CodeFilling~\cite{codefilling} uses information-filling and codebook-based messages to meet each agent's needs. While it reduces communication volume, the absence of robust quantization and effective information loss supervision can hinder collaborative perception performance. 
+Drawing inspiration from similar approaches, we adopt mutual information loss and a multi-head residual quantization design to capture robust representations. Besides, we separately embed different semantic information and apply \DIFaddbegin \DIFadd{a }\DIFaddend regularization loss to optimize codebook generation, thereby preventing low codebook utilization due to redundant values.
+
+
+\subsection{Unsupervised domain adaptation for perception}
+Unsupervised domain adaptation (UDA) methods use a labeled source domain dataset to learn about a related but different target domain without corresponding labels, thereby reducing the domain shift. Generally speaking, the primary categories of UDA methods include feature metric learning, adversarial learning, and various pseudo-labeling techniques.
+A substantial body of UDA research has focused on image-based tasks such as classification and object detection. For example, Li et al.~\cite{10030451} introduces an adversarial gradient reverse layer (GRL) for both image- and object-level adaptations, while Sun et al.~\cite{9879312} adopts vision transformers to extract transferable representations, paired with the adversarial alignment of KL-divergence, to handle noisy environments. Moreover, Yang et al.~\cite{10030518} harnesses vision transformers focusing on transferable and discriminative features to enhance adaptation ability.
+In 3D object detection, PointDAN~\cite{NEURIPS2019_3341f6f0} uses a 3D domain adaptation network to \DIFdelbegin \DIFdel{jointly }\DIFdelend align global and local features at multiple levels \DIFaddbegin \DIFadd{jointly }\DIFaddend and plays an important role in the autonomous driving of cars and UAVs~\cite{Chen2022An}. Despite significant progress in single-agent perception, UDA research in collaborative perception remains underexplored and holds much potential for improvement. In particular, DUSA~\cite{DUSA} uses a location-adaptive simulation-to-reality adapter to adversarially align the feature maps of ego agents from two domains. S2R-ViT~\cite{S2R-ViT} applies an agent-based feature adaptation module to reduce the feature gap between simulated and real-world data for multi-agent perception.
+\DIFdelbegin \DIFdel{In this work, we propose leveraging }\DIFdelend \DIFaddbegin \DIFadd{We propose a }\DIFaddend multi-scale \DIFdelbegin \DIFdel{features from both heterogeneous agent interactions and diverse patches of individual agents to reduce the domain discrepancy }\DIFdelend \DIFaddbegin \DIFadd{adversarial learning framework that reduces domain discrepancies }\DIFaddend between simulated and real data \DIFdelbegin \DIFdel{. This is achieved through adversarial learning }\DIFdelend \DIFaddbegin \DIFadd{by aligning features across heterogeneous agents and diverse spatial patches }\DIFaddend at patch, spatial, and instance \DIFdelbegin \DIFdel{scales}\DIFdelend \DIFaddbegin \DIFadd{levels}\DIFaddend .
+
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{overview.eps}
+    \caption{The overall architecture of \emph{QCTF} in a collaborative detection scenario. The framework \DIFdelbeginFL \DIFdelFL{consists of }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{comprises }\DIFaddendFL five parts: metadata sharing and feature extraction, hierarchical MRF Quantization, channel-aware selection, T-V2X fusion, and detection outputs. Note that performing the domain adaptation task involves features from labeled simulated data and unlabeled real-world data, respectively. The details of each component are illustrated in Section~\ref{sec:methodology}.}
+    \label{fig:overview}
+    \DIFaddbeginFL \vspace{-10pt}
+\DIFaddendFL \end{figure*}
+
+\section{The proposed \emph{QCTF} framework}\label{sec:methodology}
+In this section, we introduce \emph{QCTF}, \DIFdelbegin \DIFdel{which is an efficient frame }\DIFdelend \DIFaddbegin \DIFadd{an efficient framework }\DIFaddend to address the practical challenges in multi-agent collaborative perception, including communication efficiency and simulation to reality domain adaptation. 
+As shown in Fig.~\ref{fig:overview}, the architecture of \emph{QCTF} consists of five phases: 1) \textit{metadata sharing and feature extraction} for deriving sparse features from projected LiDAR points; 2) a \textit{hierarchical MRF quantization method} for efficiently reducing the transmission cost and reconstructing robust representations; 3) a \textit{channel-aware selection strategy} for compensating the loss of embedded features along the channel dimension; 4) a \textit{T-V2X fusion module} for enhancing the detection accuracy both in noisy and cross-domain scenarios using unlabeled data; and 5) \textit{detection outputs} for generating bounding boxes and classification results. We will detail each phase in the following subsections.
+
+
+\subsection{Metadata sharing and feature extraction}
+In multi-agent collaborative perception, each agent in different locations within the communication range, denoted as $\mathcal{A}_i$ for $i\in[1, N]$ where $N$ is the total number of agents, exchanges metadata $\mathcal{M}_i$\DIFdelbegin \DIFdel{(e.g., relative poses and timestamps), }\DIFdelend \DIFaddbegin \DIFadd{. The metadata includes relative poses (positions and headings with respect to other agents), timestamps, and sensor extrinsics, which are used }\DIFaddend to construct a spatial graph\DIFdelbegin \DIFdel{, where }\DIFdelend \DIFaddbegin \DIFadd{. In this graph, }\DIFaddend nodes represent agents within \DIFaddbegin \DIFadd{the }\DIFaddend communication range, and edges denote communication links \DIFdelbegin \DIFdel{.   
+}\DIFdelend \DIFaddbegin \DIFadd{between them.
+Based on the exchanged metadata, the system first constructs the spatial graph and then designates one agent as the ego agent, serving as the central receiver to collect transmitted data. }\DIFaddend Collaborating agents use the \DIFdelbegin \DIFdel{meta-data }\DIFdelend \DIFaddbegin \DIFadd{metadata }\DIFaddend to project their sensory data into the ego agent's coordinate system for further processing. \DIFdelbegin \DIFdel{One agent is designated as the ego agent, serving as the central receiver to collect transmitted data}\DIFdelend \DIFaddbegin \DIFadd{To address potential redundancy in communication, we only deliver the processed feature maps instead of complete raw observations}\DIFaddend .
+Let $\mathcal{X}_{i}$ denote the raw observation of the $i$-th agent, and $\mathbf{F}_{i} = \Phi_{Enc}(\mathcal{X}_{i})$ represent the bird's eye view (BEV) feature map extracted via the PointPillars~\cite{langPointPillarsFastEncoders2019} encoder for efficiency of computation.
+The pipeline can be expressed as follows:
+\begin{equation}
+\begin{split}
+    \mathcal{X}_{i\to ego} &= \Gamma_{Proj}(\mathcal{M}_{ego},(\mathcal{X}_{i},\mathcal{M}_{i}))\DIFaddbegin \DIFadd{, }\DIFaddend \\
+    \mathbf{F}_{i\to ego} &= \Phi_{Enc}(\mathcal{X}_{i\to ego}) \in \mathbb{R}^{C\times H\times W}\DIFaddbegin \DIFadd{, }\DIFaddend \\
+    &\text{s.t.} \; i \in [1,N],i \neq ego\DIFaddbegin \DIFadd{,
+}\DIFaddend \end{split}
+\end{equation}
+where $\Gamma_{Proj}$ performs the data projection into the ego agent's frame, and $C$,$H$, and $W$ denote the feature map's channel, height, and width.
+Extracted features are then optimized for compact representation and efficient communication.
+
+
+\subsection{Hierarchical MRF quantization}
+To effectively reduce communication overhead, \DIFaddbegin \DIFadd{it is essential to obtain }\DIFaddend robust and compact \DIFdelbegin \DIFdel{representations are required, which are typically achieved by selecting important }\DIFdelend \DIFaddbegin \DIFadd{feature representations, typically by selecting informative }\DIFaddend regions along the channel or spatial dimensions. However, \DIFdelbegin \DIFdel{these }\DIFdelend \DIFaddbegin \DIFadd{existing }\DIFaddend methods often rely on one-way filtering \DIFdelbegin \DIFdel{, and is in lack of robust compression designs }\DIFdelend \DIFaddbegin \DIFadd{mechanisms, lacking both a principled compression design }\DIFaddend and sufficient supervision \DIFdelbegin \DIFdel{for the compressed feature reconstruction process.
+ Facilitated by }\DIFdelend \DIFaddbegin \DIFadd{to guide the reconstruction of compressed features.
+ }
+
+\DIFadd{The naive }\DIFaddend VQ-VAE~\cite{vqvae} \DIFdelbegin \DIFdel{, we achieve an effective reduction in }\DIFdelend \DIFaddbegin \DIFadd{quantization method maps each feature vector to its closest codebook entry, replacing the original representation with a discrete index. This reduces }\DIFaddend channel dimensionality by transmitting \DIFdelbegin \DIFdel{code indices as shown in Fig. ~\ref{fig:vqcomm}. To be precise, the extracted feature is quantized by mapping it to the closest feature vector in a learned codebook, and the corresponding code index is transmitted to the ego agent, replacing the original feature representation.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Let }\DIFdelend \DIFaddbegin \DIFadd{indices instead of the full feature vectors. Specifically, the feature map $\mathbf{F}_i \in \mathbb{R}^{C \times H \times W}$ is reshaped into feature vectors of shape $L\times C$, where $L = H \times W$, to enable nearest-neighbor lookup in the codebook. The retrieved embeddings are then mapped back and reshaped to reconstruct the original feature map.
+Formally, the quantization process and its corresponding optimization objective are defined as follows:
+}\begin{equation}
+    \DIFadd{\begin{aligned}
+    \mathcal{Q}(\mathbf{\mathbf{F}_i}) &= \underset{k\in[n_L]}{\arg\min}\|\mathbf{\mathbf{F}_i}-\mathbf{e}(k)\|_2^2, \\
+    \mathbf{q}_{[h,w]}  &= \mathcal{Q}(\mathbf{F}_i)_{[h,w]},\; \mathcal{F}_i = \mathbf{e}(q_{[h,w]}), \\
+  \mathcal{L}_q &= \left\|\operatorname{sg}\left[\mathbf{F}_i\right]-\mathcal{F}_i\right\|_{2}^{2}+\left\|\mathbf{F}_i-\operatorname{sg}[\mathcal{F}_i]\right\|_{2}^{2}.
+    \end{aligned}
+}\end{equation}
+\DIFadd{Here, the codebook is defined as $\mathcal{C}=\{\mathbf{e}(1),\mathbf{e}(2),\dots,\mathbf{e}(n_L)\}$, where each code embedding }\DIFaddend $\mathbf{e}(j)\in\mathbb{R}^{n_{C}}$ \DIFdelbegin \DIFdel{($j\in [1,n_L]$) denote the the }\DIFdelend \DIFaddbegin \DIFadd{represents the }\DIFaddend $j$\DIFdelbegin \DIFdel{-th code embedding , where $n_{L}$ denotes }\DIFdelend \DIFaddbegin \DIFadd{-th entry in the codebook, $n_L$ is }\DIFaddend the size of the codebook\DIFaddbegin \DIFadd{, }\DIFaddend and $n_{C}$ is the dimension of the feature vectors. \DIFdelbegin \DIFdel{Then, the codebook can be defined as $\mathcal{C}=\{j,\mathbf{e}(j)\}_{j\in[1,n_L]}$. For each location ($h$, $w$), the plain quantization process and optimized objective are as follows:
+}\begin{displaymath}
+\DIFdel{\begin{aligned}
+    \mathcal{Q}(\mathbf{\mathbf{F}_i}) &= \underset{k\in[n_L]}{\arg\min}\|\mathbf{\mathbf{F}_i}-\mathbf{e}(k)\|_2^2 \\
+    \mathbf{q}_{[h,w]}  &= \mathcal{Q}(\mathbf{F}_i)_{[h,w]},\; \mathcal{F}_i = \mathbf{e}(q_{[h,w]}) \\
+  \mathcal{L}_q &= \left\|\operatorname{sg}\left[\mathbf{F}_i\right]-\mathcal{F}_i\right\|_{2}^{2}+\left\|\mathbf{F}_i-\operatorname{sg}[\mathcal{F}_i]\right\|_{2}^{2}
+\end{aligned}
+}\end{displaymath}%DIFAUXCMD
+\DIFdel{where }\DIFdelend \DIFaddbegin \DIFadd{The reconstructed feature map $\mathcal{F}_i$ is obtained by mapping the quantized indices $\mathbf{q}_{[h,w]}$ back to their corresponding embeddings in $\mathcal{C}$. Additionally, }\DIFaddend $\operatorname{sg}$ \DIFdelbegin \DIFdel{stands for the stop gradient operator, $\mathbf{F}_{i} \in \mathbb{R}^{L\times C}$ is }\DIFdelend \DIFaddbegin \DIFadd{denotes the stop-gradient operator, and $\mathbf{F}_i \in \mathbb{R}^{L\times C}$ represents }\DIFaddend the feature map of \DIFdelbegin \DIFdel{communicated }\DIFdelend \DIFaddbegin \DIFadd{the }\DIFaddend $i$-th \DIFdelbegin \DIFdel{gent, $L$ is the size of communicated feature vectors, and the reconstructed feature map $\mathcal{F}_i$ is obtained by mapping the quantized indices $q_{[h,w]}$ back to their corresponding embeddings in the codebook $\mathcal{C}$.}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{agent. Notably, the codebook size satisfies $n_L < L$, ensuring effective compression while retaining representative feature information.
+Facilitated by this approach~\mbox{%DIFAUXCMD
+\cite{vqvae}}\hskip0pt%DIFAUXCMD
+, we can effectively reduce communication overhead by transmitting quantized code indices, thus offering a more efficient representation. Generally, we build upon this method and introduce enhancements to improve representation capability and optimize the codebook as illustrated in Fig.~\ref{fig:vqcomm}. The details are as follows.
+}\DIFaddend \begin{figure*}[htbp]
+    \centering
+    \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.8\linewidth]{comm.eps}
+%DIFDELCMD <     %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.9\linewidth]{comm.eps}
+    \DIFaddendFL \caption{(a) Architecture of \DIFdelbeginFL \DIFdelFL{our }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{the proposed }\DIFaddendFL hierarchical MRF quantization method, which \DIFdelbeginFL \DIFdelFL{consists of different }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{performs downsampling and }\DIFaddendFL quantization \DIFdelbeginFL \DIFdelFL{layers. It embeds feature information }\DIFdelendFL at multiple scales \DIFdelbeginFL \DIFdelFL{and employs }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{to capture rich feature representations. Mutual }\DIFaddendFL information supervision \DIFaddbeginFL \DIFaddFL{is introduced }\DIFaddendFL to \DIFdelbeginFL \DIFdelFL{reduce }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{mitigate }\DIFaddendFL communication loss. (b) The MRF code layer \DIFdelbeginFL \DIFdelFL{includes }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{integrates }\DIFaddendFL multi-head residuals with a feature-aware quantization \DIFdelbeginFL \DIFdelFL{structure. It embeds }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{design, embedding both }\DIFaddendFL background and foreground features \DIFdelbeginFL \DIFdelFL{and employs }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{while leveraging }\DIFaddendFL a \DIFdelbeginFL \DIFdelFL{deliberately designed }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{tailored }\DIFaddendFL codebook loss to \DIFdelbeginFL \DIFdelFL{reduce redundant values}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{suppress redundancy}\DIFaddendFL .}
+    \label{fig:vqcomm}
+    \DIFaddbeginFL \vspace{-10pt}
+\DIFaddendFL \end{figure*}
+
+\noindent\textbf{\DIFdelbegin \DIFdel{Hierarchical }\DIFdelend \DIFaddbegin \DIFadd{Ego-enhanced and hierarchical }\DIFaddend robust representations.}
+In collaborative perception, the ego agent's information helps collaborators \DIFaddbegin \DIFadd{by guiding them to }\DIFaddend share critical features. \DIFdelbegin \DIFdel{We leverage requests }\DIFdelend \DIFaddbegin \DIFadd{To leverage this, we first enhance the collaborators with the extracted query }\DIFaddend from the ego \DIFdelbegin \DIFdel{agent to assist other agents in transmitting essential information. The }\DIFdelend \DIFaddbegin \DIFadd{query generator. Specifically, the }\DIFaddend ego information highlights regions of high informativeness \DIFdelbegin \DIFdel{, }\DIFdelend and is defined as $\mathcal{I}_{ego}=\sigma (\phi_{max}(\phi_{gen}(\mathbf{F}_{ego}))) \in [0,1]^{H\times W}$, where $\phi_{gen}$ is the spatial confidence generator, $\phi_{max}$ is max pooling over channels and $\sigma$ is the sigmoid activation. We \DIFaddbegin \DIFadd{then }\DIFaddend deliver the ego query $\mathcal{U}_{ego} = 1-\mathcal{I}_{ego}\in[0,1]^{H\times W}$ which specifies the regions requiring supplementary information to the collaborator. \DIFdelbegin \DIFdel{Then, the }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend received request is \DIFaddbegin \DIFadd{then }\DIFaddend repeated $C$ times along the feature dimension, and cross-attention with the ego query is applied to enhance the features as \DIFdelbegin \DIFdel{$\mathbf{F}_i^{query}\gets \operatorname{softmax}(\mathcal{W}_{q}(\mathcal{U}_{ego})\cdot\mathcal{W}_{k}(\mathbf{F}_i)^T)\cdot \mathcal{W}_{v}(\mathbf{F}_i)$}\DIFdelend \DIFaddbegin \DIFadd{$\mathbf{F}_i^{query}\in \mathbb{R}^{C\times H\times W}\gets \operatorname{softmax}(\mathcal{W}_{q}(\mathcal{U}_{ego})\cdot\mathcal{W}_{k}(\mathbf{F}_i)^T)\cdot \mathcal{W}_{v}(\mathbf{F}_i)$}\DIFaddend , where $\mathcal{W}_{q/k/v}$ are implemented using 3$\times$3 convolution layers. 
+\DIFdelbegin \DIFdel{Traditional vector quantization approaches~\mbox{%DIFAUXCMD
+\cite{vqvae} }\hskip0pt%DIFAUXCMD
+struggle to represent sparse and high-dimensional point cloud features robustly. To address this}\DIFdelend \DIFaddbegin \DIFadd{Following the ego enhancement procedure}\DIFaddend , we perform hierarchical quantization \DIFdelbegin \DIFdel{with two downsampling operations, yielding }\DIFdelend \DIFaddbegin \DIFadd{to construct }\DIFaddend multi-scale \DIFaddbegin \DIFadd{feature representations. Specifically, we apply two 2$\times$ downsampling, generating multi-scale }\DIFaddend features \DIFdelbegin \DIFdel{$\mathbf{F}_i^{l,m,n}$ at each layer. These low-resolution features are upsampled to a uniform size and fused adaptively using learnable weights $\mathbf{w}_i^{l/m/n} = \sigma{(\mathcal{W}_{3*3}(\mathbf{F}_i^{l/m/n}))}$.
+The fused features are computed as $\mathbf{F}_i^{recon} = \sum_{k}^{l,m,n}{\mathbf{F}_i^{k}\odot \mathbf{w}_i^{k}}$.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Further, we implement the MRF code layerwith the multi-head codebook design to capture richer representations and address the limited diversity of a single codebook in capturing high-dimensional point cloud features. Each header alone quantizes a subspace feature $\mathbf{F}_i^{h}\in \mathbb{R}^{L\times C/\mathcal{H}}$ into embedding vector $\mathbf{q}_i^{h}$. Formally, }\begin{displaymath}
+\DIFdel{\begin{aligned}
+ \mathbf{q}^{h}_i = \mathcal{Q}(\mathbf{F}_i^h)&,\;  \mathcal{F}^{h}_i = \mathbf{e}^{h}(\mathbf{q}^{h}_i)\\ &\text{s.t.}\, \mathbf{e}^{h} \in \mathbb{R}^{n_{C}/\mathcal{H}}, h\in[1,\mathcal{H}]  \\
+   \mathcal{MQ}(\mathbf{F}_{i}) = \mathcal{W}_{1\times1}&(||_{h=1,2..H}\mathcal{F}_{i}^{h})
+\end{aligned}
+}\end{displaymath}%DIFAUXCMD
+\DIFdel{where $\mathcal{H}$ is the number of heads. We incorporate }\DIFdelend \DIFaddbegin \DIFadd{at increasing receptive fields. Each scale captures distinct spatial structures, allowing for a more comprehensive scene representation.
+In each MRF layer, we apply }\DIFaddend residual quantization to hierarchically \DIFdelbegin \DIFdel{learn residuals, progressively approximating }\DIFdelend \DIFaddbegin \DIFadd{approximate }\DIFaddend the original features~\cite{Lee_2022_CVPR}\DIFaddbegin \DIFadd{, progressively reducing the gap between original and quantized representations for finer reconstruction}\DIFaddend .
+The process is defined as: 
+\begin{equation}
+\DIFdelbegin %DIFDELCMD < \begin{aligned}
+%DIFDELCMD <     \mathbf{r}_{i}^{0} = \mathbf{F}_{i}\,,\mathbf{r}^{t}_i &= \mathbf{r}_{i}^{t-1}-\mathcal{MQ}(\mathbf{r}_{i}^{t-1}) \\
+%DIFDELCMD <     &\text{s.t.}\; t=1,2...\mathcal{R}
+%DIFDELCMD < \end{aligned}%%%
+\DIFdelend \DIFaddbegin \begin{aligned}
+    \mathbf{r}_{i}^{0} = \mathbf{F}_{i}\,,\mathbf{r}^{t}_i &= \mathbf{r}_{i}^{t-1}-\mathbf{F}_i^{FQ} \in \mathbb{R}^{C\times H\times W} , \\
+    &\text{s.t.}\; t=1,2...\mathcal{R},
+\end{aligned}\DIFaddend 
+\end{equation}
+where $\mathcal{R}$ is the number of residuals\DIFdelbegin \DIFdel{. 
+}\DIFdelend \DIFaddbegin \DIFadd{, and $\mathbf{F}_i^{FQ}$ denotes the multi-head feature-aware quantized result. By decomposing the quantization task into multiple residual levels, the model effectively captures both coarse and fine-grained feature details, which enhances representation capacity while keeping the communication bandwidth low.
+}\DIFaddend The final quantized representation is obtained by summing the processed residuals and applying a $1 \times 1$ convolution: \DIFdelbegin \DIFdel{$\mathbf{F}_i^{MQ}=\mathcal{W}_{1*1}(\sum_{t=0}^{\mathcal{R}-1}\mathcal{MQ}(r_{t}))$. }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{By combining the multi-head and }\DIFdelend \DIFaddbegin \DIFadd{$\mathbf{F}_i^{MQ}=\mathcal{W}_{1\times1}(\sum_{t=0}^{\mathcal{R}-1}\mathbf{r}_i^{t})\in \mathbb{R}^{C\times H\times W}$. By integrating }\DIFaddend residual quantization, we achieve richer feature representations\DIFdelbegin \DIFdel{and effectively }\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend minimize quantization errors\DIFdelbegin \DIFdel{without significantly increasing }\DIFdelend \DIFaddbegin \DIFadd{, and maintain low }\DIFaddend memory overhead.
+
+\DIFaddbegin \DIFadd{After obtaining the quantization results $\mathbf{F}_i^{l,m,n}$ from each MRF layer, we upsample all feature maps to a uniform resolution and fuse them adaptively using learnable weights $\mathbf{w}_i^{l/m/n}$. The weight computation and fusion process are formulated as:
+}\begin{equation}
+\DIFadd{\begin{aligned}
+   \mathbf{w}_i^{l/m/n} &= \sigma{(\mathcal{W}_{3*3}(\mathbf{F}_i^{l/m/n}))}, \\
+   \mathbf{F}_i^{recon} &= \sum_{k}^{l,m,n}{\mathbf{F}_i^{k}\odot \mathbf{w}_i^{k}}\in \mathbb{R}^{C\times H\times W}.
+   \end{aligned}
+}\end{equation}
+\DIFadd{The learnable weights guide the fusion to focus on informative features, effectively mitigating quantization errors introduced at individual scales. Unlike conventional vector quantization~\mbox{%DIFAUXCMD
+\cite{vqvae}}\hskip0pt%DIFAUXCMD
+, which struggles with sparse, high-dimensional point cloud data, our hierarchical multi-scale fusion enhances robustness while preserving communication efficiency.
+}
+
+\DIFaddend \noindent\DIFdelbegin \textbf{\DIFdel{Feature-aware quantization.}}
+%DIFAUXCMD
+\DIFdel{To reduce duplicate non-trivial values in the codebook and improve the quantization efficiency}\DIFdelend \DIFaddbegin \textbf{\DIFadd{Multi-head feature-aware quantization.}}
+\DIFadd{To enhance quantization efficiency}\DIFaddend , we separately \DIFdelbegin \DIFdel{quantize }\DIFdelend \DIFaddbegin \DIFadd{encode }\DIFaddend perceptually critical and \DIFdelbegin \DIFdel{background regions }\DIFdelend \DIFaddbegin \DIFadd{less prominent regions in the MRF code layer }\DIFaddend using two sets of embeddings \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{with }\DIFaddend different sizes and dimensions. \DIFdelbegin \DIFdel{We use }\DIFdelend \DIFaddbegin \DIFadd{This approach minimizes redundant values in the codebook while preserving essential information. Specifically, we first generate foreground and background feature maps using the learned function }\DIFaddend $\phi_{gen}$\DIFdelbegin \DIFdel{to generate informative spatial feature $\mathbf{F}_i^{fore} = \phi_{sel}(\sigma(\phi_{gen}(\mathbf{F}_i)))\in [0,1]^{H,W}$, and the background feature is $\mathbf{F}_i^{back} = 1 - \mathbf{F}_i^{fore}\in [0,1]^{H,W}$, }\DIFdelend \DIFaddbegin \DIFadd{:
+}\begin{equation}
+\DIFadd{\begin{aligned}
+    \mathbf{F}_i^{fore} &= \phi_{sel}(\sigma(\phi_{gen}(\mathbf{F}_i)))\in [0,1]^{H\times W}, \\
+    \mathbf{F}_i^{back} &= \phi_{sel}(1 - \sigma(\phi_{gen}(\mathbf{F}_i)))\in [0,1]^{H\times W},
+\end{aligned}
+}\end{equation}
+\DIFaddend where $\phi_{sel}$ is a threshold-based selection function. \DIFdelbegin \DIFdel{The codebook for the foreground feature and backgroundfeature is respectively $\mathbb{R}^{n_{L}\times n_{C1}}$, $\mathbb{R}^{n_{H}\times n_{C2}}$. 
+%DIF < , and $n_H > n_L, n_{C2} > n_{C1}$. 
+The embeddings of background features have smaller sizes and lower }\DIFdelend \DIFaddbegin \DIFadd{To ensure efficient compression, we assign different codebook shapes to the foreground and background:  $\mathbf{e}_{fore}\in \mathbb{R}^{n_{H}\times n_{C1}}$, $\mathbf{e}_{back}\in \mathbb{R}^{n_{L}\times n_{C2}}$, where $n_H > n_L$ and $n_{C1} > n_{C2}$. 
+Since background features tend to have redundant zero values, we use a more compact embedding space with smaller codebook size and lower feature }\DIFaddend dimensions, reducing \DIFdelbegin \DIFdel{redundant zero values and storage requirementsin the codebook. Important }\DIFdelend \DIFaddbegin \DIFadd{storage requirements. In contrast, }\DIFaddend foreground features are quantized \DIFdelbegin \DIFdel{at higher resolution for finer detail}\DIFdelend \DIFaddbegin \DIFadd{with a higher resolution to retain finer details}\DIFaddend .
+The two reconstructed \DIFdelbegin \DIFdel{features ${\mathbf{F}_i^L,\mathbf{F}_i^H}$ are obtained from their respective code indices maps and the quantized result is denoted as $\mathbf{F}_i^{FQ} = \mathbf{F}_i^{L}+\mathbf{F}_i^{H}\in \mathbb{R}^{C\times H\times W}$. }\DIFdelend \DIFaddbegin \DIFadd{feature maps $\mathcal{F}_i^{fore}$ and $\mathcal{F}_i^{back}$ are obtained by mapping their respective quantized indices back to the embedding space: 
+}\begin{equation}
+       {\DIFadd{\mathcal{F}_i^{fore}=\mathbf{e}(\mathcal{Q}(\mathbf{F}_i^{fore})), \,\mathcal{F}_i^{back}}}\DIFadd{=\mathbf{e}(\mathcal{Q}(\mathbf{F}_i^{back})).
+}\end{equation}
+\DIFadd{The merged reconstructed feature map is then obtained as: $\mathcal{F}_i = \mathcal{F}_i^{fore}+\mathcal{F}_i^{back}\in \mathbb{R}^{C\times H\times W}$.
+}\DIFaddend 
+
+\DIFaddbegin \DIFadd{Beyond spatially adaptive quantization, we introduce a multi-head codebook design to enhance representation capacity further. A single-head codebook may struggle to capture the diversity of high-dimensional point cloud features. To address this, we partition the feature space and apply multiple quantization heads, where each head is responsible for encoding a distinct subspace. Specifically, for both the foreground and background features, each head quantizes a subspace feature $\mathbf{F}_i^{h}\in \mathbb{R}^{L\times C/\mathcal{H}}$ into code indices $\mathbf{q}_i^{h}$ and retrieves the corresponding embedding $\mathcal{F}_i^{h}$. Formally,
+}\begin{equation}
+\DIFadd{\begin{aligned}
+ &\mathbf{q}^{h}_i = \mathcal{Q}(\mathbf{F}_i^h),\;  \mathcal{F}^{h}_i = \mathbf{e}^{h}(\mathbf{q}^{h}_i), \,\forall \,  h\in[1,\mathcal{H}],  \\
+   &\mathbf{F}_i^{FQ}=\mathcal{MQ}(\mathbf{F}_{i}) = \mathcal{W}_{1\times1}(||_{h=1,2..H}\mathcal{F}_{i}^{h})\in \mathbb{R}^{C\times H\times W},
+\end{aligned}
+}\end{equation}
+\DIFadd{where $\mathcal{H}$ is the number of heads and $||$ denotes the concatenation operation along channel-axis. The multi-head approach captures diverse feature patterns by assigning each head to a different subspace, with concatenation ensuring all information is preserved for subsequent stages.
+}
+
+\DIFaddend \noindent\textbf{\DIFdelbegin \DIFdel{Information-aware }\DIFdelend \DIFaddbegin \DIFadd{Mutual information }\DIFaddend and codebook loss.}
+To minimize reconstruction errors, we maximize local and global mutual information (MI) between features before and after quantization to learn self-supervised robust representations. 
+\DIFdelbegin \DIFdel{Let $\mathbf{x} = \mathbf{F}_i$ denote }\DIFdelend \DIFaddbegin \DIFadd{We define }\DIFaddend the extracted feature of \DIFaddbegin \DIFadd{the }\DIFaddend $i$-th agent \DIFdelbegin \DIFdel{and $\mathbf{z} = \mathbf{F}^{output}$ represent the quantized features.  The }\DIFdelend \DIFaddbegin \DIFadd{as $\mathbf{x} = \mathbf{F}_i$, and its quantized counterpart as $\mathbf{z} = \mathbf{F}^{output}$.  To preserve essential information through quantization, we introduce both }\DIFaddend global and local MI losses\DIFdelbegin \DIFdel{are defined as:
+}\DIFdelend \DIFaddbegin \DIFadd{:
+}\DIFaddend \begin{equation}
+\DIFdelbegin %DIFDELCMD < \begin{aligned}
+%DIFDELCMD <     \mathcal{I}_G(\mathbf{x},\mathbf{z}) &= \mathbb{E}_{p}[-\mathrm{sp}(-T_{\psi}(\mathbf{x},\mathbf{z})]-\mathbb{E}_{p\times z}[\mathrm{sp}(T_{\psi}(\mathbf{x}^{\prime},\mathbf{z} ))] \\
+%DIFDELCMD <    \mathcal{I}_L(\mathbf{x},\mathbf{z}) &= \frac{1}{H^{\prime}\times W^{\prime}}\sum_{k=1}^{H^{\prime}\times W^{\prime}}\mathcal{I}_G(\mathbf{x}_k,\mathbf{z}_k) \\
+%DIFDELCMD < \end{aligned}%%%
+\DIFdelend \DIFaddbegin \begin{aligned}
+    \mathcal{I}_G(\mathbf{x},\mathbf{z}) &= \mathbb{E}_{p}[-\mathrm{sp}(-T_{\psi}(\mathbf{x},\mathbf{z})]-\mathbb{E}_{p\times z}[\mathrm{sp}(T_{\psi}(\mathbf{x}^{\prime},\mathbf{z} ))], \\
+   \mathcal{I}_L(\mathbf{x},\mathbf{z}) &= \frac{1}{H^{\prime}\times W^{\prime}}\sum_{k=1}^{H^{\prime}\times W^{\prime}}\mathcal{I}_G(\mathbf{x}_k,\mathbf{z}_k), \\
+\end{aligned}\DIFaddend 
+\end{equation}
+where $\text{sp}(x) = \text{log}(1+e^{x})$ and $T_{\psi}$ is a statistical neural network with parameters $\phi$. Accordingly, the mutual information loss of all communicating agents is computed via $\mathcal{L}_{MI} = -\sum_{i\in[1,N],i\ne  ego}(\mathcal{I}_G(\mathbf{F}_i,\mathbf{F}_i^{output})+\mathcal{I}_L(\mathbf{F}_i,\mathbf{F}_i^{output}))$. 
+\DIFdelbegin \DIFdel{Additionally, we propose }\DIFdelend \DIFaddbegin \DIFadd{Beyond mutual information preservation, we further enhance quantization efficiency by optimizing the codebook structure. Specifically, we introduce }\DIFaddend a codebook optimization loss \DIFdelbegin \DIFdel{that integrates }\DIFdelend \DIFaddbegin \DIFadd{incorporating }\DIFaddend entropy and diversity \DIFdelbegin \DIFdel{terms.
+%DIF < Together, these terms optimize the codebook, enhancing feature expressiveness and reducing quantization error.
+Let $\mathbf{p}\in\mathbb{R}^{n_L}$ represent }\DIFdelend \DIFaddbegin \DIFadd{constraints.
+First, we define }\DIFaddend the utilization distribution of the codebook \DIFdelbegin \DIFdel{, where }\DIFdelend \DIFaddbegin \DIFadd{as $\mathbf{p}\in\mathbb{R}^{n_L}$, where each entry is given by: }\DIFaddend $\mathbf{p}_k=\frac{n_k}{\sum_{j=1}^{n_L}n_j}$ and $n_k$ denotes the frequency of access for codebook entry $k$. The entropy loss encourages uniform usage of the codebook and is defined as:
+\begin{equation}
+ \mathcal{L}_\mathrm{entropy}=-\sum_{k=1}^{n_L}\mathbf{p}_k\log\mathbf{p}_k\DIFaddbegin \DIFadd{.
+}\DIFaddend \end{equation}
+\DIFdelbegin \DIFdel{To promote independence among embeddings, the diversity loss is given by $\mathcal{L}_{\mathrm{diversity}} =\left\|\mathcal{C}^\top\mathcal{C}-\mathbf{I}\right\|_F^2$, }\DIFdelend \DIFaddbegin \DIFadd{Simultaneously, to minimize redundancy and enhance the expressiveness of the codebook, we introduce a diversity loss that encourages independence among embeddings. The final codebook optimization loss is obtained by combining both the diversity loss and the entropy loss as follows:
+}\begin{equation} 
+\DIFadd{\begin{aligned}
+\mathcal{L}_{\mathrm{diversity}} &= \left|\mathcal{C}^\top\mathcal{C}-\mathbf{I}\right|_F^2,\\
+\mathcal{L}_{\mathrm{codebook}} &= \mathcal{L}_{\mathrm{diversity}}+\mathcal{L}_{\mathrm{entropy}},
+\end{aligned}
+}\end{equation}
+\DIFaddend where $\mathcal{C}=[\mathbf{e}(1),\mathbf{e}(2),...\mathbf{e}(n_L)]\in \mathbb{R}^{n_L\times n_C}$, and $\mathbf{e}(i)$ represents the $i$-th embedding vector.
+The \DIFdelbegin \DIFdel{final codebook loss combines these two components as $\mathcal{L}_{\mathrm{codebook}} =\mathcal{L}_{\mathrm{diversity}}+\mathcal{L}_{\mathrm{entropy}}$. The }\DIFdelend entropy loss promotes balanced access to codebook entries by encouraging uniform codebook usage, while the diversity loss seeks to minimize redundancy by enforcing independence between embeddings. \DIFaddbegin \DIFadd{Together, these objectives contribute to a more expressive and efficient quantization scheme.
+}\DIFaddend \subsection{channel-aware selection}
+To dynamically adjust the communication volume and compensate for quantized \DIFdelbegin \DIFdel{information}\DIFdelend \DIFaddbegin \DIFadd{loss}\DIFaddend , we transmit selected feature dimensions to enhance the communicated representations. 
+We use a channel-aware selection strategy that begins with depth-wise separable convolution $\textbf{Conv}_d$, using a large kernel size of 11 to capture contextual information, followed by a point-wise convolution $\textbf{Conv}_p$ across all channels. Both global average pooling and max pooling are adopted to aggregate information across channels, and the outputs from these pooling operations are concatenated. To learn the channel-wise importance, we apply a lightweight attention mechanism to compute the adaptive weights~\cite{8578843}, and the process can be expressed as:
+\begin{equation}
+    \DIFdelbegin %DIFDELCMD < \begin{aligned}
+%DIFDELCMD <         \tilde{\mathbf{F}}_i &= \textbf{Conv}_p(\textbf{Conv}_d(\mathbf{F}_i)) \\
+%DIFDELCMD <         \mathbf{Z}_i &= \text{Concat}(\phi_m(\tilde{\mathbf{F}}_i),\phi_a(\tilde{\mathbf{F}}_i)) \in \mathbb{R}^{2\times C}    \\
+%DIFDELCMD <        \mathbf{Attn}_i &= \text{softmax}(\mathcal{W}_{b}(\text{ReLU}(\mathcal{W}_{a}\mathbf{Z}_i))) \in \mathbb{R}^{C}
+%DIFDELCMD <     \end{aligned}%%%
+\DIFdelend \DIFaddbegin \begin{aligned}
+        \tilde{\mathbf{F}}_i &= \textbf{Conv}_p(\textbf{Conv}_d(\mathbf{F}_i)), \\
+        \mathbf{Z}_i &= \text{Concat}(\phi_m(\tilde{\mathbf{F}}_i),\phi_a(\tilde{\mathbf{F}}_i)) \in \mathbb{R}^{2\times C},    \\
+       \mathbf{Attn}_i &= \text{softmax}(\mathcal{W}_{b}(\text{ReLU}(\mathcal{W}_{a}\mathbf{Z}_i))) \in \mathbb{R}^{C},
+    \end{aligned}\DIFaddend 
+\end{equation}
+where \DIFdelbegin \DIFdel{$\mathcal{W}_{a}\in \mathbb{R}^{[2,C]},\mathcal{W}_{b}\in \mathbb{R}^{[C,1]}$ }\DIFdelend \DIFaddbegin \DIFadd{$\mathcal{W}_{a}\in \mathbb{R}^{C\times 2},\mathcal{W}_{b}\in \mathbb{R}^{1\times C}$ }\DIFaddend are linear layers. 
+The computed weight of \DIFaddbegin \DIFadd{the }\DIFaddend $i$-th agent $\mathbf{Attn}_i$ reflects the importance of each channel. Based on a predefined threshold, we transmit the most important channels $\mathbf{F}_i^{ch}\in \mathbb{R}^{C^{\prime}\times H\times W}$ where $C^{\prime}$ represents the top-k important channels. 
+To \DIFdelbegin \DIFdel{compensate for the loss incurred during }\DIFdelend \DIFaddbegin \DIFadd{mitigate the information loss caused by }\DIFaddend quantization, we combine the selected channel \DIFdelbegin \DIFdel{information }\DIFdelend \DIFaddbegin \DIFadd{features }\DIFaddend with the quantized \DIFdelbegin \DIFdel{features. Thus, the final communication features are given by $\mathbf{F}_i^{com}=\mathbf{F}_i^{MQ}+\mathbf{F}_i^{ch}$. }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{representations. The final communicated features are thus formulated as:
+}\begin{equation}
+\DIFadd{\mathbf{F}_i^{com} = \mathbf{F}_i^{recon} + \mathbf{F}_i^{ch},
+}\end{equation}
+\DIFadd{where $\mathbf{F}_i^{recon} \in \mathbb{R}^{C \times H \times W}$ represents the reconstructed features derived from the transmitted indices, and $\mathbf{F}_i^{ch}$ denotes the selected channel-wise information that supplements the missing details. This fusion enhances the transmitted representation, ensuring better reconstruction and preserving critical information.
+}\DIFaddend \begin{figure}[htbp]
+    \DIFaddbeginFL \vspace{-5pt}
+    \DIFaddendFL \centering
+    \includegraphics[width=0.97\linewidth]{fuse_module.eps}
+    \caption{(a) Patch-wise attention module (\textit{PAM}) which performs attention on various patches. (b) Agent-wise attention module (\textit{AAM}) with heterogeneous weights and ego query to capture robust relations between agents.  }
+    \label{fig:fuse_module}
+    \DIFaddbeginFL \vspace{-12pt}
+\DIFaddendFL \end{figure}
+
+\subsection{T-V2X fusion}
+To improve the performance of simulation-trained models in real-world environments, we use discriminators at different scales to reduce feature differences. For this purpose, it is crucial to perform efficient characterization of features both within and between agents~\cite{v2x-vitv2}.
+We stack alternate attention layers to iteratively learn local spatial details of per-agent and the relations between heterogeneous agents~\cite{vits}, leading to robust aggregated representations for further discriminating.
+
+As illustrated in Fig.~\ref{fig:fuse_module}, we build a patch-wise attention module (PAM) to divide the communicated features $\mathbf{F}_i^{com}$ into non-overlapping patches of different sizes for each agent. %resulting in a number of spatial patches. 
+%shape of $(\frac{H}{P_j},\frac{W}{P_j}, {P_j}^{2}, C),j\in{1,2,3}$, which obtains multi-patch spatial relationships. 
+Within each patch, we use a multi-head self-attention to capture local dependencies. The features from these patches are summed and passed through a depth-wise convolution to produce the feature $\mathbf{F}^{'}$ that models the local details. We divide the aggregated features from different domains into smaller patches and classify these patches. $\mathcal{L}_{patch}$ is used to encourage the accurate classification of each patch, and defined as\DIFdelbegin \DIFdel{$\frac{1}{\mathcal{N}}\sum_{i=1}^{\mathcal{N}}\mathcal{L}_{BCE}(D^{p}(\mathbf{F}^{patch}_{t,i};\theta),d_t)$, }\DIFdelend \DIFaddbegin \DIFadd{: 
+}\begin{equation}
+\DIFadd{\frac{1}{\mathcal{N}}\sum_{i=1}^{\mathcal{N}}\mathcal{L}_{BCE}(D^{p}(\mathbf{F}^{patch}_{t,i} \in \mathbb{R}^{\frac{H}{T} \times \frac{W}{T} \times T^2 C};\theta),d_t),
+}\end{equation}\DIFadd{2
+}\DIFaddend where $\mathcal{L}_{BCE}$ \DIFdelbegin \DIFdel{is the binary entropy }\DIFdelend \DIFaddbegin \DIFadd{represents the binary cross-entropy }\DIFaddend loss, $\mathcal{N}$ is the total number of agents in \DIFdelbegin \DIFdel{two domains, $\mathbf{F}^{patch}_{t,i} \in \mathbb{R}^{\frac{H}{T},\frac{W}{T},T^2C}$ is the patched features}\DIFdelend \DIFaddbegin \DIFadd{both domains, $D^{p}$ consists of convolutional layers, $\mathbf{F}^{patch}_{t,i}$ is the $t$-th patched feature of $i$-th agent}\DIFaddend , $T$ is the patch size\DIFdelbegin \DIFdel{and $d_t \in \{0,1\}$ is }\DIFdelend \DIFaddbegin \DIFadd{, and $d_t \in \{0, 1\}$ denotes }\DIFaddend the domain labels.
+%DIF <  To confuse the discriminator and reduce the domain shift, we apply a gradient reversal layer (GRL) before all discriminators.
+
+We also \DIFdelbegin \DIFdel{use an agent-wise attention module }\DIFdelend \DIFaddbegin \DIFadd{adopt an Agent-wise Attention Module }\DIFaddend (AAM) to capture the relationships between heterogeneous agents. Inspired by V2X-ViT~\cite{v2x-vit}, we \DIFdelbegin \DIFdel{use }\DIFdelend \DIFaddbegin \DIFadd{employ }\DIFaddend a multi-head agent-wise attention \DIFdelbegin \DIFdel{module, leveraging different }\DIFdelend \DIFaddbegin \DIFadd{mechanism, using distinct }\DIFaddend weight matrices for queries and values \DIFdelbegin \DIFdel{based }\DIFdelend \DIFaddbegin \DIFadd{depending }\DIFaddend on the communication \DIFdelbegin \DIFdel{type. 
+%DIF <  $e(ij)=${node($i$), node($j$)}, where node$\in\{I, V\}$, similar to using positional encoding to provide sequential information. 
+Let $\mathbf{W}^{e(ij)}_{a,b} \in \mathbb{R}^{N\times N\times C\times C}$ be }\DIFdelend \DIFaddbegin \DIFadd{types. 
+Let $\mathbf{W}^{e(ij)}_{a,b} \in \mathbb{R}^{N \times N \times C \times C}$ denote }\DIFaddend the query and value \DIFdelbegin \DIFdel{aggregators respectively and $\mathbf{F}_{col}$ be the }\DIFdelend \DIFaddbegin \DIFadd{aggregation weights for each agent pair $(i, j)$, where $N$ is the number of agents, and $C$ is the feature dimension. The communication type between agents is defined as $e(ij) = {\text{node}(i), \text{node}(j)}$, where $\text{node} \in \{I, V\}$ represents the agent type, such as infrastructure ($I$) or vehicle ($V$).
+To effectively model the heterogeneity in agent interactions, the attention module employs distinct initialization weights depending on the agent types involved in each pairwise communication.
+Let $\mathbf{F}_{\text{col}}$ denote the }\DIFaddend aggregated features from \DIFdelbegin \DIFdel{the collaborators.
+The process can be }\DIFdelend \DIFaddbegin \DIFadd{all participating agents, including the ego agent itself.
+The attention process is }\DIFaddend formulated as follows:
+\begin{equation}
+    \DIFdelbegin %DIFDELCMD < \begin{aligned}
+%DIFDELCMD <         \mathbf{Q} &= \phi_{max}(\phi_{gen}(\mathbf{F}_{ego}))\;,\mathbf{K/V} = \mathcal{W}_{3*3}(\mathbf{F}_{col}) \\
+%DIFDELCMD <         \text{Att} &= \operatorname{softmax}(\mathbf{Q}\mathbf{W}^{e(i,j)}_{a}\mathbf{K}\frac{1}{\sqrt{C}}) \\
+%DIFDELCMD <         \mathbf{F}^{''} &= \text{Att}\mathbf{W}^{e(i,j)}_{b}\mathbf{V}
+%DIFDELCMD <     \end{aligned}%%%
+\DIFdelend \DIFaddbegin \begin{aligned}
+        \mathbf{Q} &= \phi_{max}(\phi_{gen}(\mathbf{F}_{ego}))\in\mathbb{R}^{H\times W}, \\
+        \mathbf{Q}^{'} &= \text{repeat}({\mathbf{Q}})\in\mathbb{R}^{H\times W\times N\times C}, \\
+        \mathbf{K/V} &= \mathcal{W}_{3*3}(\mathbf{F}_{col})\in\mathbb{R}^{H\times W\times N\times C}, \\
+        \text{Att} &= \operatorname{softmax}(\mathbf{Q}^{'}\mathbf{W}^{e(i,j)}_{a}\mathbf{K}\frac{1}{\sqrt{C}}), \\
+        \mathbf{F}^{''} &= \text{Att}\mathbf{W}^{e(i,j)}_{b}\mathbf{V}.
+    \end{aligned}\DIFaddend 
+\end{equation}
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{Here, $\mathbf{Q}$ is repeated $N \times C$ times along the agent and channel dimensions to align with the shape of the multi-agent key and value tensors.
+}\DIFaddend \begin{figure}[htbp]
+    \DIFaddbeginFL \vspace{-5pt}
+    \DIFaddendFL \centering
+    \includegraphics[width=0.9\linewidth]{s2rda.eps}
+    \caption{The architecture of transferable V2X (\textit{T-V2X}) fusion block. It includes a patch-wise attention module and an agent-wise attention module to aggregate features and use different discriminators to reduce domain shifts.}
+    \label{fig:t_v2x_fusion}
+    \DIFaddbeginFL \vspace{-10pt}
+\DIFaddendFL \end{figure}
+
+To focus on the critical visual information, we use a spatial confidence generator to identify the ego agents across different domains. From Fig.~\ref{fig:t_v2x_fusion}, to supervise the spatial locations of the ego agent, we define a loss function:
+\begin{equation}
+     \mathcal{L}_{spatial} = \mathcal{L}_{BCE}(D^{s}(\mathbf{F}^{''}\DIFdelbegin \DIFdel{_{t,i}}\DIFdelend \DIFaddbegin \DIFadd{_{i}}\DIFaddend ;\beta),d_t)\DIFaddbegin \DIFadd{,
+}\DIFaddend \end{equation}
+where $D^{s}$ consists of the spatial confidence generator with convolution layers and $\beta$ is the parameters.
+After obtaining the fused features, we flatten them into a 2D feature vector. Aligning instance-level representations helps reduce local instance discrepancies. $\mathcal{L}_{ins}$ is defined as \DIFdelbegin \DIFdel{$\mathcal{L}_{ins} = \mathcal{L}_{BCE}(D^{i}(\mathbf{F}^{ins}_{t,i};\gamma),d_t)$}\DIFdelend \DIFaddbegin \DIFadd{$\mathcal{L}_{ins} = \mathcal{L}_{BCE}(D^{i}(\mathbf{F}^{ins}_{i};\gamma),d_t)$}\DIFaddend , where $D^{i}$ reshapes $\mathbf{F}^{ins}$ \DIFdelbegin \DIFdel{with shape of ($HW$,$C$) }\DIFdelend \DIFaddbegin \DIFadd{from shape $(C, HW)$ }\DIFaddend and consists of consecutive \DIFdelbegin \DIFdel{liner layers. In addition, as the features before fusion contain more inherent }\DIFdelend \DIFaddbegin \DIFadd{linear layers. To mitigate domain shift, we introduce a gradient reversal layer (GRL) before all discriminators, forcing the feature extractor to learn domain-invariant representations.
+Additionally, since pre-fusion features retain richer domain-specific }\DIFaddend information, they are \DIFdelbegin \DIFdel{also passed through a discriminator to reduce }\DIFdelend \DIFaddbegin \DIFadd{passed through an agent discriminator to mitigate }\DIFaddend domain discrepancies. We \DIFdelbegin \DIFdel{use $D^{agent}(\cdot;\delta)$ to denote the discriminator }\DIFdelend \DIFaddbegin \DIFadd{denote this discriminator as $D^{agent}(\cdot,;\delta)$, }\DIFaddend where $\delta$ \DIFdelbegin \DIFdel{is the parameter set, then the total loss during adaptation can be calculated via:
+}\DIFdelend \DIFaddbegin \DIFadd{represents the model parameters. The total adaptation loss is defined as:
+}\DIFaddend \begin{equation}
+    \DIFdelbegin %DIFDELCMD < \begin{aligned}
+%DIFDELCMD < \mathcal{L}_{adapt}=\mathcal{L}_{patch}&+\mathcal{L}_{spatial}+\mathcal{L}_{ins} \\
+%DIFDELCMD <         & + \mathcal{L}_{BCE}(D^{agent}(\mathbf{F}^{com}_{t,i};\delta),d_t)
+%DIFDELCMD <     \end{aligned}%%%
+\DIFdelend \DIFaddbegin \begin{aligned}
+\mathcal{L}_{adapt}=\mathcal{L}_{patch}&+\mathcal{L}_{spatial}+\mathcal{L}_{ins} \\
+        & + \mathcal{L}_{BCE}(D^{agent}(\mathbf{F}^{com}_{i};\delta),d_t).
+    \end{aligned}\DIFaddend 
+\end{equation}
+Note that these discriminators employ similar architecture with several convolution or linear layers.
+Further, to adaptively fuse the shared features rather than simply summing or maximizing them, we apply channel attention to each agent's features to enhance their representations. It can be computed as: 
+\begin{equation}
+    \DIFdelbegin %DIFDELCMD < \begin{aligned}
+%DIFDELCMD <         \mathbf{F}_{sum} &= \sum_{i=1,..N,i\ne ego} \mathbf{F}_i \in \mathbb{R}^{C\times H\times W} \\
+%DIFDELCMD <         \mathcal{G}_{i} &= \mathcal{W}_{i}^{2}(\mathcal{W}_{i}^{1}(\phi_{max}(\mathbf{F}_{sum})) \in \mathbb{R}^{C\times1\times1} \\
+%DIFDELCMD <         \hat{\mathbf{F}} &= \sum_{i=1,..N,i\ne ego}(\mathcal{G}_i\odot \mathbf{F}_i)  + \mathbf{F}_{ego} \in \mathbb{R}^{ C \times H\times W}
+%DIFDELCMD <     \end{aligned}%%%
+\DIFdelend \DIFaddbegin \begin{aligned}
+        \mathbf{F}_{sum} &= \sum_{i=1,..N,i\ne ego} \mathbf{F}_i \in \mathbb{R}^{C\times H\times W}, \\
+        \mathcal{G}_{i} &= \mathcal{W}_{i}^{2}(\mathcal{W}_{i}^{1}(\phi_{m}(\mathbf{F}_{sum})) \in \mathbb{R}^{C\times1\times1}, \\
+        \hat{\mathbf{F}} &= \sum_{i=1,..N,i\ne ego}(\mathcal{G}_i\odot \mathbf{F}_i)  + \mathbf{F}_{ego} \in \mathbb{R}^{ C \times H\times W},
+    \end{aligned}\DIFaddend 
+\end{equation}
+where \DIFaddbegin \DIFadd{$\phi_{m}$ represents global max pooling across channels, and }\DIFaddend $\mathcal{W}^{1}$ and $\mathcal{W}^{2}$ are linear layers. \DIFdelbegin \DIFdel{Leveraging }\DIFdelend \DIFaddbegin \DIFadd{By leveraging }\DIFaddend the noise-free positional information from the ego agent's features, we \DIFdelbegin \DIFdel{further }\DIFdelend enhance the semantic content of the \DIFdelbegin \DIFdel{collaborative }\DIFdelend \DIFaddbegin \DIFadd{collaboratively }\DIFaddend fused features.
+\subsection{Detection outputs}
+After obtaining the fused features $\hat{\mathbf{F}}$, a detection head is applied to generate the final output, which includes class confidence $\bm{c} \in \mathbb{R}^{1 \times H \times W}$ and bounding box parameters $\varsigma(x, y, z, w, l, h, \theta)\in\mathbb{R}^{7 \times H \times W}$, representing coordinates, dimension and orientation for each location. 
+The objective detection losses consist of focal loss~\cite{linFocalLossDense2018} and smooth $L1$ loss.
+The total loss is a combination of the detection, quantization, codebook, and domain adaptation losses, as defined below:
+\begin{equation}
+  \begin{split}
+     & \mathcal{L}_{total} = \mathcal{L}_{det}+\mathcal{L}_{q}+\mathcal{L}_{codebook} +\mathcal{L}_{adapt}\DIFaddbegin \DIFadd{+\mathcal{L}_{MI}, }\DIFaddend \\
+     & \mathcal{L}_{det} = \alpha_{cls}\mathcal{L}_{focal} + \alpha_{reg}\mathcal{L}_{smoothL1}\DIFaddbegin \DIFadd{. }\DIFaddend \\
+  \end{split}
+\end{equation}
+The classification and regression losses are computed as follows~\cite{langPointPillarsFastEncoders2019}:
+\begin{equation}
+  \begin{split}
+     & \mathcal{L}_{focal} = -\alpha(1-p)^{\gamma}\log(p)\DIFaddbegin \DIFadd{,  }\DIFaddend \\
+     & \mathcal{L}_{smooth_{L1}}(x) = \left\{
+    \DIFdelbegin %DIFDELCMD < \begin{array}{ll}
+%DIFDELCMD <       0.5x^2  & \text{if } |x|<1 \\
+%DIFDELCMD <       |x|-0.5 & \text{otherwise}
+%DIFDELCMD <     \end{array}%%%
+\DIFdelend \DIFaddbegin \begin{array}{ll}
+      0.5x^2,  & \text{if } |x|<1 \\
+      |x|-0.5, & \text{otherwise.}
+    \end{array}\DIFaddend 
+    \right.
+  \end{split}
+\end{equation}
+Here, $p$ represents the predicted probability. $\alpha_{cls}$ and $\alpha_{reg}$ are coefficients that weigh the classification and regression losses, respectively, while $\alpha$ and $\gamma$ are hyperparameters specific to the focal loss. 
+\section{Experiment}\label{sec:experiments}
+In this section, we evaluate the effectiveness of \emph{QCTF} by varying communication bandwidth and introducing pose noises without additional training. Additionally, we use the simulated OPV2V dataset~\cite{opv2v} as the source domain and test on the V2V4Real dataset~\cite{v2v4} as the target domain to assess the simulation-to-reality (S2R) adaptation capability.
+We begin by presenting the datasets and evaluation metrics used in the experiments. 
+Then, we present a multi-faceted analysis of our approach's performance, examining its robustness, efficiency, and adaptability from various perspectives.
+\subsection{Dataset and evaluation metrics}
+To evaluate the proposed framework comprehensively, we conduct object detection experiments under pose errors and varying bandwidth constraints across multiple V2V and V2X datasets\DIFaddbegin \DIFadd{, }\DIFaddend including OPV2V~\cite{opv2v}, V2XSet~\cite{v2x-vit}, and V2V4Real~\cite{v2v4}.
+\textbf{OPV2V} is the first large-scale simulated dataset for V2V perception, generated by using OpenCDA~\cite{9564825} and CARLA~\cite{dosovitskiy17a}. It \DIFdelbegin \DIFdel{encompasses }\DIFdelend \DIFaddbegin \DIFadd{contains }\DIFaddend 73 \DIFdelbegin \DIFdel{representative scenarios with up to }\DIFdelend \DIFaddbegin \DIFadd{scenarios with }\DIFaddend 2-7 vehicles per scene\DIFdelbegin \DIFdel{. The dataset is partitioned into training(}\DIFdelend \DIFaddbegin \DIFadd{,  with training/validation/test sets containing }\DIFaddend 6,764\DIFdelbegin \DIFdel{frames), validation (}\DIFdelend \DIFaddbegin \DIFadd{/}\DIFaddend 1,981\DIFdelbegin \DIFdel{frames), and testing sets (}\DIFdelend \DIFaddbegin \DIFadd{/}\DIFaddend 2,719 frames\DIFdelbegin \DIFdel{).
+%DIF < Notably, the test set includes data from all road types and is subdivided into CARLA default maps and a Culver City digital town.
+}\DIFdelend \DIFaddbegin \DIFadd{.
+}\DIFaddend \textbf{V2XSet} which is designed for V2X perception, consists of 11,447 frames across 55 diverse scenes with realistic \DIFdelbegin \DIFdel{noise simulations. It is divided into training (}\DIFdelend \DIFaddbegin \DIFadd{with noise simulations, divided into }\DIFaddend 6,694 \DIFdelbegin \DIFdel{frames), validation (}\DIFdelend \DIFaddbegin \DIFadd{training, }\DIFaddend 1,920 \DIFdelbegin \DIFdel{frames), and testing subsets (}\DIFdelend \DIFaddbegin \DIFadd{validation, and }\DIFaddend 2,833 \DIFdelbegin \DIFdel{frames)}\DIFdelend \DIFaddbegin \DIFadd{test frames}\DIFaddend .
+\textbf{V2V4Real} is the first large-scale real-world dataset for V2V perception, covering approximately 410 kilometers of driving areas with 20,000 LiDAR frames. \DIFdelbegin \DIFdel{This dataset is split into training(}\DIFdelend \DIFaddbegin \DIFadd{The training/validation/test sets contain }\DIFaddend 14,210\DIFdelbegin \DIFdel{frames), validation (}\DIFdelend \DIFaddbegin \DIFadd{/}\DIFaddend 2,000\DIFdelbegin \DIFdel{frames), and testing sets (}\DIFdelend \DIFaddbegin \DIFadd{/}\DIFaddend 3,986 frames\DIFdelbegin \DIFdel{)}\DIFdelend .
+As did in~\cite{v2v4}, we train models on OPV2V and directly evaluate them on V2V4Real using domain adaptation to address cross-domain discrepancies in collaborative 3D detection.
+%DIF < For OPV2V and V2XSet, the extracted point cloud features have dimensions of (64, 352, 100), while for V2V4Real, the feature map size is (64, 352, 96).
+
+
+\noindent\textbf{Evaluation Metrics.} We evaluate the performance of our proposed framework by using 3D object detection results. To ensure a fair comparison, each agent operates within a 70-meter communication radius and can connect with up to four neighboring agents. Detection performance is quantified by using average precision (AP) at Intersection-over-Union (IoU) thresholds of 0.5 and 0.7. Meanwhile, the communication overhead is measured by the same method as used in~\cite{Where2comm}, where the message size is counted in bytes and expressed in a logarithmic scale with base 2.
+\subsection{Implementation details}
+Our models are implemented with the PyTorch toolbox~\cite{paszke2019pytorch} and trained on a Nvidia Tesla V100 GPU. We use the AdamW optimizer ~\cite{adamw} with an initial learning rate of 2e-3, which decays by 0.1 every 15 epochs. To enhance generalization, we apply data augmentation techniques such as flipping and rotation, along with early stopping during training.
+Training configurations for the OPV2V, V2XSet and V2V4Real datasets include: the training epochs are chosen from $\{45, 45, 60\}$ and the input data ranges are $x\in$[-140.8$m$, 140.8$m$] and $y\in$[-40$m$, 40$m$]. 
+%DIF <  except for V2V4Real, where $y\in$[-38.4$m$, 38.4$m$]. 
+The resolution of the pillars is 0.4$m$ for both width and height.  
+%DIF < For the loss function, $\alpha_{cls}$ is set to 1.0, and $\alpha_{reg}$ is set to 2.0. 
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend We use a feature pyramid network\DIFdelbegin \DIFdel{(FPN)}\DIFdelend ~\cite{lin2017feature} to extract the multi-scale encoded features, producing 384-dimensional representation to improve \DIFdelbegin \DIFdel{the }\DIFdelend communication efficiency.
+For effective quantization, we adopt a three-level quantization scheme with a fixed output dimension of 128. The codebook configurations are tailored for the foreground and background features, with the shapes specified as $\{\mathbb{R}^{[512,128]},\mathbb{R}^{[256,64]},\mathbb{R}^{[256,64]}\}$ and $\{\mathbb{R}^{[128,64]},\mathbb{R}^{[64,32]},\mathbb{R}^{[64,32]}\}$.  
+The minimum communication volume for purely transmitting quantized indices is $log2(50\times176\times4)\approx 15.1$.
+To enable comparisons under even lower bandwidth constraints, we utilize $\phi_{gen}$, implemented with depth-wise and point-wise convolutional layers, to generate spatial confidence scores. This mechanism \DIFdelbegin \DIFdel{further }\DIFdelend reduces bandwidth consumption by effectively filtering out irrelevant background information while retaining critical features.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend For simulation-to-reality domain adaptation, we evaluate the pre-trained collaborative model on the labeled source domain and further jointly refine it using both source and target domain data with domain discriminators. The gradient reversal layer coefficients in GRLs are set to -0.1.
+%DIF < The loss function parameters are set as $\alpha_{cls}$ for classification and $\alpha_{reg}$ for regression. 
+Detection heads are implemented by using separate 1$\times$1 convolution layers.
+To simulate the pose errors mathematically, we add Gaussian noise with a standard deviation $\delta_{l}$ and $\delta_{h}$ for localization and heading errors, respectively. 
+
+
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{comm_result.eps}
+    \caption{Quantitative \DIFaddbeginFL \DIFaddFL{comparison of }\DIFaddendFL object detection \DIFdelbeginFL \DIFdelFL{results in comparison }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{performance under varying communication volumes. We compare our method }\DIFaddendFL with CodeFilling~\cite{codefilling} and Where2comm~\cite{Where2comm}\DIFaddbeginFL \DIFaddFL{, and further benchmark against traditional feature compression methods }\DIFaddendFL by \DIFdelbeginFL \DIFdelFL{varying communication volumes}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{incorporating autoencoders~\mbox{%DIFAUXCMD
+\cite{bank2023autoencoders} }\hskip0pt%DIFAUXCMD
+of different scales into Attentive Fusion~\mbox{%DIFAUXCMD
+\cite{opv2v}}\hskip0pt%DIFAUXCMD
+, CoBEVT~\mbox{%DIFAUXCMD
+\cite{cobevt}}\hskip0pt%DIFAUXCMD
+, and V2X-ViT~\mbox{%DIFAUXCMD
+\cite{v2x-vit}}\hskip0pt%DIFAUXCMD
+}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{These autoencoders reduce both spatial resolution and channel dimensions to control transmission bandwidth.}\DIFaddendFL }
+    \label{fig:comm_result}
+    \DIFaddbeginFL \vspace{-12pt}
+\DIFaddendFL \end{figure*}
+
+\subsection{Quantitative evaluation}
+
+\noindent\textbf{Comparison of Detection Performance.}
+Table~\ref{tab:perf} presents a comparative analysis of the detection performance achieved by our proposed \emph{QCTF} model against a variety of existing models on the OPV2V~\cite{opv2v}, V2XSet~\cite{v2x-vit}, and V2V4Real~\cite{v2v4} test datasets under ideal conditions. To facilitate this comparison, we establish a baseline without collaborative fusion and contrast it with two distinct fusion strategies: late fusion using minimal data and early fusion utilizing raw sensor data.
+We benchmark \emph{QCTF} against a wide range of SOTA methods, including CodeFilling~\cite{codefilling}, CoBEVT~\cite{cobevt} and V2X-ViT~\cite{v2x-vit}, to provide a comprehensive evaluation. 
+ Generally, our model significantly outperforms early and late fusion by large margins and achieves average improvements of 6.79\DIFaddbegin \DIFadd{$\%$}\DIFaddend /8.39$\%$ in AP@0.5/0.7 compared with early fusion strategy across the four test datasets.
+ More importantly, we surpass the SOTA performance \DIFdelbegin \DIFdel{both in }\DIFdelend \DIFaddbegin \DIFadd{in both }\DIFaddend the simulated and real-world scenarios, with gains of 0.29\%/1.54\% and 1.03\%/1.5\DIFdelbegin \DIFdel{\ }\DIFdelend \DIFaddbegin \DIFadd{\% }\DIFaddend in AP@0.5/0.7 on the default towns and V2V4Real datasets. 
+This superior performance is achieved through the use of quantized messages and various aggregation operations between agents, demonstrating the effectiveness and practicality of \emph{QCTF} compared to previous collaborative methods.
+
+
+
+\begin{table}[htbp]
+  \DIFaddbeginFL \vspace{-10pt}
+\DIFaddendFL \centering
+  \caption{Object detection results on the OPV2V~\cite{opv2v}, V2XSet~\cite{v2x-vit} and V2V4Real~\cite{v2v4} datasets without adding additional noises. The results are reported in AP@0.5/0.7.}
+  \resizebox{\linewidth}{!}{%
+    \begin{tabular}{*{5}{c}}
+      \toprule
+      Method                   &  Default  Towns   & Culver City  & V2XSet & V2V4Real   \\
+      \midrule
+      No Collaboration     & 67.84/60.28          & 55.68/47.12    & 60.59/40.27 &  39.72/22.08      \\
+      Early Collaboration   & 89.13/80.02          & 82.84/69.53   & 81.95/70.69 &  59.70/32.12             \\
+      Late Collaboration   & 85.74/78.17          & 79.84/64.92    & 72.77/62.85 &  54.98/26.72       \\
+F-Cooper~\cite{chenFCooperFeatureBased2019} & 88.73/79.14&	84.53/70.82& 83.97/72.92&	 
+ 60.65/31.77   \\   
+DiscoNet~\cite{liLearningDistilled}  & 89.91/82.27 &	87.14/72.94	 & 85.52/74.57 &	59.87/30.25 \\
+AttnFuse~\cite{opv2v} & 90.52/81.62&	85.25/73.58 & 87.74/76.36 & 64.45/34.33  \\
+V2VNet~\cite{v2vnet} & 89.71/80.89 &	 86.16/73.42 & 90.51/80.17 & 64.72/33.64 \\
+When2comm~\cite{liuWhen2comMultiAgentPerception2020} & 89.51/75.66 & 80.39/60.59 & 83.38/65.32 & 60.48/30.32\\
+Where2comm~\cite{Where2comm}&88.74/82.62&	85.94/72.34&	87.91/76.96&63.46/32.56\\
+V2X-ViT~\cite{v2x-vit} & 90.02/82.81&87.24/73.26&88.65/78.34&64.88/36.92 \\
+ CoBEVT~\cite{cobevt} & 92.32/84.98&86.02/74.87&88.19/77.32&66.53/36.02\\
+AdaFusion~\cite{Qiao_2023_WACV}   & 91.58/85.47&	87.63/78.42&	87.63/76.62&	60.86/32.26\\
+CodeFilling~\cite{codefilling} & 89.76/83.36&86.84/75.84&88.72/78.33	&62.96/32.77 \\
+\textbf{QCTF(ours)} & \textbf{93.01/86.72} & \textbf{88.76/79.36} & \textbf{91.46/81.25} & \textbf{67.56/38.62} \\
+      \bottomrule
+    \end{tabular}
+    }			
+  \label{tab:perf}
+  \DIFaddbeginFL \vspace{-10pt}
+\DIFaddendFL \end{table}
+
+
+\noindent\textbf{Comparison of Communication Volume.} Achieving an optimal performance-bandwidth trade-off is critical for collaborative perception systems. To evaluate this trade-off, we conducted experiments assessing perception performance under different communication bandwidths. \DIFdelbegin \DIFdel{Fig.~\ref{fig:comm_result}illustrates the detection results of various methodsby varying bandwidth conditions.
+Several methods have demonstrated strong performance by utilizing }\DIFdelend \DIFaddbegin \DIFadd{As shown in Fig.\ref{fig:comm_result}, several existing methods, such as AdaFusion\mbox{%DIFAUXCMD
+\cite{Qiao_2023_WACV} }\hskip0pt%DIFAUXCMD
+and V2VNet~\mbox{%DIFAUXCMD
+\cite{v2vnet}}\hskip0pt%DIFAUXCMD
+, achieve competitive performance by transmitting }\DIFaddend all intermediate features without selection\DIFdelbegin \DIFdel{, but they may not be robust in dynamic }\DIFdelend \DIFaddbegin \DIFadd{. However, their reliance on full-feature transmission makes them less adaptable and potentially inefficient in dynamic or bandwidth-constrained }\DIFaddend communication environments.
+\DIFaddbegin \DIFadd{To compare against traditional feature compression approaches, we adapt three extendable models, including Attentive Fusion~\mbox{%DIFAUXCMD
+\cite{opv2v}}\hskip0pt%DIFAUXCMD
+, CoBEVT~\mbox{%DIFAUXCMD
+\cite{cobevt}}\hskip0pt%DIFAUXCMD
+, and V2X-ViT~\mbox{%DIFAUXCMD
+\cite{v2x-vit} }\hskip0pt%DIFAUXCMD
+by integrating different autoencoders~\mbox{%DIFAUXCMD
+\cite{bank2023autoencoders} }\hskip0pt%DIFAUXCMD
+to reduce the spatial and channel dimensions of transmitted features. However, this integration modifies the original architectures, requires retraining, and lacks the flexibility for dynamic bandwidth adaptation during inference. Moreover, we observe a sharp performance drop as the feature volume decreases, mainly because autoencoder-based compression relies solely on convolutional and deconvolutional operations, without explicitly selecting information critical to the ego agent.
+}\DIFaddend In contrast, \emph{QCTF} \DIFdelbegin \DIFdel{achieves a superior performance-bandwidth }\DIFdelend \DIFaddbegin \DIFadd{enables dynamic bandwidth adjustment by simply varying the number of transmitted channels—without retraining—and incurs minimal communication overhead due to its compact index-based transmission.
+Furthermore, }\emph{\DIFadd{QCTF}} \DIFadd{consistently demonstrates a superior performance-to-bandwidth }\DIFaddend trade-off compared to CodeFilling~\cite{codefilling} and Where2comm~\cite{Where2comm} \DIFdelbegin \DIFdel{across all bandwidth conditions. It matches the perception performance of no-selection models while using less communication volume.
+The reasonable explanations are}\DIFdelend \DIFaddbegin \DIFadd{under all evaluation scenarios. It achieves comparable perception accuracy while notably reducing communication overhead.
+This improvement is attributed to}\DIFaddend : (\romannumeral1) \DIFdelbegin \DIFdel{: The }\DIFdelend \DIFaddbegin \DIFadd{a }\DIFaddend multi-head residual codebook \DIFdelbegin \DIFdel{design efficiently preserves critical visual informationwithin the features; }\DIFdelend \DIFaddbegin \DIFadd{that effectively retains critical spatial and semantic information; and }\DIFaddend (\romannumeral2) \DIFdelbegin \DIFdel{: The diversity loss and entropy loss minimize redundant information, enhancing codebook utilizationand enabling richer semantic representations within the same bandwidthconstraints}\DIFdelend \DIFaddbegin \DIFadd{the use of diversity and entropy losses, which suppress redundancy and improve codebook utilization, allowing for more expressive feature representations under limited bandwidth}\DIFaddend .
+
+\DIFaddbegin \begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=0.95\linewidth]{detection_result.eps}
+    \caption{\DIFaddFL{Qualitative object detection results in the long-range, occluded and real-world scenario from OPV2V~\mbox{%DIFAUXCMD
+\cite{opv2v}}\hskip0pt%DIFAUXCMD
+, V2XSet~\mbox{%DIFAUXCMD
+\cite{v2x-vit} }\hskip0pt%DIFAUXCMD
+and V2V4Real~\mbox{%DIFAUXCMD
+\cite{v2v4} }\hskip0pt%DIFAUXCMD
+dataset with a noise level of 0.2/0.4. The traffic scenarios involve a three-way intersection, long-distance perception, and a dense parking lot.
+    The \textcolor{green}{green} and \textcolor{red}{red} boxes indicate 3D ground truths and detection results, respectively. }}
+    \label{fig:detection_results}
+    \vspace{-12pt}
+\end{figure*}
+\DIFaddend \noindent\textbf{Robustness to Localization and Heading Errors.}
+To evaluate the robustness of collaborative object detection against natural pose errors, we systematically introduce different levels of $\delta_{l/h}$ to simulate these noises. 
+From Table.~\ref{tab:pose_error}, it is clear that increasing errors lead to a consistent degradation in collaborative perception performance. Many methods become less effective when the $\delta_l/\delta_{h}$ errors exceed 0.4. 
+Specifically, F-Cooper~\cite{chenFCooperFeatureBased2019} and Where2comm~\cite{Where2comm} exhibit substantial performance drop under increased noise levels, even performing worse than non-collaborative baselines in extreme cases. In contrast, our approach consistently surpasses these methods across all noise levels, underlining its robustness to feature misalignment and its superior representational capability.
+Notably, our method achieves improvements of 4.74\% and 3.63\% on the OPV2V and V2XSet benchmarks, respectively, under pose error levels of 0.4 and 0.6. These results demonstrate the superior performance of our approach in handling both homogeneous and heterogeneous agent communication scenarios. 
+%DIF < The superior performance can be attributed to the following factors: (\romannumeral1) the compact and robust quantized representation, which effectively alleviates the impact of feature misalignment; and (\romannumeral2) the integration of multi-scale patch-wise attention and agent-wise attention with different query weighting, enabling the model to capture critical semantic information tailored to different agent types.
+\DIFaddbegin \DIFadd{The superior performance can be attributed to the following factors: (}\romannumeral1\DIFadd{) the compact and robust quantized representation, which effectively alleviates the impact of feature misalignment; and (}\romannumeral2\DIFadd{) the integration of multi-scale patch-wise attention and agent-wise attention with different query weighting, enabling the model to capture critical semantic information tailored to different agent types.
+}\DIFaddend \begin{table}[ht]
+    \DIFaddbeginFL \vspace{-5pt}
+  \DIFaddendFL \caption{Object detection results on the OPV2V and V2XSet by varying pose errors. The results are reported in AP@0.7.}
+  \centering
+  \resizebox{\linewidth}{!}{%
+  \begin{tabular}{*{4}{c}|*{3}{c}}
+    \toprule
+    Method                 & \multicolumn{3}{c}{OPV2V}       & \multicolumn{3}{c}{V2XSet}         \\
+    \midrule
+    Pose Error Level $\delta_{l}/\delta_{h}$(m/$^\circ$) & 0.1/0.2 & 0.2/0.4 & 0.4/0.6& 0.1/0.2&  0.2/0.4 & 0.4/0.6 \\
+    \midrule
+    F-Cooper~\cite{chenFCooperFeatureBased2019}       & 72.82&	62.53&	39.64  &62.34&	52.67&	40.57     \\
+    AttnFuse~\cite{opv2v}   &76.53&	69.42&	51.74 & 66.37&	60.38&	49.83      \\
+    V2VNet~\cite{v2vnet}  & 76.25&	70.42&	53.82&67.41&62.66&	51.84       \\	
+    CoBEVT~\cite{cobevt}    &79.13&71.85&	48.38& 67.27&	60.74&	50.92   \\
+    V2X-ViT~\cite{v2x-vit}  & 77.36&69.96&	60.63&68.92&62.37&	52.61    \\		
+    Where2comm~\cite{Where2comm} & 73.65&	68.75&49.98& 62.14&	57.86&	47.92 \\
+    CodeFilling~\cite{codefilling} &76.72 &	67.42&	52.71  &   66.97&	59.32&	50.78       \\
+    \textbf{QCTF(ours)} & \textbf{79.92}      & \textbf{73.92} & \textbf{65.37} & 
+    \textbf{74.08}&\textbf{67.42}&\textbf{55.47}  \\
+    \bottomrule	
+  \end{tabular}		
+  }
+  \label{tab:pose_error}
+  % \vspace{-0.3cm}
+  \vspace{-5pt}
+\end{table}
+
+
+\DIFdelbegin %DIFDELCMD < \begin{figure*}[htbp]
+%DIFDELCMD <     %%%
+\DIFdelendFL \DIFaddbeginFL \noindent\textbf{\DIFaddFL{Robustness to Transmission delay.}} 
+\DIFaddFL{The presence of transmission delays results in the fusion module operating on temporally outdated information, which undermines the system’s real-time responsiveness. To evaluate the impact of delay, we report object detection performance in terms of AP@0.7 under different transmission delays, as shown in Fig.~\ref{tab:time_delay}. Overall, all methods suffer a performance degradation of approximately 10\%-20\% in AP@0.7 when the delay reaches 300 ms. In contrast, our method consistently outperforms existing approaches by around 2\% by AP@0.7 across all delay levels, and notably maintains strong performance even under a 300 ms delay. 
+This robustness to temporal misalignment is driven by the proposed patch-wise and agent-wise attention module, which incorporates multi-scale feature fusion. Additionally, the learnable shared codebook captures the structure of transmitted features and preserves temporal context, enhancing the model's ability to effectively leverage historical information and mitigate the impact of transmission delays. 
+}
+
+\begin{table}[ht]
+    \vspace{-15pt}
+  \caption{\DIFaddFL{Object detection results on the OPV2V~\mbox{%DIFAUXCMD
+\cite{opv2v} }\hskip0pt%DIFAUXCMD
+and V2XSet~\mbox{%DIFAUXCMD
+\cite{v2x-vit} }\hskip0pt%DIFAUXCMD
+under different transmission delays. The results are reported in AP@0.7.}}
+  \DIFaddendFL \centering
+  \DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.92\linewidth]{detection_result.eps}
+%DIFDELCMD <     %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Qualitative object detection results in the long-range, occluded and real-world scenario from OPV2V~\mbox{%DIFAUXCMD
+\cite{opv2v}}\hskip0pt%DIFAUXCMD
+, V2XSet~\mbox{%DIFAUXCMD
+\cite{v2x-vit} }\hskip0pt%DIFAUXCMD
+and V2V4Real~\mbox{%DIFAUXCMD
+\cite{v2v4} }\hskip0pt%DIFAUXCMD
+dataset with a noise level of 0.2/0.4. The \textcolor{green}{green} and \textcolor{red}{red} boxes indicate 3D ground truths and detection results, respectively. }}
+    %DIFAUXCMD
+%DIFDELCMD < \label{fig:detection_results}
+%DIFDELCMD < \end{figure*}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \resizebox{\linewidth}{!}{%
+  \begin{tabular}{*{4}{c}|*{3}{c}}
+    \toprule
+    Method                 & \multicolumn{3}{c}{OPV2V}       & \multicolumn{3}{c}{V2XSet}         \\
+    \midrule
+    Transmission delays ($s$) & 0.1 & 0.2 & 0.3& 0.1&  0.2 & 0.3 \\
+    \midrule
+    F-Cooper~\cite{chenFCooperFeatureBased2019} & 70.09 & 60.67& 49.87  &66.32&	52.62&	48.55 \\
+    AttnFuse~\cite{opv2v}   &76.49&68.84&	58.64 & 68.36&	61.98&	54.83      \\
+    V2VNet~\cite{v2vnet}  & 74.13&	66.74&	56.82& 72.45& 62.71&	55.29       \\	
+    CoBEVT~\cite{cobevt}    &77.17&70.65&65.51& 70.23&	61.42&	56.37   \\
+    V2X-ViT~\cite{v2x-vit}  &76.86&71.17&66.34&73.32&68.17&	60.69   \\		
+    Where2comm~\cite{Where2comm} & 74.74&	66.53&59.37&71.14&	65.78&	57.83 \\
+    CodeFilling~\cite{codefilling} & 76.12 & 70.68&	66.73  &  72.45& 67.28& 59.48	      \\
+    \textbf{QCTF(ours)} & \textbf{79.43}      & \textbf{72.63} & \textbf{68.42} & 
+    \textbf{75.84}&\textbf{70.43}&\textbf{63.73}  \\
+    \bottomrule	
+  \end{tabular}		
+  }
+  \label{tab:time_delay}
+  %DIF >  \vspace{-0.3cm}
+      \vspace{-8pt}
+\end{table}
+\DIFaddend 
+
+
+
+\noindent\textbf{Comparison of simulation-to-reality domain adaptation.}
+To \DIFdelbegin \DIFdel{thoroughly }\DIFdelend evaluate the domain adaptation capability of our model, we compare it with \DIFdelbegin \DIFdel{the domain adaptation method }\DIFdelend DUSA~\cite{DUSA}\DIFdelbegin \DIFdel{and SOTA collaborative models equipped with naive domain adaptation techniques~\mbox{%DIFAUXCMD
+\cite{8578450}}\hskip0pt%DIFAUXCMD
+. }\DIFdelend \DIFaddbegin \DIFadd{, standard adaptation baselines~\mbox{%DIFAUXCMD
+\cite{8578450}}\hskip0pt%DIFAUXCMD
+, and representative collaborative perception models trained directly on the target domain (real-world data). We also assess generalization by reporting each method’s performance on the source domain. }\DIFaddend For reference, we include \DIFdelbegin \DIFdel{baseline results where }\DIFdelend \DIFaddbegin \DIFadd{results from }\DIFaddend \emph{QCTF} \DIFdelbegin \DIFdel{is trained exclusively }\DIFdelend \DIFaddbegin \DIFadd{trained solely }\DIFaddend on the OPV2V~\cite{opv2v} dataset \DIFdelbegin \DIFdel{without adaptation, serving as a lower bound, }\DIFdelend \DIFaddbegin \DIFadd{(lower bound) }\DIFaddend and models trained \DIFdelbegin \DIFdel{solely on the }\DIFdelend \DIFaddbegin \DIFadd{only on real-world }\DIFaddend V2V4Real~\cite{v2v4} \DIFdelbegin \DIFdel{dataset, serving as an upper bound. All models are evaluated on the V2V4Real dataset~\mbox{%DIFAUXCMD
+\cite{v2v4} }\hskip0pt%DIFAUXCMD
+to assess their domain adaptation performance.
+}\DIFdelend \DIFaddbegin \DIFadd{data (upper bound).
+}\DIFaddend As shown in Table~\ref{tab:domain_adaptation}, the \DIFdelbegin \DIFdel{reality-trained model intuitively achieves optimal performance, and }\DIFdelend \DIFaddbegin \DIFadd{real-data-trained model performs best on the target domain, as expected. Remarkably, }\DIFaddend \emph{QCTF} \DIFdelbegin \DIFdel{surpasses previous methods using naive adapters and DUSA~\mbox{%DIFAUXCMD
+\cite{DUSA}}\hskip0pt%DIFAUXCMD
+, validating the effectiveness of the proposed multi-scale discriminators. }\emph{\DIFdel{QCTF}} %DIFAUXCMD
+\DIFdel{shows a significant improvement over both the baseline method and the naive adapter, with a remarkable }\DIFdelend \DIFaddbegin \DIFadd{outperforms both the naive adaptation baseline and the strong DUSA~\mbox{%DIFAUXCMD
+\cite{DUSA} }\hskip0pt%DIFAUXCMD
+approach, achieving }\DIFaddend 19.83\% and 4.46\% \DIFdelbegin \DIFdel{increase }\DIFdelend \DIFaddbegin \DIFadd{improvements }\DIFaddend in AP@\DIFdelbegin \DIFdel{50, revealing its superior domain adaptation capability.
+%DIF < By integrating patch, agent, and instance-wise semantic discriminators with their corresponding feature fusion modules, we achieve efficient domain adaptation.
+This approach demonstrates that using straightforward discriminatorsand loss functions can effectively minimize feature discrepancies while maintaining low model complexity. }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{0.5, respectively, highlighting its superior cross-domain generalization.
+This improvement is attributed to our multi-scale domain discriminators, which perform alignment at different semantic levels: patch-wise for local spatial features, agent-wise for inter-agent representations, and instance-wise for object-level semantics. These discriminators collaboratively reduce domain discrepancies and are optimized using gradient reversal layers to encourage domain-invariant feature learning.
+Moreover, models trained exclusively on real-world data, such as V2X-ViT~\mbox{%DIFAUXCMD
+\cite{v2x-vit} }\hskip0pt%DIFAUXCMD
+and CoBEVT~\mbox{%DIFAUXCMD
+\cite{cobevt}}\hskip0pt%DIFAUXCMD
+, perform poorly on simulated data, highlighting a large domain gap. This is primarily due to the scarcity and noise present in real-world datasets, which restrict their ability to generalize to clean, simulated environments.
+Although DUSA~\mbox{%DIFAUXCMD
+\cite{DUSA} }\hskip0pt%DIFAUXCMD
+mitigates the domain gap by selectively aggregating informative ego-agent features, its improvement remains limited due to its exclusive focus on ego-centric features and reliance on a single spatial scale.
+Furthermore, while naive adaptation methods preserve moderate detection performance on the source domain, our approach achieves a substantially higher AP@0.5 with a 9.46\% gain. This reflects the effectiveness of our multi-scale discriminators in learning robust, domain-invariant representations that enhance both source domain retention and target domain generalization.
+}\DIFaddend \begin{table}[htbp]
+\centering
+  \DIFaddbeginFL \vspace{-10pt}
+  \DIFaddendFL \caption{Object detection \DIFdelbeginFL \DIFdelFL{results }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{performance }\DIFaddendFL on the V2V4Real~\cite{v2v4} \DIFdelbeginFL \DIFdelFL{dataset to evaluate }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{and OPV2V~\mbox{%DIFAUXCMD
+\cite{opv2v} }\hskip0pt%DIFAUXCMD
+datasets, demonstrating }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{simulation-to-reality }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{effectiveness of }\DIFaddendFL domain adaptation \DIFdelbeginFL \DIFdelFL{ability}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{from simulation to reality and the model’s generalization capability}\DIFaddendFL .
+  The results are reported in AP@0.5.}
+  \centering
+    \begin{tabular}{*{3}{c}}
+      \toprule
+      Method     & \DIFdelbeginFL \DIFdelFL{AP@50   }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{V2V4Real }& \DIFaddFL{OPV2V  }\DIFaddendFL \\
+      \midrule
+       F-Cooper~\cite{chenFCooperFeatureBased2019}  & 37.32 \DIFaddbeginFL & \DIFaddFL{11.27           }\DIFaddendFL \\
+      AttnFuse~\cite{opv2v}   & 26.67  \DIFaddbeginFL &   \DIFaddFL{14.64   }\DIFaddendFL \\
+      V2VNet~\cite{v2vnet}   & 28.45  \DIFaddbeginFL &   \DIFaddFL{12.13 }\DIFaddendFL \\
+      V2X-ViT~\cite{v2x-vit}    & 39.78  \DIFaddbeginFL &    \DIFaddFL{13.42     }\DIFaddendFL \\
+      CoBEVT~\cite{cobevt}        & 40.16   \DIFaddbeginFL &    \DIFaddFL{13.29       }\DIFaddendFL \\
+      DUSA~\cite{DUSA}        & 38.65   \DIFaddbeginFL &     \DIFaddFL{18.23         }\DIFaddendFL \\
+      \midrule
+      QCTF(reality-trained)    & 67.56\DIFaddbeginFL & \DIFaddFL{13.56  }\DIFaddendFL \\
+      QCTF(\DIFdelbeginFL \DIFdelFL{No }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{no }\DIFaddendFL adaptation)      & 23.35   \DIFaddbeginFL & \DIFaddFL{93.01    }\DIFaddendFL \\
+      QCTF(naive adapters~\cite{8578450})   & 38.72 \color{gray}{(+15.37)}  \DIFaddbeginFL &     \DIFaddFL{62.38 }\DIFaddendFL \\
+    QCTF(Ours)     & \textbf{43.18} \color{gray}{(+19.83)}  \DIFaddbeginFL &  \DIFaddFL{71.84     }\DIFaddendFL \\
+      \bottomrule
+    \end{tabular}
+  \label{tab:domain_adaptation}
+  \DIFaddbeginFL \vspace{-18pt}
+\DIFaddendFL \end{table}
+
+
+\DIFdelbegin %DIFDELCMD < \begin{figure*}[htbp]
+%DIFDELCMD <     \centering
+%DIFDELCMD <     \includegraphics[width=0.9\linewidth]{representation.eps}
+%DIFDELCMD <     %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{(a) Visualization of quantized features, (b-c) the spatial saliency maps of the collaborator and ego agent, and (d) the collaborative detection results. The \textcolor{green}{green}, \textcolor{red}{red}, and \textcolor{yellow}{yellow} boxes denote 3D ground truths, detection results, and the communicated agents, respectively.}}
+    %DIFAUXCMD
+%DIFDELCMD < \label{fig:repr}
+%DIFDELCMD < \end{figure*}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \subsection{Qualitative evaluation}
+\noindent\textbf{Visualization of detection results.} 
+To \DIFdelbegin \DIFdel{offer a more intuitive illustration of the performancedifferences}\DIFdelend \DIFaddbegin \DIFadd{provide an intuitive comparison of detection performance}\DIFaddend , we visualize the \DIFdelbegin \DIFdel{detection }\DIFdelend results of \emph{QCTF} \DIFdelbegin \DIFdel{in comparison to other models. From }\DIFdelend \DIFaddbegin \DIFadd{against other baselines in }\DIFaddend Fig.~\ref{fig:detection_results}\DIFdelbegin \DIFdel{, although all methods produce satisfactory results, our approach achieves }\DIFdelend \DIFaddbegin \DIFadd{. While all methods generate reasonable predictions, }\emph{\DIFadd{QCTF}} \DIFadd{produces }\DIFaddend more accurate and \DIFdelbegin \DIFdel{robust detection compared to previous SOTA methods, with predicted bounding boxes that are closely aligned with the ground truths.
+Notably, AttnFuse~\mbox{%DIFAUXCMD
+\cite{opv2v} }\hskip0pt%DIFAUXCMD
+struggles to detect fast-moving objects, while }\DIFdelend \DIFaddbegin \DIFadd{complete detections, particularly under challenging conditions.
+A representative case is observed in the long-range and occluded scenarios from OPV2V~\mbox{%DIFAUXCMD
+\cite{opv2v} }\hskip0pt%DIFAUXCMD
+and V2XSet~\mbox{%DIFAUXCMD
+\cite{v2x-vit}}\hskip0pt%DIFAUXCMD
+, where existing methods, including Attentive Fusion~\mbox{%DIFAUXCMD
+\cite{opv2v} }\hskip0pt%DIFAUXCMD
+and V2X-ViT~\mbox{%DIFAUXCMD
+\cite{v2x-vit}}\hskip0pt%DIFAUXCMD
+, consistently fail to detect distant vehicles. In contrast, }\DIFaddend \emph{QCTF} \DIFdelbegin \DIFdel{demonstrates superior collective understandingin long-range and occluded scenarios. By leveraging quantized messages and multi-scale patches, }\DIFdelend \DIFaddbegin \DIFadd{achieves better alignment with ground truths, demonstrating its ability to capture the surrounding context and form a more comprehensive scene understanding. This improvement stems from the sparsity of point clouds at longer ranges, with }\DIFaddend \emph{QCTF} \DIFdelbegin \DIFdel{enables a more holistic perception as the number of collaborators increases. These qualitative results confirm }\emph{\DIFdel{QCTF}}%DIFAUXCMD
+\DIFdel{'s ability to deliver accurate and robust perception in both simulated and real-world environments, even in the presence of additional noise.
+}\DIFdelend \DIFaddbegin \DIFadd{utilizing multi-scale feature quantization and ego query features to compensate for the ego agent’s limited perception, enabling it to detect occluded and distant objects. Additionally, the multi-head patch-wise and agent-wise attention mechanisms enable the system to adaptively integrate local and cross-agent information, leading to a more accurate and comprehensive scene understanding.
+Moreover, in the dense parking lot scenario, most baseline methods either miss nearby vehicles or suffer from high false positive rates. For instance, while CoBEVT~\mbox{%DIFAUXCMD
+\cite{cobevt} }\hskip0pt%DIFAUXCMD
+employs fused axial attention to capture multi-scale spatial interactions across views and agents, successfully detecting many vehicles, but at the cost of introducing numerous false alarms.
+In contrast, our method accurately detects all objects with only a few false positives. We attribute this improvement to the hierarchical MRF codebook, which serves as a memory to model feature distributions. Once trained, it effectively corrects spatial misalignment and motion errors, thereby enhancing overall detection accuracy.
+}\DIFaddend 
+
+\DIFaddbegin \begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=1.0\linewidth]{representation.eps}
+    \caption{\DIFaddFL{(a) Visualization of quantized features; (b–c) spatial saliency maps of the collaborator and ego agent, respectively; (d) collaborative detection results. The \textcolor{green}{Green}, \textcolor{red}{red}, and \textcolor{yellow}{yellow} boxes represent 3D ground truths, predicted bounding boxes, and the communicated agents, respectively. In (d), agents 1872 and 1045 are selected as the ego vehicles, while all other vehicles correspond to the detected objects.}}
+    \label{fig:repr}
+    \vspace{-12pt}
+\end{figure*}
+
+
+\DIFaddend \noindent\textbf{Visualization of quantized representation and spatial saliency.}
+To investigate the transmitted features and their impact on detection results, we visualize the quantized information and simultaneously use Grad-CAM~\cite{8237336} to assess the importance of these features as shown in Fig.~\ref{fig:repr}. The quantized features are generated using the hierarchical MRF quantization method, which relies on shared code indices for efficient representation, while the saliency maps reflect the contribution of different spatial locations to the final collaborative detections. Our analysis reveals that quantized features effectively represent the environment with reduced data transmission requirements. In addition, the local features from collaborating agents enhance the ego agent's perception by mitigating occlusions and extending its perception capabilities, resulting in improved detection accuracy. By \DIFdelbegin \DIFdel{utilizing }\DIFdelend \DIFaddbegin \DIFadd{employing }\DIFaddend indices for feature representation and reconstruction, we \DIFdelbegin \DIFdel{achieve lower }\DIFdelend \DIFaddbegin \DIFadd{reduce }\DIFaddend bandwidth usage while \DIFdelbegin \DIFdel{compensating for }\DIFdelend \DIFaddbegin \DIFadd{effectively addressing }\DIFaddend the ego agent's blind spots. Robust communication representations, \DIFdelbegin \DIFdel{combined }\DIFdelend \DIFaddbegin \DIFadd{coupled }\DIFaddend with multi-scale cross-agent fusion, \DIFdelbegin \DIFdel{effectively provide }\DIFdelend \DIFaddbegin \DIFadd{further facilitate the provision of }\DIFaddend complementary visual information.
+
+
+\subsection{Ablation studies}
+\noindent\textbf{Effectiveness of Core Components.}
+To \DIFdelbegin \DIFdel{analyze the contributions }\DIFdelend \DIFaddbegin \DIFadd{evaluate the effectiveness }\DIFaddend of each core \DIFdelbegin \DIFdel{module }\DIFdelend \DIFaddbegin \DIFadd{component }\DIFaddend in \emph{QCTF}, we \DIFdelbegin \DIFdel{conducted experiments by progressively incorporating these }\DIFdelend \DIFaddbegin \DIFadd{perform ablation studies by incrementally integrating }\DIFaddend modules on the OPV2V~\cite{opv2v} and V2XSet~\cite{v2x-vit} datasets. \DIFdelbegin \DIFdel{The backbone network of our model, paired with the proposed channel fusion strategy , serves }\DIFdelend \DIFaddbegin \DIFadd{We begin with the backbone network and our channel-wise fusion strategy }\DIFaddend as the baseline. \DIFdelbegin \DIFdel{As shown }\DIFdelend \DIFaddbegin \DIFadd{Then, we progressively integrate the feature fusion modules followed by the feature compression and selection modules. The quantitative results are presented }\DIFaddend in Table~\ref{tab:ablation}\DIFdelbegin \DIFdel{, the multi-head patch attention and heterogeneous }\DIFdelend \DIFaddbegin \DIFadd{.
+We observe that the feature fusion modules, including }\textit{\DIFadd{PAM}} \DIFadd{and }\textit{\DIFadd{AAM}}\DIFadd{, contribute significantly to detection performance (approximately 8\%/10\% in AP@0.5/0.7), indicating their effectiveness in enhancing }\DIFaddend cross-agent \DIFdelbegin \DIFdel{interaction using ego queries notably boost performance.
+Additionally, the self-supervised reconstruction-based selection further improves detection accuracy , which }\DIFdelend \DIFaddbegin \DIFadd{representation learning.
+This suggests that encoding features within multi-scale spatial regions for each agent before fusion helps preserve critical local information, thereby improving the effectiveness of collaborative perception. 
+Moreover, in the }\textit{\DIFadd{AAM}} \DIFadd{module, aggregating cross-agent attention enhances detection accuracy by focusing on the information most beneficial to the ego agent.
+In contrast, the feature compression and selection modules, including }\textit{\DIFadd{HMRF}} \DIFadd{and }\textit{\DIFadd{CSS}}\DIFadd{, offer relatively smaller improvements in detection accuracy (approximately 5\%/2\% in AP@0.5/0.7). This }\DIFaddend can be attributed to \DIFdelbegin \DIFdel{the implicit aggregation of information during the communication procedure. 
+The consistent improvement across both datasets highlights the effectiveness of each proposed component.
+}\DIFdelend \DIFaddbegin \DIFadd{using ego queries during the selection process, which enhances the relevance of transmitted features. 
+Additionally, as training progresses, the multi-head codebook in }\textit{\DIFadd{HMRF}} \DIFadd{gradually learns the underlying distribution of the features, which helps to reduce quantization errors over time. 
+Although the accuracy gains are more modest, these modules are crucial in reducing communication overhead by transmitting compact indices instead of high-dimensional feature maps, which is essential for efficient collaborative perception under bandwidth constraints.
+}
+
+
+\DIFaddend \begin{table}[htbp]
+    \DIFaddbeginFL \vspace{-10pt}
+  \DIFaddendFL \caption{Ablation study results of the proposed core components on OPV2V (including Culver City)~\cite{opv2v} and V2XSet~\cite{v2x-vit}.
+  \textbf{PAM}: Patch-wise attention module; \textbf{AAM}: Agent-wise attention module; \DIFdelbeginFL \textbf{\DIFdelFL{HMFR}}%DIFAUXCMD
+\DIFdelendFL \DIFaddbeginFL \textbf{\DIFaddFL{HMRF}}\DIFaddendFL : hierarchical MRF module; \textbf{CSS}: channel-aware selection strategy.
+  The detection results are reported in AP@0.5/0.7.}
+  \centering
+   \DIFdelbeginFL %DIFDELCMD < \resizebox{\linewidth}{!}{%
+%DIFDELCMD <     \begin{tabular}{ccccccc}
+%DIFDELCMD <       \toprule
+%DIFDELCMD <        PAM & AAM & HMRF& CSS & Default Towns  & Culver City   & V2XSet  \\ \midrule
+%DIFDELCMD <             &   &   &       &  78.57/67.42          &  74.22/62.54 &   76.32/64.87                \\
+%DIFDELCMD <       \CheckmarkBold      &           &      &    &  82.34/76.65 &  79.31/68.47&  78.84/69.82       \\
+%DIFDELCMD <       \CheckmarkBold      & \CheckmarkBold   & &   &  88.53/84.67    &   83.77/76.97   & 84.95/75.48 \\
+%DIFDELCMD <       \CheckmarkBold      & \CheckmarkBold       & \CheckmarkBold &  & 91.74/86.14   &  86.16/77.42  & 89.72/78.16    \\
+%DIFDELCMD <       \CheckmarkBold      & \CheckmarkBold       & \CheckmarkBold & \CheckmarkBold   & 93.01/86.72 & 88.76/79.36  &  91.46/81.25           \\
+%DIFDELCMD <        \bottomrule
+%DIFDELCMD <     \end{tabular}
+%DIFDELCMD <     }
+%DIFDELCMD <   %%%
+\DIFdelendFL \DIFaddbeginFL \resizebox{\linewidth}{!}{%
+    \begin{tabular}{ccccccc}
+      \toprule
+      PAM   &AAM  & HMRF& CSS & Default Towns  & Culver City   & V2XSet  \\ \midrule
+            &   &   &       &  78.57/67.42          &  74.22/62.54 &   76.32/64.87                \\
+      \CheckmarkBold      &           &      &    &  82.34/76.65 &  79.31/68.47&  78.84/69.82       \\
+      \CheckmarkBold      & \CheckmarkBold   & &   &  88.53/84.67    &   83.77/76.97   & 84.95/75.48 \\
+      \CheckmarkBold      & \CheckmarkBold       & \CheckmarkBold &  & 91.74/86.14   &  86.16/77.42  & 89.72/78.16    \\
+      \CheckmarkBold      & \CheckmarkBold       & \CheckmarkBold & \CheckmarkBold   & 93.01/86.72 & 88.76/79.36  &  91.46/81.25           \\
+       \bottomrule
+    \end{tabular}
+    }
+  \DIFaddendFL \label{tab:ablation}
+  \DIFdelbeginFL %DIFDELCMD < \vspace{-0.3cm}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \vspace{-12pt}
+\DIFaddendFL \end{table}
+
+\DIFdelbegin \DIFdel{Furthermore, }\DIFdelend Table~\ref{tab:ablation_fuse} compares \DIFdelbegin \DIFdel{various fusion methods applied to processed }\DIFdelend \DIFaddbegin \DIFadd{fusion methods for }\DIFaddend multi-source features. \DIFdelbegin \DIFdel{The results reveal that straightforward operations like summation or max pooling fall short of fully utilizing the complementary information from collaborators}\DIFdelend \DIFaddbegin \DIFadd{While averaging, max pooling, and summation are computationally efficient, their inability to discriminate feature quality and preserve context limits their effectiveness. Averaging dilutes important signals by assigning equal weight to all features, max pooling focuses solely on the strongest activations while ignoring valuable context, and sum fusion fails to account for variations in feature scale or quality, resulting in unbalanced representations}\DIFaddend .
+In contrast \DIFdelbegin \DIFdel{, our method }\DIFdelend \DIFaddbegin \DIFadd{to simply summing or maximizing features, we employ a channel fusion strategy that }\DIFaddend applies weighted adjustments to \DIFdelbegin \DIFdel{feature }\DIFdelend \DIFaddbegin \DIFadd{different }\DIFaddend channels across agents\DIFdelbegin \DIFdel{and incorporates }\DIFdelend \DIFaddbegin \DIFadd{. The primary advantage of this approach lies in its ability to perform more precise feature fusion by selectively amplifying relevant information while suppressing less important details. By leveraging the }\DIFaddend noise-free \DIFdelbegin \DIFdel{ego-agent information , effectively capturing and enhancing cross-agent semantic relationships. 
+}\DIFdelend \DIFaddbegin \DIFadd{positional information from the ego agent's features, this method enriches the semantic content of the collaboratively fused features. 
+}
+
+\DIFaddend \begin{table}[ht]
+    \DIFaddbeginFL \vspace{-10pt}
+  \DIFaddendFL \caption{Ablation study of different strategies to fuse collaborator features on OPV2V~\cite{opv2v} and V2XSet~\cite{v2x-vit}. The detection results(IoU) are reported in AP@0.7.}
+  \centering
+    \begin{tabular}{cccc}
+      \toprule
+      Fusion Strategies & Default Towns& Culver City & V2XSet \\ \midrule
+              Average Fusion &57.46 & 45.72  &  68.46   \\
+              Maximum Fusion & 67.62 & 62.31 & 70.37  \\
+              Summation Fusion &82.58 & 70.57 & 76.83 \\
+              Channel Fusion & 86.72  & 79.36  & 81.25 \\  \bottomrule
+    \end{tabular}
+    \DIFaddbeginFL \vspace{-20pt}
+  \DIFaddendFL \label{tab:ablation_fuse}
+\DIFdelbeginFL %DIFDELCMD < \vspace{-0.3cm}
+%DIFDELCMD < %%%
+\DIFdelendFL \end{table}
+
+
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{codebook_setting.eps}
+    \caption{(a-b) Ablation study results of different codebook size $C_e$ and dimension $n_e$ on OPV2V~\cite{opv2v} and V2XSet~\cite{v2x-vit}. (c) Ablation study of different channel selection rates during training on OPV2V~\cite{opv2v} and V2XSet~\cite{v2x-vit}.}
+    \label{fig:codebook_setting}
+    \DIFaddbeginFL \vspace{-12pt}
+\DIFaddendFL \end{figure*}
+\noindent\textbf{Effect of different codebook settings.}
+To \DIFdelbegin \DIFdel{investigate }\DIFdelend \DIFaddbegin \DIFadd{assess }\DIFaddend the impact of codebook design \DIFdelbegin \DIFdel{during quantization on detection results}\DIFdelend \DIFaddbegin \DIFadd{on detection performance}\DIFaddend , we conduct \DIFdelbegin \DIFdel{various tests by using different }\DIFdelend \DIFaddbegin \DIFadd{experiments with varying codebook }\DIFaddend sizes and dimensions \DIFdelbegin \DIFdel{for the codebook }\DIFdelend in the first layer of the hierarchical MRF quantization.
+As shown in Fig.~\ref{fig:codebook_setting}(a-b), \DIFdelbegin \DIFdel{we observe that as the spatial size of the quantization increases }\DIFdelend \DIFaddbegin \DIFadd{increasing the codebook size }\DIFaddend with a fixed dimension of 500 \DIFdelbegin \DIFdel{, the detection performance improves}\DIFdelend \DIFaddbegin \DIFadd{improves detection performance by capturing more diverse feature patterns}\DIFaddend . However, \DIFdelbegin \DIFdel{when the size exceeds }\DIFdelend \DIFaddbegin \DIFadd{performance gains plateau beyond a size of }\DIFaddend 128, \DIFdelbegin \DIFdel{the performance gains become negligible}\DIFdelend \DIFaddbegin \DIFadd{due to redundant or underutilized entries. We attribute this to diminishing returns when enlarging the codebook, as an excessively large codebook introduces redundancy, with many entries remaining underutilized or unupdated during training, leading to inefficiency and wasted capacity}\DIFaddend .
+Similarly, \DIFdelbegin \DIFdel{with a fixed codebook size of }\DIFdelend \DIFaddbegin \DIFadd{when fixing the codebook size at }\DIFaddend 100 \DIFdelbegin \DIFdel{, the detection performance shows limited improvement when the dimension exceeds 512. Therefore, we use a codebook of size $\mathcal{C}\in\mathbb{R}^{[512,128]}$ }\DIFdelend \DIFaddbegin \DIFadd{and increasing its dimension, quantization error is reduced by enhancing the representational capacity. However, performance improvements become marginal beyond a dimension of 512, indicating diminishing returns. While higher-dimensional embeddings capture more semantic information, they also increase storage and communication costs.
+Based on this analysis, we select a codebook size of $\mathcal{C} \in \mathbb{R}^{[512,128]}$ }\DIFaddend for the initial quantization\DIFdelbegin \DIFdel{.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{We further investigate }\DIFdelend \DIFaddbegin \DIFadd{, striking a balance between sufficient representation power and efficient transmission.
+We further analyze }\DIFaddend the impact of the channel selection rate \DIFdelbegin \DIFdel{to address information loss across channels }\DIFdelend \DIFaddbegin \DIFadd{on mitigating information loss }\DIFaddend during quantization. \DIFdelbegin \DIFdel{During training, the }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend number of transmitted feature channels is adaptively \DIFdelbegin \DIFdel{adjusted }\DIFdelend \DIFaddbegin \DIFadd{determined }\DIFaddend based on learned weights. \DIFaddbegin \DIFadd{We observe that increasing the selection rate improves detection accuracy, but gains plateau beyond a certain threshold. This saturation suggests that once the most informative channels are transmitted, additional features offer limited new information, introducing redundancy and reducing efficiency. 
+}\DIFaddend For consistency, \DIFdelbegin \DIFdel{the channel selection rate is fixed }\DIFdelend \DIFaddbegin \DIFadd{we fix the selection rate }\DIFaddend at 0.6, \DIFdelbegin \DIFdel{and the }\DIFdelend \DIFaddbegin \DIFadd{with }\DIFaddend corresponding detection performance \DIFdelbegin \DIFdel{is }\DIFdelend shown in Fig.~\ref{fig:codebook_setting}. As \DIFdelbegin \DIFdel{anticipated}\DIFdelend \DIFaddbegin \DIFadd{expected}\DIFaddend , transmitting only quantized indices \DIFdelbegin \DIFdel{results in performancedeterioration across all three test sets. However, }\DIFdelend \DIFaddbegin \DIFadd{reduces performance, but }\DIFaddend \emph{QCTF} \DIFdelbegin \DIFdel{maintains robust performance }\DIFdelend \DIFaddbegin \DIFadd{remains robust }\DIFaddend even with a zero selection rate, \DIFdelbegin \DIFdel{highlighting its resilience to varying }\DIFdelend \DIFaddbegin \DIFadd{showing strong adaptability to different }\DIFaddend channel configurations.
+\DIFdelbegin \DIFdel{These results indicate the effectiveness of }\emph{\DIFdel{QCTF}}%DIFAUXCMD
+\DIFdel{'s multi-scale quantization module, which enables appropriate and efficient multi-agent communication while striking a practical balance between communication cost and perception performance.    
+}\DIFdelend 
+
+\section{Conclusion}\label{sec:conclusion}
+In this study, we propose \emph{QCTF}, a multi-agent collaborative perception framework tailored for delivering quantized messages in noisy environments and tackling simulation-to-reality domain adaptation challenges. 
+We start by capturing robust representations and reducing redundant communication through a hierarchical quantization method. This method utilizes multi-head residual code indices and dedicated loss functions to guide codebook generation.
+Then, we enhance the quantized features by incorporating ranked channel features for adaptive communication using a channel-aware selection strategy.
+Finally, we establish relationships between patches and agents while achieving effective domain adaption with a transferable fusion module. This module adopts discriminators at different scales to reduce domain discrepancies and enhance the framework's practicality in collaborative perception.
+Extensive experiments with both simulated and real-world datasets prove the superiority and the effectiveness of our framework. 
+\DIFdelbegin \DIFdel{In the future, we will investigate }\DIFdelend \DIFaddbegin 
+
+\noindent\textbf{\DIFadd{Limitation and Future Work.}} \DIFadd{The current approach relies on codebook-based communication, which increases memory usage and requires all communicating agents to share the same model, thus complicating deployment. 
+Future work will explore the integration of }\DIFaddend multi-modal sensory inputs and \DIFdelbegin \DIFdel{large language model-assisted collaboration to tackle diverse }\DIFdelend \DIFaddbegin \DIFadd{collaboration facilitated by large language models to tackle a broader range of }\DIFaddend perception tasks in complex scenarios.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \bibliographystyle{IEEEtran}
+\bibliography{references}
+\DIFdelbegin %DIFDELCMD < \vspace{-20px}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \input{appendix}
+\vspace{-25px}
+\DIFaddend 
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{JinchaoChen.eps}}]{Jinchao Chen} (Member, IEEE) is an associate professor at the School of Computer Science in Northwestern Polytechnical University, Xi’an, China. He received his Ph.D. degree in Computer Science from the same institution in 2016. He has published 5 highly-cited papers and more than 70 technical research papers in top-cited journals and conferences which are cited more than 1000 times by well-known researchers. He works as the editor-in-chief of 2 internal research journals and the editorial board member of several high-reputed journals. His interests include multi-core and multi-processor scheduling, embedded and real-time systems, simulation and verification, decision-making, and intelligent control of unmanned aerial vehicles.
+\end{IEEEbiography}
+
+\DIFdelbegin %DIFDELCMD < \vspace{-25pt}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \vspace{-30pt}
+\DIFaddend \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in, clip,keepaspectratio]{QiuhaoShu.eps}}]{Qiuhao Shu} is a research assistant and a postgraduate student at the School of  Computer science in Northwestern Polytechnical University. He received his bachelor's degree in the School of Computer Science, Northwestern Polytechnical University in 2023. His research interests include collaborative perception of unmanned systems, autonomous driving perception systems, intelligent vehicle perception systems, computer vision, 3D LiDAR object detection, diffusion models for synthetic data generation, large language models for generation and understanding, etc.
+\end{IEEEbiography}
+
+
+\DIFdelbegin %DIFDELCMD < \vspace{-25pt}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \vspace{-30pt}
+\DIFaddend \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{YantaoLu.eps}}]{Yantao Lu} (Member, IEEE)
+is currently an associate professor at the School of Computer Science, Northwestern Polytechnical University, China. He received his Ph.D. degree in Electrical and Computer Engineering from Syracuse University in 2020. His research interests include the Perception of autonomous driving, complex networks, intelligent control of unmanned systems, adversarial examples in deep neural networks, computer vision, etc.
+\end{IEEEbiography}
+
+\DIFdelbegin %DIFDELCMD < \vspace{-25pt}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \vspace{-30pt}
+\DIFaddend \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{YingZhang.eps}}]{Ying Zhang} (Member, IEEE) is an associate professor in the School of Computer Science at Northwestern Polytechnical University, China. He received his PhD in computer science and technology from the College of Computer Science and Electronic Engineering, Hunan University, in 2020. His research interests include energy-aware scheduling, real-time scheduling, autonomous control, situation awareness, real-time distributed computing systems, and intelligent control of unmanned systems.
+\end{IEEEbiography}
+
+\DIFdelbegin %DIFDELCMD < \vspace{-25pt}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \vspace{-30pt}
+\DIFaddend \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in, clip,keepaspectratio]{YangWang.eps}}]{Yang Wang} is a research assistant and a postgraduate student at the School of Computer Science in Northwestern Polytechnical University. He received his bachelor's degree from the School of Computer Science and Technology, Guizhou University in 2023. His research interests include path planning, multi-agent reinforcement learning, and intelligent control of unmanned aerial vehicles.
+\end{IEEEbiography}
+
+\vfill
+\end{document}

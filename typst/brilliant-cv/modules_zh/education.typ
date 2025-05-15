@@ -28,14 +28,12 @@
   location: [陕西西安],
   logo: image("../src/logos/nwpu.jpg"),
   description: list(
-    [主修课程:Machine Intelligence and Learning Science	#hBar()人工智能的现代方法 #hBar()Object-oriented System Methodology],
     [奖项: 校级二等奖学金
     #hBar() 学业先进个人
     #hBar() 勤奋博学先进个人
     #hBar() 优秀大学生],
     [参与项目: 基于微信小程序的博物馆志愿者智慧培训管理平台获国家级大学生创新创业项目 #linebreak()
     开发#link("https://github.com/drowning-in-codes/covid_detect")["个人康复管理监测小程序]"申请软著],
-    [技术栈: 前端(JavaScript, React)、后端(Flask,Express,Gin)、客户端(Python,Qt,Electron)],
     [其他: GPA:3.768/4.1获得保研资格  #hBar() CET-4 #hBar() CET-6:602]
   ),
 )

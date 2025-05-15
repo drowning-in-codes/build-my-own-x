@@ -1,0 +1,410 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{a4wide}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\setlength{\parskip}{0.5\baselineskip}
+
+
+\begin{document}
+
+%\maketitle
+
+\noindent Dear Editors and Reviewers,
+
+\noindent Thank you for your careful review and constructive suggestions concerning our manuscript ``QCTF: A Quantized Communication and Transferable Fusion Framework for Multi-agent Collaborative Perception'' (ID: T-ITS-25-01-0208). Those comments are all valuable and helpful for revising and improving our paper. We agree with almost all comments and have revised our manuscript accordingly. 
+
+We are already crafting a revised version of the paper that states the implications of our work more clearly than before. We are confident that the new version of the manuscript will be significantly improved. We hope that the reviewers will find our responses to their comments satisfactory, and we are willing to finish the revised version of the manuscript, including any further suggestions. Our responses are as follows.
+
+\clearpage
+\noindent \textbf{Response to Reviewer 1}
+
+Thanks for your review and suggestions regarding our manuscript, ``QCTF: A Quantized Communication and Transferable Fusion Framework for Multi-agent Collaborative Perception'' (ID: T-ITS-25-01-0208). We have responded to all comments and the manuscript has been changed accordingly. Details of our response to each comment are shown below.
+
+\vspace{4ex}
+\noindent 1) Review Comments: Comment 1
+
+\textit{There is ambiguity in the description of the ``metadata sharing'' section. Does it refer to only sharing information such as coordinates or perceptual data? Having two communications at the data and feature layers may result in redundancy.}
+
+\noindent Response:
+
+Thank you for your suggestion. As the reviewer commented, we need to clarify the notations and make the definitions more precise and consistent.
+Details are as follows:
+
+A) In the Sect.~3.1, we describe two related parts, metadata transfer and feature extraction, where, as stated in the original manuscript, the metadata contains only the data used for calibration, such as vehicle position, sensor extrinsics, etc. These metadata are essential for aligning the raw perception data, including steps such as projecting a vehicle's own data into the ego vehicle's coordinate system.
+
+B) Regarding data processing logic, metadata must first be transmitted to align perception data, which is essential for the following calibration.
+In practical communication, metadata and perception data can be transmitted simultaneously to reduce hardware transmission redundancy; however, this aspect is beyond the scope of our manuscript.
+Additionally, the manuscript extracts features from the raw data and applies subsequent compression to reduce communication further overhead.
+
+C) To reduce ambiguity in the metadata description and make the concepts more precise and consistent, we have revised the relevant sentences, such as in Sect.~3.1: ``Based on the exchanged metadata, the system first constructs the spatial graph and then designates one agent as the ego agent, serving as the central receiver to collect transmitted data. Collaborating agents use the metadata to project their sensory data into the ego agent's coordinate system for further processing.''.
+
+
+\vspace{4ex}
+\noindent 2) Review Comments: Comment 2
+
+\textit{The proposed Hierarchical MRF quantization method is a great idea, and a lot of details are described, but overall, it lacks a clear process, and some descriptions are not clearly reflected in Figure 3.}
+
+\noindent Response:
+
+Thank you for your suggestion. As the reviewer commented, our Hierarchical MRF quantization method lacks a clear description of the entire process sequence. To address this, we have revised the description to make the process more explicit and comprehensible. Additionally, we have updated Figure 3 to incorporate more details for better clarity.
+Details are as follows:
+
+A) We have revised the Hierarchical MRF Quantization section (Sect.~3.2) to enhance the clarity of the contextual flow. Specifically, we now introduce the plain quantization method first and then progressively incorporate key enhancements: ego-enhanced and hierarchical robust representation, multi-head feature-aware quantization, and mutual information and codebook loss.
+
+B) To improve coherence, we have moved the original multi-head design from the Hierarchical Robust Representations subsection to the new Multi-head Feature-aware Quantization subsection, reducing ambiguity and making the logical structure clearer. For example, in the second paragraph of the Multi-head Feature-aware Quantization section:
+``Beyond spatially adaptive quantization, we introduce a multi-head codebook design to enhance representation capacity further. A single-head codebook may struggle to capture the diversity of high-dimensional point cloud features.''.
+
+C) We have also updated Figure.~3 with additional details. Specifically, we have incorporated the separate quantization of foreground and background in feature-aware quantization, introduced the multi-head mechanism, and provided a clearer depiction of the quantization process, including the projection of features onto the nearest vector in the codebook via nearest neighbor lookup.
+
+\vspace{4ex}
+\noindent 3) Review Comments: Comment 3
+
+\textit{The description of the specific structure of the transmitted message and how to restore it from the ``codebook'' to the original features is not clear enough. Please define the data structure of each key stage in the quantitative transmission in detail.}
+
+\noindent Response:
+
+Thank you for your suggestion. As the reviewer commented, the exact structure of the transmitted information and its retrieval process from the codebook were not clearly presented in the original manuscript. To address this, we have added a more straightforward introduction at the beginning of Sect.~3.2. Additionally, we have specified the shapes of the features at key stages within this section to improve clarity. It is important to note that these features are all tensors with varying shapes throughout the process. To further enhance understanding, we have explicitly outlined the tensor shapes and transformations at key stages and provided corresponding explanations. Details are as follows:
+
+A) Our proposed hierarchical MRF quantization is built upon the concept of VQ-VAE. It uses a pre-established codebook, where each feature is replaced by the closest feature vector found through nearest-neighbor lookup. To clarify the feature shapes in the codebook and the concept of feature reconstruction, we have revised the second paragraph of Sect.~3.2. For example, the 2nd paragraph: ``The naive VQ-VAE quantization method maps each feature vector to its closest codebook entry, replacing the original representation with a discrete index. This reduces channel dimensionality by transmitting indices instead of the full feature vectors.''. 
+
+B) Additionally, it is essential to note that all features in the manuscript are tensors with varying shapes during transformations and computations; no special data structure is used. To improve the clarity of the computational process, we have included the shapes of the tensors at key stages of the method and provided further explanations of the transformation steps. For example, we have updated the tensor shapes and described the key steps involved in the formula. In the fourth paragraph of Sect.~3.2: ``Specifically, the ego information highlights regions of high informativeness and is defined as $\mathcal{I}_{ego}=\sigma (\phi_{max}(\phi_{gen}(\mathbf{F}_{ego}))) \in [0,1]^{H\times W}$, where $\phi_{gen}$ is the spatial confidence generator, $\phi_{max}$ is max pooling over channels and $\sigma$ is the sigmoid activation. We then deliver the ego query $\mathcal{U}_{ego} = 1-\mathcal{I}_{ego}\in[0,1]^{H\times W}$ which specifies the regions requiring supplementary information to the collaborator.''. 
+
+C) In the appendix, we also provide detailed descriptions and feature transformation steps for each key stage to improve clarity and avoid redundancy in the main text. 
+For instance, we include a complexity analysis of the Hierarchical MRF module, illustrating its computational procedure and complexity: ``Given the 2D feature map, we reshape it into $L = H \times W$ vectors of size $n_C$. If $C \ne n_C$, a linear layer projects the input to the desired dimension. This reshape incurs negligible overhead $\mathcal{O}(1)$, as it only reinterprets memory layout. The quantization involves an exhaustive nearest-neighbor search with complexity $\mathcal{O}(L \times n_L \times n_C)$. For scalability, approximate methods (e.g., k-means or hashing) can reduce this to $\mathcal{O}(L \log n_L)$.''
+
+
+
+
+
+\vspace{4ex}
+\noindent 4) Review Comments: Comment 4
+
+\textit{Does the MRF method proposed in the article lead to a decrease in model accuracy compared to traditional information transmission methods? Please add comparative experiments to prove your point.}
+
+\noindent Response:
+
+Thank you for your valuable suggestion. As the reviewer pointed out, it is necessary to compare our quantization-based transmission method with traditional collaborative perception approaches.
+As stated in the manuscript, feature compression methods for collaborative perception are still in the exploratory phase. Current approaches typically rely on downsampling or reducing feature dimensions. In contrast, our method leverages a pre-defined codebook to store transmitted features, reducing communication bandwidth by transmitting only the indices rather than the full features.
+Details are as follows:
+
+A) Feature compression for collaborative perception remains underexplored. Traditional methods, primarily based on autoencoders, reduce communication bandwidth using convolutional and deconvolutional modules. However, these methods have some limitations: they require additional processing modules, and when fixed compression modules are used, they can only transmit features of a fixed size, lacking the flexibility to adjust to varying transmission needs dynamically.
+In the revised manuscript, we enhance three extendable collaborative perception methods by integrating autoencoders to compress both spatial and channel dimensions, reducing communication bandwidth. The updated results are presented in Fig.~6.
+
+B) Based on the comparison results, we analyze the reasons behind autoencoders' poor performance and the drawbacks of traditional methods that solely compress spatial and channel dimensions.  
+Specifically, in the second paragraph of Sect.~4.3, we include an analysis of conventional feature compression strategies in collaborative perception: ``However, this integration modifies the original architectures, requires retraining, and lacks the flexibility for dynamic bandwidth adaptation during inference. Moreover, we observe a sharp performance drop as the feature volume decreases, mainly because autoencoder-based compression relies solely on convolutional and deconvolutional operations, without explicitly selecting information critical to the ego agent.''.
+
+C) In addition, the appendix provides further details on how autoencoders can be leveraged for feature compression in collaborative perception: ``For baseline transmission compression, we enhance collaborative perception models by integrating autoencoders of various scales. In the implementation,  The autoencoder is composed of multiple convolutional and deconvolutional layers, with the intermediate features treated as the transmitted representations.''.
+
+
+\vspace{4ex}
+\noindent 5) Review Comments: Comment 5
+
+\textit{Will the proposed MRF method reduce the inference efficiency of the model? Please provide an analysis of the complexity and parameter count of each part of the model.}
+
+\noindent Response:
+
+Thank you for your valuable suggestion. As the reviewer pointed out, analyzing the computational complexity and parameter count of the core components is essential for a comprehensive understanding of the proposed framework. To maintain conciseness in the main manuscript, we have provided this detailed analysis in the appendix.
+Details are as follows:
+
+A) Our method introduces multi-scale codebook integration and various attention mechanisms, which inevitably increase memory usage and computational demands. To mitigate excessive memory consumption, we analyze the impact of different codebook sizes and select the most appropriate one. Additionally, we provide an analysis of the computational flow and time complexity of the entire framework. To avoid redundancy, this analysis is placed in the appendix.
+
+
+B) In the revised manuscript, we include the detailed procedure and complexity analysis. For example, in the third paragraph of the appendix, we provide the computational process and time complexity: ``Given the 2D feature map, we reshape it into $L = H \times W$ vectors of size $n_C$. If $C \ne n_C$, a linear layer projects the input to the desired dimension. This reshape incurs negligible overhead $\mathcal{O}(1)$, as it only reinterprets the memory layout.
+The quantization involves an exhaustive nearest-neighbor search with complexity $\mathcal{O}(L \times n_L \times n_C)$. For scalability, approximate methods (e.g., k-means or hashing) can reduce this to $\mathcal{O}(L \log n_L)$.''.
+
+C) Furthermore, we analyze the parameter count and FLOPs of different components and provide explanations to clarify their impact on the framework's overall computational efficiency. Additionally, we calculate the proposed framework's FPS, which meets the feasible standard. Specifically, in the last paragraph of the appendix, ``The T-V2X module has the most significant number of parameters, mainly due to its multiple attention layers, high-dimensional convolutions, linear layers, and multi-head operations.''  
+
+
+
+\vspace{4ex}
+\noindent 6) Review Comments: Comment 6
+
+\textit{How robust is the proposed method to time delay? Please provide model performance experiments with time delay.}
+
+\noindent Response:
+
+Thank you for your suggestion. As the reviewer commented, to demonstrate the robustness of our method under transmission delays, we evaluate detection results with varying levels of delay. Therefore, in addition to the noise conditions mentioned in the original manuscript, we also include detection results under different delay scenarios. This analysis highlights the resilience of our method in dynamic communication environments.
+Details are as follows:
+
+A) We conduct experiments on the OPV2V and V2XSet datasets with varying transmission delays. The results show that all methods suffer significant performance degradation at a 300ms delay. However, our method consistently outperforms existing approaches across all delay scenarios, demonstrating its superior robustness. The results are shown in Table.~3.
+
+
+B) In the 4th paragraph of Sect.~4.3, we include the analysis of detection results under transmission delays. The robustness of our approach to transmission delays is demonstrated by the use of different fusion modules at multiple scales and a codebook that preserves historical data to some extent. Specifically, ``This robustness to temporal misalignment is driven by the proposed patch-wise and agent-wise attention module, which incorporates multi-scale feature fusion. Additionally, the learnable shared codebook captures the structure of transmitted features and preserves temporal context, enhancing the model's ability to effectively leverage historical information and mitigate the impact of transmission delays.''.
+
+\vspace{6ex}
+Special thanks to you for your good comments. They are valuable and very helpful for revising and improving our paper, as well as the important guiding significance to our researches.
+
+
+
+\clearpage
+\noindent \textbf{ Response to Reviewer 2}
+
+Thanks for your review and suggestions concerning our manuscript ``QCTF: A Quantized Communication and Transferable Fusion Framework for Multi-agent Collaborative Perception'' (ID: T-ITS-25-01-0208). We have responded to all comments, and the manuscript has been changed accordingly. Details of our response to each comment are shown below.
+
+\vspace{4ex}
+\noindent 1) Review Comments: Comment 1
+
+\textit{Ablation Studies: The ablation study (Table IV and Table V) lacks a detailed explanation of why certain components contribute significantly to performance improvements. For example, it is unclear how much the hierarchical MRF module contributes in comparison to the other components. The authors should provide additional justification and analysis.}
+
+\noindent Response:
+
+Thank you for your suggestion. As the reviewer pointed out, we lack detailed analysis for the quantitative results. Therefore, we have provided more in-depth discussions for Table~.IV and V.
+Note that the original Tables IV and V have been updated to Tables V and VI, respectively.
+Additionally, to avoid redundancy, we have included the computational flow of the core modules in the appendix, emphasizing their roles in the overall collaborative perception process.
+Details are as follows:
+
+A) For the results in the updated Table~.V, we analyze the reasons why the \textit{PAM} and \textit{AAM} modules lead to substantial improvements in collaborative detection accuracy. The key reason for this improvement lies in the intra-block and cross-agent attention mechanisms, which effectively capture the intrinsic properties of the features. Additionally, the features from the ego agent guide other agents to transmit more relevant and effective features.
+Additionally, the feature compression and selection modules contribute to a modest improvement in perception performance, and we have analyzed the underlying reasons for this enhancement. As core components for reducing communication bandwidth, these modules maintain strong detection accuracy even under bandwidth-constrained conditions.
+
+Specifically, in the Sect.~4.5, we include an analysis of how the core modules contribute to the overall performance: ``We observe that the feature fusion modules, including \textit{PAM} and \textit{AAM}, contribute significantly to detection performance (approximately 8\%/10 in AP@0.5/0.7), indicating their effectiveness in enhancing cross-agent representation learning.
+This suggests that encoding features within multi-scale spatial regions for each agent before fusion helps preserve critical local information, thereby improving the effectiveness of collaborative perception.''.
+
+B) For the results in the updated Table~.VI, the fusion operations of averaging and max pooling result in the poorest perception performance, and we have analyzed the underlying reasons for this.
+These methods fail to account for differences in viewpoint, noise levels, or occlusion patterns across agents, leading to less reliable representations when the quality of features varies..
+In contrast, our channel fusion method achieves the best detection accuracy, and we have provided an analysis to explain this. The key factor lies in its ability to leverage weight information to balance important features, rather than relying on simple numerical operations. 
+
+Specifically, in the second paragraph of Sect~4.5, we include the analysis for the results in Table~.VI: ``The primary advantage of this approach lies in its ability to perform more precise feature fusion by selectively amplifying relevant information while suppressing less important details. By leveraging the noise-free positional information from the ego agent's features, this method enriches the semantic content of the collaboratively fused features.''.
+
+C) Furthermore, in the revised manuscript, we have included the computational flow of the core modules in the appendix to provide a clearer understanding of their roles within the overall framework. For example, in the third paragraph of appendix, we include the detail procedure of \textbf{HMRF}: ``Our hierarchical MRF quantization adopts the VQ-VAE mechanism to compress continuous features into discrete representations. Specifically, each feature vector in $\mathbf{F}_i$ is mapped to its nearest codebook entry in a predefined codebook $\mathcal{C}=\{\mathbf{e}_j\}_{j\in[1,n_L]}\in \mathbb{R}^{n_L\times n_C}$, where $n_L$ and $n_C$ denote the number and dimension of codebook, respectively. This process replaces dense features with compact indices, significantly reducing transmission cost.''.
+
+
+\vspace{4ex}
+\noindent 2) Review Comments: Comment 2
+
+\textit{Comparison with Baselines: The manuscript compares QCTF with state-of-the-art methods such as CodeFilling, Where2comm, and V2X-ViT. However, it does not provide a detailed discussion on why QCTF outperforms these methods. A qualitative analysis of failure cases could help illustrate the benefits of the proposed approach.}
+
+\noindent Response:
+
+Thank you for your valuable suggestion. In response to the reviewer's comment, we agree that a more in-depth discussion of \emph{QCTF}'s strengths, along with a qualitative analysis of its failure cases, would further enhance the manuscript.
+Details are as follows:
+
+A) In the revised manuscript, we have included more detailed analysis to highlight the advantages of \emph{QCTF}.
+In the long-range and occluded scenarios, \emph{QCTF} is able to detect the farthest vehicles, while all other methods fail to perceive these distant objects. We attribute this to two main factors: (1) the inherent sparsity of LiDAR point clouds at long distances, which makes feature extraction challenging; and (2) the lack of ego-feature guidance and robust feature representation in previous methods. In contrast, \emph{QCTF} leverages multi-scale quantization and ego-agent queries to compensate for missing information and effectively detect long-range objects.
+Specifically, in the first paragraph of Sect.~4.4, we further analyze the advantages of \emph{QCTF}: ``This improvement stems from the sparsity of point clouds at longer ranges, with \emph{QCTF} utilizing multi-scale feature quantization and ego query features to compensate for the ego agent's limited perception, enabling it to detect occluded and distant objects.''.
+
+B) We also analyze the most challenging real-world scenarios from the V2V4Real dataset.
+In these scenes, baseline methods often fail to detect all surrounding vehicles due to occlusions or limited perception range. Moreover, real-world noise such as localization errors leads to inaccurate feature alignment, resulting in a significant number of false positives. In contrast, \emph{QCTF} shows greater robustness under such conditions, with more complete and precise detections.
+
+Specifically, in the first paragraph of Sect.~4.4, we analyze the failure case of \emph{CoBEVT} and explain the advantages of our approach: ``In contrast, our method accurately detects all objects with only a few false positives. We attribute this improvement to the hierarchical MRF codebook, which serves as a memory to model feature distributions.''.
+
+\vspace{4ex}
+\noindent 3) Review Comments: Comment 3
+
+\textit{Real-world Adaptation Analysis: The domain adaptation evaluation (Table III) shows improvements over naive adaptation techniques, but it remains unclear how the proposed multi-scale discriminators function in practice. The authors should provide visualization or statistical insights into how domain discrepancy is reduced. Additionally, the manuscript only evaluates adaptation from simulation to real-world data. It would be beneficial to also test adaptation from real-world data to simulation, as this would further validate the method's generalization capability.}
+
+\noindent Response:
+
+Thank you for your valuable suggestion. As the reviewer pointed out, the original explanation of the proposed multi-scale discriminators in the domain adaptation evaluation lacked sufficient detail. To address this, we have revised Sect.~4.3 to provide a more comprehensive analysis of their design and effectiveness.
+Details are as follows:
+
+A) In the revised manuscript, we have updated Sect.~4.3 to include a detailed technical discussion of each discriminator's role. In particular, we introduce a hierarchical structure comprising patch-wise, agent-wise, and instance-wise discriminators. These components address domain discrepancies at different semantic levels: the patch-wise discriminator focuses on local spatial alignment, the agent-wise discriminator aligns features across different viewpoints, and the instance-wise discriminator ensures semantic consistency at the object level. 
+Each discriminator is optimized using a gradient reversal layer (GRL), which encourages the shared encoder to learn domain-invariant features. This adversarial training scheme ensures that the fused features retain semantic richness while reducing domain-specific biases.
+
+Specifically, we include the detailed analysis in the 5th paragraph of Sect.~4.3: ``This improvement is attributed to our multi-scale domain discriminators, which perform alignment at different semantic levels: patch-wise for local spatial features, agent-wise for inter-agent representations, and instance-wise for object-level semantics.''.
+This enhanced explanation provides better insight into the practical functioning of the proposed adaptation mechanism. 
+
+
+B) To further clarify the proposed domain adaptation approach, we provide the complete computational pipeline of our framework in the appendix. This includes the PAM and AAM modules within the transferable fusion design, which operate on multi-scale features and incorporate domain discriminators to identify domain types and reduce discrepancies. The detailed computations are included to facilitate better understanding of each component. For instance, we analyze the computation procedure of AAM in the appendix: ``The proposed Agent-wise Attention Module effectively captures cross-agent interactions and fuses features from different agent types using distinct weights. The primary computational cost arises from the attention score calculation and feature aggregation. ''.
+
+C) Our motivation for applying domain adaptation is to fully leverage the abundance of low-cost simulated data with dense annotations for training, and then adapt the model to real-world scenarios using a relatively smaller amount of unlabeled real data. Performing domain adaptation in the reverse direction—from real to simulated data—does not align with this objective. Real-world data are often limited in quantity, more expensive to collect, and typically noisier, which leads to weaker detection performance and limited generalization even on the simulated domain. For this reason, we do not include domain adaptation from real to simulated data in our experiments. Instead, we evaluate the adapted models on the original simulated dataset to assess the generalization ability of our domain adaptation method in the revised manuscript.
+We observe that models trained on real-world data perform poorly on simulated data, indicating a large domain gap between the two. This gap is primarily due to differences in point cloud density and environmental noise. Our method, however, effectively preserves detection performance on the source domain, thereby enhancing the model's generalization ability.
+
+Specifically, we update the results in the Table.~IV and include an analysis of transferable fusion to enhance model generalizability: ``Although DUSA mitigates the domain gap by selectively aggregating informative ego-agent features, its improvement remains limited due to its exclusive focus on ego-centric features and reliance on a single spatial scale.
+Furthermore, while naive adaptation methods preserve moderate detection performance on the source domain, our approach achieves a substantially higher AP@0.5 with a 9.46\% gain. This reflects the effectiveness of our multi-scale discriminators in learning robust, domain-invariant representations that enhance both source domain retention and target domain generalization.''.
+
+\vspace{4ex}
+\noindent 4) Review Comments: Comment 4
+
+\textit{Hierarchical MRF Quantization: The explanation of how multi-head residual quantization works (Eq. 3 and Eq. 4) is not sufficiently clear. The authors should provide a more detailed explanation or visualization to enhance understanding.}
+
+\noindent Response:
+
+Thank you for your valuable suggestion. We agree that a more detailed explanation of the multi-head residual quantization is necessary for clarity. In the revised manuscript, we have expanded the description of Eq.~3 and Eq.~4 to offer a more detailed explanation of the process. Additionally, we have updated Fig.~3 to provide a more detailed introduction to the Hierarchical MRF Quantization module and reorganized the description of its components for better clarity. Furthermore, the Appendix now contains a more in-depth explanation of the computational flow of the quantization process within the overall framework.
+Details are as follows:
+
+A) To make the presentation clearer, we have refined the logical flow of the Hierarchical MRF quantization module and added detailed tensor shape annotations to illustrate each computation step. Since we have reorganized the logical flow of Sect.~3.2, Eq.~3 and Eq.~4 have been updated to Eq.~7 and Eq.~3. Additionally, we have revised the descriptions of Eq.~4 and Eq.~7 to more clearly explain their roles and how they contribute to the quantization process. 
+Specifically, in the revised manuscript, as Eq.~3 shows, residual quantization iteratively encodes the residuals between the original and quantized features, refining the approximation at each stage for better accuracy. Eq.~7 describes how features are divided into multiple subspaces for independent quantization in the multi-head quantization process. The quantized features are then concatenated across channels and passed through a linear layer to obtain the multi-head quantization result. We include the explanation in the fourth paragraph of Sect.~3.2: ``By decomposing the quantization task into multiple residual levels, the model effectively captures both coarse and fine-grained feature details, which enhances representation capacity while keeping the communication bandwidth low.''
+
+
+B) Additionally, to improve clarity, we have added additional details to the feature quantization method presented in Fig.~3. In particular, within the MRF code layer, we introduce a multi-head quantization process that partitions the features into multiple subspaces for independent quantization. Simultaneously, a spatial confidence generator is employed to distinguish informative regions from the background, enabling targeted quantization that optimizes the codebook space.
+
+
+C) In the appendix, we have also added the computational flow and time complexity of multi-head and residual quantization to facilitate a deeper understanding. Specifically, we include the computational procedure and explanation of multi-head quantization: ``In the multi-head feature quantization process, the latent representation is divided into $\mathcal{H}$ subspaces, each associated with its own codebook. For the $h$-th head, the nearest neighbor search incurs a complexity of $\mathcal{O}(H\times W\times n_L^h\times n_C^h)$. Aggregating across all heads, the total complexity for quantization becomes $\mathcal{O}(\sum_{h=1}^{\mathcal{H}}(H\times W\times n_L^h\times n_C^h))$.''.
+
+\vspace{4ex}
+\noindent 5) Review Comments: Comment 5
+
+\textit{Grammatical Issues: There are several grammatical and typographical errors throughout the paper. For example, in Section III-B, ``...and is in lack of robust compression designs and sufficient supervision...'' A thorough proofreading is necessary.}
+
+\noindent Response:
+
+Thank you for pointing out the grammatical and typographical errors. We have thoroughly proofread the manuscript and made corrections throughout the paper, including the issue mentioned in Sect.~3.2. All grammatical and typographical errors have been addressed to improve the clarity and quality of the writing. The first paragraph of Sect.~3.2 has been revised in the new manuscript: ``However, existing methods often rely on one-way filtering mechanisms, lacking both a principled compression design and sufficient supervision to guide the reconstruction of compressed features.''.
+
+\vspace{4ex}
+\noindent 6) Review Comments: Comment 6
+
+\textit{Figures and Tables: Some figures (e.g., Fig. 8) contain unclear labels, making it difficult to interpret the presented results. The authors should improve figure readability and provide more detailed captions.}
+
+\noindent Response:
+
+Thank you for your suggestion. As the reviewer commented,  some figures, such as Fig.~8, contained unclear labels(e.g., ``ego:1845''), which could hinder the interpretation of the results. In response, we have updated the figures to enhance their readability and have ensured that all labels are clear and legible. Additionally, we have revised the captions to provide more detailed explanations, which will help readers better understand the context and results presented.
+Details are as follows:
+
+A) We have updated the collaborative detection result image in the fourth column of Fig.~8 to improve clarity and increased the font size of the labels for better readability.
+Specifically, the yellow bounding boxes in the updated Fig.~8 represent the agents that exchanges information in each scene. The label next to each bounding box indicates the vehicle's identifier. For example, the label ``ego:1845'' denotes that the yellow bounding box corresponds to the ego agent with ID 1845. By labeling the ego agent, we demonstrate how the collaborative perception method enhances the ego agent's perception capabilities.
+
+
+B) We have updated the caption of Fig.~8 to make it easier to understand. This revision includes clearer explanations to enhance the interpretation of the results. Specifically, the new caption is ``In (d), agents 1872 and 1045 are selected as the ego vehicles, while all other vehicles correspond to the detected objects.''.
+Similarly, we have added more detailed information to the captions of Fig.~6 and Fig.~7 to improve their clarity and make them easier to understand.
+
+
+\vspace{4ex}
+\noindent 7) Review Comments: Comment 7
+
+\textit{Incorrect AP Metric: In Table III, the metric is listed as ``AP@50'' which is incorrect. It should be written as ``AP@0.5'' to align with standard object detection evaluation metrics.}
+
+\noindent Response:
+
+Thank you for your suggestion. We appreciate your attention to the detail. You are correct that the metric listed as ``AP@0.5'' in Table.~III should indeed be written as ``AP@0.5'' to align with the standard object detection evaluation metrics. We have updated the table accordingly to reflect the correct notation and Table.~III has been updated to Table.~IV. The caption is revised: ``Object detection performance on the V2V4Real and OPV2V datasets, demonstrating the effectiveness of domain adaptation from simulation to reality and the model's generalization capability. The results are reported in AP@0.5''.
+Additionally, we have conducted a thorough review of the manuscript and corrected several other label and metric errors to avoid any potential confusion or misinterpretation.
+
+\vspace{6ex}
+Special thanks to you for your good comments. They are valuable and very helpful for revising and improving our paper, as well as the important guiding significance to our researches.
+
+
+\clearpage
+\noindent \textbf{ Response to Reviewer 3}
+
+Thanks for your review and suggestions concerning our manuscript ``QCTF: A Quantized Communication and Transferable Fusion Framework for Multi-agent Collaborative Perception'' (ID: T-ITS-25-01-0208). We have responded to all comments, and the manuscript has been changed accordingly. Details of our response to each comment are shown below.
+
+
+\vspace{4ex}
+\noindent 1) Review Comments: Comment 1
+
+\textit{Fig. 1 does not clearly indicate the challenge of collaborative perception, thus the Introduction lacks the necessary scenario diagrams to depict the problems solved by this work.}
+
+\noindent Response:
+
+Thank you for your suggestions. We agree that the original Fig.~1 did not clearly illustrate the core challenges of collaborative perception, which was partly due to insufficient explanation of the depicted scenario.
+In response, we have redesigned Fig.~1 to incorporate a scenario-based illustration that highlights real-world issues such as occlusion and limited field of view. In addition, we have revised the related description to better align the challenges of collaborative perception with the scenario illustrated in Fig.~1. Details are as follows:
+
+ 
+A) Fig.~1 provides a high-level visual overview of collaborative detection, highlighting key challenges such as localization errors, occlusion, bandwidth limitations, and domain discrepancies. While not every detail can be captured in a single figure, we have revised the description to ensure better clarity and alignment with the content of Fig.~1. These challenges are further elaborated in the second paragraph of Sect.~1: ``Specifically, the localization errors result in inaccurate coordinate transformations between communicating vehicles, leading to feature misalignment. Differences in height, angle, and placement between vehicles and infrastructure further exacerbate feature discrepancies. Additionally, bandwidth limitations restrict inter-agent data transmission, complicating the management of communication costs and potentially causing severe transmission delays.''.
+
+
+B) We have updated Fig.~1 to make the collaborative perception scenario and the associated challenges clearer. For instance, we add detection range indicators for each communicating agent in Fig.~1. Since each agent has a limited field of view, the ego agent cannot directly detect the occluded Vehicle1 due to surrounding buildings. However, it can exchange information with CAV1 to compensate for the missing view and avoid a collision with Vehicle1.
+
+Additionally, the position difference between the red and green bounding boxes indicates localization errors, which may lead to inaccuracies in coordinate transformations, resulting in feature misalignment. The relevant explanations are included in the second paragraph of Sect.~1:
+``In a multi-agent scenario, as shown in Fig.~1, the ego agent may fail to detect Vehicle1 due to occlusions from surrounding buildings and limited sensing range. By receiving shared information from nearby connected autonomous vehicles (CAVs) and infrastructure, it can extend its perception coverage and receive early warnings about oncoming vehicles, thereby enhancing driving safety.''.
+
+C) The visual comparison between simulation and real-world data in Fig.~1 highlights significant differences in sensor data due to factors such as point cloud intensity and environmental reflections in similar driving scenarios. These discrepancies lead to a performance gap, where models trained on simulation data fail to achieve optimal performance in real-world scenarios.
+Since this issue cannot be directly explained in Fig.~1, we have provided a more detailed discussion of the problem in the second paragraph of Sect.~1: ``Even worse, the domain gap between simulated training data and real-world environments arises from differences in LiDAR intensity, sensor noise and environmental reflections, which leads to degraded model performance and poses a risk to driving safety in real-world scenarios.''.
+
+
+
+\vspace{4ex}
+\noindent 2) Review Comments: Comment 2
+
+\textit{A more detailed analysis of the impact of different parameters (such as the number of residuals and the size of the codebook) on the performance of the framework would be beneficial. Additionally, a comparison with more recent methods in the field could strengthen the conclusions.}
+
+\noindent Response:
+
+Thank you for your feedback and suggestions. As the reviewer commented, we lack a more in-depth analysis of the experimental results. We agree that a more thorough analysis of the experimental results would enhance the clarity and completeness of our study. In response, we have added several detailed analyses, including the impact of different codebook sizes on performance, ablation studies on individual module components and comparative analysis of different strategies. 
+Details are as follows:
+
+A) In the revised manuscript, we conduct a detailed analysis of the experimental results across varying codebook sizes and dimensions. Increasing the codebook size initially improves performance by offering more diverse embeddings and reducing quantization error. However, the gain saturates beyond a certain point due to redundancy, as many entries remain underutilized or unupdated. Similarly, using multiple residuals enhances feature expressiveness, but excessive depth may lead to inefficiency. These trends reflect diminishing returns for both codebook size and dimension, where further increases yield marginal or no benefit. This observation is further discussed in the final paragraph of Sect.~4.5: ``We attribute this to diminishing returns when enlarging the codebook, as an excessively large codebook introduces redundancy, with many entries remaining underutilized or unupdated during training, leading to inefficiency and wasted capacity.''.
+
+
+B) We also revise our analysis of the channel rate hyperparameter, which determines the number of feature channels transmitted in the channel-aware fusion process and thus dynamically adjusts the communication bandwidth. We observe that perception performance improves with an increasing channel rate at the beginning, but saturates beyond a certain threshold. We attribute this to redundancy among transmitted features; once sufficient informative channels are selected, additional features contribute minimally to the ego agent's perception.
+
+Specifically, we include the detailed analysis in the last paragraph of Sect.~4.5:``We observe that increasing the selection rate improves detection accuracy, but gains plateau beyond a certain threshold. This saturation suggests that once the most informative channels are transmitted, additional features offer limited new information, introducing redundancy and reducing efficiency.''.
+
+C) We also conduct further ablation studies on the core components of our framework. We observe that the feature fusion module significantly improves detection accuracy, while the feature compression and selection modules primarily serve to dynamically reduce communication overhead.
+Specifically, we include the observation and analysis in the first paragraph of Sect.~4.5: ``We observe that the feature fusion modules, including \textit{PAM} and \textit{AAM}, contribute significantly to detection performance (approximately 8\%/10 in AP@0.5/0.7), indicating their effectiveness in enhancing cross-agent representation learning.
+This suggests that encoding features within multi-scale spatial regions for each agent before fusion helps preserve critical local information, thereby improving the effectiveness of collaborative perception.''.
+
+Furthermore, we analyze the impact of the final fusion strategy for features from different agents. The results show that simple numerical operations, such as averaging or max pooling, offer limited performance gains and lack scalability. In contrast, our channel-aware fusion considers both the importance of each feature channel and the ego agent's representation. A detailed analysis is provided in the second paragraph of Sect.~4.5: ``By leveraging the noise-free positional information from the ego agent's features, this method enriches the semantic content of the collaboratively fused features. ''
+
+D) We compare our method with several representative approaches in collaborative perception, including classical methods such as F-Cooper (2019) and Attentive Fusion(2021), as well as more recent works like V2X-ViT and CoBEVT (2022), and DUSA (2023). To provide a comprehensive and up-to-date benchmark, we also include the latest method, CodeFilling, published in September 2024.
+Generally, we compare our method against collaborative perception approaches published over the past five years. To enable fair comparison under constrained communication settings, we additionally equip several baselines, such as CoBEVT, with autoencoders to control the transmission volume. This allows us to evaluate their detection performance under limited bandwidth.
+
+We further provide additional analysis demonstrating that our method can dynamically adjust the amount of transmitted data during inference and leverage hierarchical feature quantization to effectively reduce quantization error. For instance, we analyze our advantages in the third paragraph of Sect.~4.3: ``It achieves comparable perception accuracy while notably reducing communication overhead. This improvement is attributed to: (\romannumeral1) a multi-head residual codebook that effectively retains critical spatial and semantic information; and (\romannumeral2) the use of diversity and entropy losses, which suppress redundancy and improve codebook utilization, allowing for more expressive feature representations under limited bandwidth.''
+
+
+\vspace{6ex}
+Special thanks to you for your good comments. They are valuable and very helpful for revising and improving our paper, as well as the important guiding significance to our researches.
+
+\vspace{4ex}
+
+\clearpage
+\noindent \textbf{Response to Reviewer 4}
+
+Thanks for your review and suggestions concerning our manuscript ``QCTF: A Quantized Communication and Transferable Fusion Framework for Multi-agent Collaborative Perception'' (ID: T-ITS-25-01-0208). We have responded to all comments, and the manuscript has been changed accordingly. Details of our response to each comment are shown below.
+
+\noindent 1) Review Comments: Comment 1
+
+\textit{Figure 1 should be redrawn because the vehicles in the figure do not conform to the rules of perspective.}
+
+\noindent Response:
+
+Thank you for your comment. We acknowledge that the original Fig.~1 did not follow proper perspective rules, which may affect the professional appearance and clarity of the figure. In response, we have redrawn Fig.~1 with improved visual fidelity and accurate perspective representation. The updated figure better illustrates the collaborative perception scenario while conforming to visual design standards, ensuring clearer and more intuitive communication of the scene layout.
+
+
+\vspace{4ex}
+
+
+\noindent 2) Review Comments: Comment 2
+
+\textit{In section III.C, what do you mean by "channel"? Is it a communication channel? Do you consider the communication channel?}
+
+\noindent Response:
+
+Thank you for your comment. In our manuscript, when we refer to the "channel," we are specifically referring to the channel dimension within the data or model. This typically relates to the feature maps (or channels) used in convolutional layers or other feature extraction processes, where each channel captures different aspects of the learned features. In the context of collaborative perception, we employ deep learning models such as CNNs, where the "channel" refers to the input and output feature channels that carry information between layers. This definition aligns with the terminology commonly used in convolutional neural networks.
+
+Additionally, we do not refer to actual physical communication channels in this context. Instead, our focus is on data fusion, compression, and selection across different vehicles to enhance perception performance within the framework of deep learning algorithms.
+
+\vspace{4ex}
+
+\noindent 3) Review Comments: Comment 3
+
+\textit{The authors should discuss the limitations.}
+
+\noindent Response:
+
+Thank you for your valuable suggestions. In response, we have added a discussion on the limitations of our method. Specifically, we only use LiDAR point clouds as the data source, lacking multi-modal fusion. Additionally, the current approach relies on codebook-based communication, which increases memory usage and requires all agents to share the same model, complicating deployment. We have included these limitations in the ``Limitation and Future Work'' section, providing a more balanced view of the method's strengths and areas for future improvement.
+
+\vspace{4ex}
+
+\noindent 4) Review Comments: Comment 4
+
+\textit{Punctuation should be added after equations because equations are also part of the article.}
+
+\noindent Response:
+
+Thank you for your valuable comment. We have reviewed the manuscript and added punctuation after the equations, ensuring consistency and clarity throughout the paper. This change aligns with the proper formatting conventions and enhances the readability of the manuscript.
+
+\vspace{4ex}
+\noindent 5) Review Comments: Comment 5
+
+\textit{The codebook's performance depends on initial training data quality, which may limit adaptability to unseen scenarios.}
+
+\noindent Response:
+
+Thank you for your comment. We agree that the performance of the codebook can indeed be influenced by the quality of the initial training data. To address this concern, we have designed a multi-head codebook and incorporated mutual information loss to better constrain the training of the codebook, which helps enhance the model's overall performance and adaptability. 
+Details are as follows:
+
+A)  We consider the codebook as an integral part of the model, and like any deep learning model, its performance is dependent on the quality of the initial training data. To alleviate this issue, we have enhanced the original quantization method by introducing a multi-head mechanism, which improves the representation capacity. Additionally, to optimize the size of the codebook, we use a spatial confidence mechanism to distinguish between foreground and background features. For background features, we employ a smaller codebook, thereby reducing the occurrence of excessive zero values and improving overall efficiency.
+
+B) Additionally, we design specialized loss functions to guide codebook training and reduce quantization errors. The mutual information loss ensures feature consistency before and after quantization, while the codebook loss, which incorporates an orthogonality constraint and entropy regularization, promotes diversity.
+
+C) Furthermore, we have employed multiple domain discriminators to improve the model's robustness in real-world scenarios. To improve the model's generalization across domains, we leverage labeled data from the simulation domain and unlabeled data from the real domain. Both are fed into a shared feature extractor, followed by a domain discriminator that distinguishes the data domain. This adversarial training encourages domain-invariant feature learning, enhancing adaptability to diverse real-world scenarios.
+
+\vspace{6ex}
+Special thanks to you for your good comments. They are valuable and very helpful for revising and improving our paper, as well as the important guiding significance to our researches.
+
+\end{document}
+
+
+
