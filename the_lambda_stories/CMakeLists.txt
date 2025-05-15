@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.30)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS)
+
+project(lambda_stories LANGUAGES CXX)
+add_subdirectory(cpp_98)
+add_subdirectory(cpp_11)
+add_subdirectory(cpp_14)
+add_subdirectory(cpp_17)
+add_subdirectory(cpp_20)
