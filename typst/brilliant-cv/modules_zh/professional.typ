@@ -22,25 +22,62 @@
 )
 
 #cvEntry(
-  title: [图像融合、GAN],
-  society: [图像融合模型UFGAN],
+  title: [SpringBoot、Redis、MyBatis、MyBatis-Plus],
+  society: [多端仿外卖项目],
   // logo: image("../src/logos/abc_company.png"),
-  date: [2023/9 - 2023/12],
+  date: [2023/9 - 2024/1],
   location: [],
   description: list(
-    [*项目介绍*:采用Unet结合生成对抗网络(GAN)的方法,实现红外与可见光图像的融合.通过利用可见光图像的纹理细节和红外图像对遮挡物体的清晰表现，提升了融合图像的整体质量和信息准确性],
-    [对经典神经网络,如CNN,RNN,GAN等有了深入认识,并且进一步掌握了这些网络的训练方法.代码和相关报告开源至#link("https://github.com/drowning-in-codes/UFGAN/blob/main/main.py")[Github]],
+    [利用JWT与自定义拦截器验证登录并使用Redis的Cache Aside策略缓存数据,使用CAS乐观锁解决超卖问题,使用可重入锁解决一人一单问题.利用Redis的lua脚本保证操作原子性,此外使用Redis的Stream消息队列优化订单问题,在缓存中使用lua脚本缓存,并在Stream队列中加入对应订单信息用于数据库操作.],
+    [利用Redis的Geo数据结果查询附近商户,BitMap用于用户签到.利用Spring Task和WebSocket定时为管理端提醒订单业务并定时清理过期订单.使用SortedSet存储点赞和关注用户博客信息,使用推模式实现好友博客feed流.],
+    [编写了项目脚手架,根据数据库表生成controller,service,mapper等层基础模板代码.同时构建docker方便部署.客户端使用Flutter方便多端适配. 客户端增加AI客服,利用SSE、WebSocket等技术实现实时聊天,利用RAG进行知识检索.],
   ),
-  tags: ("Python","GAN","Image Fusion"),
 )
 
+// #cvEntry(
+//   title: [SpringBot、Linux],
+//   society: [WebServer],
+//   // logo: image("../src/logos/pqr_corp.png"),
+//   date: [2025/1],
+//   location: [],
+//   description: list(
+//     [基于Epoll的事件驱动web服务器,实现多线程Reactor以及主从Reactor模型.使用互斥锁、条件变量等实现线程池.设计事件驱动核心类,包括服务端Acceptor和连接Connection类等,降低耦合. 使用状态机完成http基本请求和响应解析.],
+//     [设计连接定时器,对于长时间未读写的连接进行关闭,提高性能，使用单例模式以及互斥锁实现数据库连接池,减少连接开销.使用单例模式创建日志,同时设计阻塞队列方便日志异步写入.使用智能指针以及Concepts等高级特征提高程序可读性.],
+//   ),
+// )
+
+
 #cvEntry(
-  title: [Java、模板生成器、Web开发],
-  society: [JavaGen],
+  title: [SpringBoot、Netty,Redis,MyBatis,Langchain,Flask],
+  society: [智聊聊天项目],
   // logo: image("../src/logos/pqr_corp.png"),
   date: [2025/1],
   location: [],
-  description: list([开发Spring Web项目往往需要一系列模板代码,通过自己构建一个模板生成器(类似脚手架)能更好掌握Web后端开发的业务],[#link("https://github.com/drowning-in-codes/JavaGen")[相关代码]]),
-  tags: ("Java","SpringBoot"),
-
+  description: list(
+    [采用token实现鉴权,使用Redis存储好友信息与心跳.用户端实现用户加删、拉黑好友,群聊拉删人、解散等功能.管理端实现用户删除、群聊解散以及版本更新等功能. 基于Netty、Websocket支持聊天,同时使用Redisson的RTopic实现集群下消息订阅发布.记录联系人之间聊天记录,实现多媒体文件传输.],
+    [使用Langchain调用本地AI模型以及Flask提供服务调用,支持机器人聊天,同时增加语义图片和聊天记录搜索功能.],
+  ),
 )
+// #cvEntry(
+//   title: [图像融合、GAN],
+//   society: [图像融合模型UFGAN],
+//   // logo: image("../src/logos/abc_company.png"),
+//   date: [2023/9 - 2023/12],
+//   location: [],
+//   description: list(
+//     [*项目介绍*:采用Unet结合生成对抗网络(GAN)的方法,实现红外与可见光图像的融合.通过利用可见光图像的纹理细节和红外图像对遮挡物体的清晰表现，提升了融合图像的整体质量和信息准确性],
+//     [对经典神经网络,如CNN,RNN,GAN等有了深入认识,并且进一步掌握了这些网络的训练方法.代码和相关报告开源至#link("https://github.com/drowning-in-codes/UFGAN/blob/main/main.py")[Github]],
+//   ),
+//   tags: ("Python","GAN","Image Fusion"),
+// )
+
+// #cvEntry(
+//   title: [Java、模板生成器、Web开发],
+//   society: [JavaGen],
+//   // logo: image("../src/logos/pqr_corp.png"),
+//   date: [2025/1],
+//   location: [],
+//   description: list([开发Spring Web项目往往需要一系列模板代码,通过自己构建一个模板生成器(类似脚手架)能更好掌握Web后端开发的业务],[#link("https://github.com/drowning-in-codes/JavaGen")[相关代码]]),
+//   tags: ("Java","SpringBoot"),
+
+// )

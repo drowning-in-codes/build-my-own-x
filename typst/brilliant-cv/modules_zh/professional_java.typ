@@ -1,5 +1,5 @@
 // Imports
-#import "@preview/brilliant-cv:2.0.4": cvSection, cvEntry
+#import "@preview/brilliant-cv:2.0.4": cvEntry, cvSection
 #let metadata = toml("../metadata.toml")
 #let cvSection = cvSection.with(metadata: metadata)
 #let cvEntry = cvEntry.with(metadata: metadata)
@@ -7,18 +7,6 @@
 
 #cvSection("项目与论文经历")
 #show link: underline
-#cvEntry(
-  title: [目标检测、多智能体协作、自动驾驶],
-  society: [多智能体协同感知],
-  date: [2023 - 现在],
-  location: [],
-  description: list(
-    [*项目介绍*:在多车协作场景下,基于多车数据集,在噪声、延迟以及有限带宽的场景下提升协作感知性能],
-    [使用了点云编码器和Transformer特征融合技术,在多车协作环境下实现了有效避免物体遮挡并扩大视野范围的功能。此方法提升了目标检测精度,并显著减少了通信量],
-    [引入范围注意力机制对不同区域物体置信度不同,结合智能体间与局部信息融合技,实现了提升多智能体协作感知中的3D目标检测精度的目标.此外利用VQVAE量化多智能体通信信息以减少通信量。相关工作以第一作者身份发表于IEEE TIV,#link("https://github.com/drowning-in-codes/OpenCOOD")[相关代码地址] ],
- 
-  ),
-)
 
 #cvEntry(
   title: [SpringBoot、Redis、MyBatis、MyBatis-Plus],
@@ -48,12 +36,24 @@
 
 #cvEntry(
   title: [SpringBoot、Netty,Redis,MyBatis,Langchain,Flask],
-  society: [校园聊天项目],
+  society: [智聊聊天项目],
   // logo: image("../src/logos/pqr_corp.png"),
   date: [2025/1],
   location: [],
   description: list(
     [采用token实现鉴权,使用Redis存储好友信息与心跳.用户端实现用户加删、拉黑好友,群聊拉删人、解散等功能.管理端实现用户删除、群聊解散以及版本更新等功能. 基于Netty、Websocket支持聊天,同时使用Redisson的RTopic实现集群下消息订阅发布.记录联系人之间聊天记录,实现多媒体文件传输.],
     [使用Langchain调用本地AI模型以及Flask提供服务调用,支持机器人聊天,同时增加语义图片和聊天记录搜索功能.],
+  ),
+)
+
+#cvEntry(
+  title: [目标检测、多智能体协作、自动驾驶],
+  society: [多智能体协同感知],
+  date: [2023 - 现在],
+  location: [],
+  description: list(
+    [*项目介绍*:在多车协作场景下,基于多车数据集,在噪声、延迟以及有限带宽的场景下提升协作感知性能],
+    [使用了点云编码器和Transformer特征融合技术,在多车协作环境下实现了有效避免物体遮挡并扩大视野范围的功能。此方法提升了目标检测精度,并显著减少了通信量],
+    [引入范围注意力机制对不同区域物体置信度不同,结合智能体间与局部信息融合技,实现了提升多智能体协作感知中的3D目标检测精度的目标.此外利用VQVAE量化多智能体通信信息以减少通信量。相关工作以第一作者身份发表一区论文T-ITS与TIV,#link("https://github.com/drowning-in-codes/OpenCOOD")[相关代码地址] ],
   ),
 )

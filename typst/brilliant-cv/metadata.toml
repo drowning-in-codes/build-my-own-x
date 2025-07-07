@@ -52,7 +52,7 @@ language = "zh"
     [personal.info]
         github = "drowning-in-codes"
         phone = "13551710618"
-        email = "bukalala174@gmail.com"
+        email = "1322767102@qq.com"
        # linkedin = "johndoe"
        # gitlab = "mintyfrankie"
         homepage = "sekyoro.top"
@@ -79,7 +79,7 @@ language = "zh"
     letter_footer = "Lettre de motivation"
 
 [lang.zh]
-    header_quote = "性别:男 籍贯:汉 出生年份:2001"
+    header_quote = "姓名:舒秋豪 性别:男 民族:汉 籍贯:四川 出生年份:2001"
     cv_footer = "简历"
     letter_footer = "申请信"
 
